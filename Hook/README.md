@@ -52,3 +52,14 @@ export const AuthContext = createContext();
 - NabBarLinks.jsx
 - UserContainer.jsx
 
+
+> useReduser Hook
+- you have multiple state variables that need to be managed together.
+- It centralizes state management, making the code easier to read and maintain. 
+>> Steps - 
+1. Initial State and Reducer Function:
+![alt text](image-2.png)
+2. Component Setup:
+![alt text](image-3.png)
+3. Dispatching Actions:
+![alt text](image-4.png)
