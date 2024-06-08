@@ -1,7 +1,7 @@
 /node_modules
 /public
 .eslintrc.cjs
-assets
+assets/
 image-1.png
 image.png
 App.css
