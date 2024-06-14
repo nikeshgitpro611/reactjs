@@ -40,12 +40,12 @@
  import React, { createContext, useState, useContext } from 'react';
  // Create the context
 export const AuthContext = createContext();
-- ![alt text](image.png)
+- ![alt text](img/image.png)
 
  - Wrap Your Application with the AuthProvider.provider value= {{}}
 
  - Use the Context in Your Components:
- ![alt text](image-1.png)
+ ![alt text](img/image-1.png)
 
 02. creat Task
 - created NavBar.jsx
@@ -58,11 +58,11 @@ export const AuthContext = createContext();
 - It centralizes state management, making the code easier to read and maintain. 
 > Steps - 
 1. Initial State and Reducer Function:
-![alt text](image-2.png)
+![alt text](img/image-2.png)
 2. Component Setup:
-![alt text](image-3.png)
+![alt text](img/image-3.png)
 3. Dispatching Actions:
-![alt text](image-4.png)
+![alt text](img/image-4.png)
 
 - cost [state, dispatch] = useReduser(reduserFn, defaultState)
 Here defaultState -------------- is connected by state we can acess by state.defaultState value
@@ -76,4 +76,4 @@ Here defaultState -------------- is connected by state we can acess by state.def
   > # Diffrance Between UseMemo and CallbackHook
   - useMemo is used to memoize a value, i.e., it returns a memoized value. It recalculates the value only when one of its dependencies changes.
   - useCallback is used to memoize a callback function. It returns a memoized version of the callback function that only changes if one of its dependencies has changed.
-  ![alt text](image-5.png)
+  ![alt text](img/image-5.png)
