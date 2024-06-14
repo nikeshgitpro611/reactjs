@@ -1,12 +1,14 @@
 
-import UiHoc from '../components/uiHoc'
+import Routing from '../components/ReactRouting/Routing'
+// import UiHoc from '../components/uiHoc'
 import './App.css'
 
 function App() {
 
   return (
     <>
-      <UiHoc />
+      {/* <UiHoc /> */}
+      <Routing />
     </>
   )
 }

@@ -6,3 +6,10 @@
 03. Separation of concerns: HOCs can help separate concerns in your code by encapsulating certain functionality in a separate component. This can make the code easier to read and maintain.
 04. Composition: HOCs can be composed together to create more complex functionality. This allows you to build up functionality from smaller, reusable pieces.
 05. Higher-order components can be used to implement cross-cutting concerns in your application such as authentication, error handling, logging, performance tracking, and many other features.
+
+> # React Router DOM
+- It's Use For Server side Rendring
+- created Router need to be use child Route
+![alt text](img/image.png)
+- outlet need to use for display child router
+![alt text](image1.png)
