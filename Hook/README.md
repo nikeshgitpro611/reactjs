@@ -77,3 +77,11 @@ Here defaultState -------------- is connected by state we can acess by state.def
   - useMemo is used to memoize a value, i.e., it returns a memoized value. It recalculates the value only when one of its dependencies changes.
   - useCallback is used to memoize a callback function. It returns a memoized version of the callback function that only changes if one of its dependencies has changed.
   ![alt text](img/image-5.png)
+
+  > #  React.memo
+  - React.memo is a powerful tool for optimizing the performance of functional components by preventing unnecessary re-renders. It is particularly useful in scenarios where:
+
+1. Components receive static props that do not change often. 
+2. Components are part of a list or collection.
+3. Components involve expensive calculations or complex rendering.
+4. Parent components re-render frequently due to state changes.
