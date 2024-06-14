@@ -11,6 +11,8 @@ import Navbar from './allhook/05-contextApi/Navbar'
 // import Usereff from './allhook/03-useReff/usereff';
 // import ShowCurrentPrevVal from './allhook/03-useReff/showCurrentPrevVal';
 import NavBar from './allhook/05-contextApi/Navbar';
+import ReducerBasics from './allhook/06-useReduser/ReducerBasics';
+import UseMemoAndCallBack from './allhook/07-useMemo/useMemoAndUseCallback';
 
 const App = () => {
   return (
@@ -25,7 +27,9 @@ const App = () => {
       {/* <ShowCurrentPrevVal /> */}
       {/* <Formreff /> */}
       {/* <UiTest /> */}
-      <Navbar/>
+      {/* <Navbar/> */}
+      {/* <ReducerBasics/> */}
+      <UseMemoAndCallBack />
     </div>
   )
 }

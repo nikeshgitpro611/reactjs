@@ -56,10 +56,24 @@ export const AuthContext = createContext();
 > useReduser Hook
 - you have multiple state variables that need to be managed together.
 - It centralizes state management, making the code easier to read and maintain. 
->> Steps - 
+> Steps - 
 1. Initial State and Reducer Function:
 ![alt text](image-2.png)
 2. Component Setup:
 ![alt text](image-3.png)
 3. Dispatching Actions:
 ![alt text](image-4.png)
+
+- cost [state, dispatch] = useReduser(reduserFn, defaultState)
+Here defaultState -------------- is connected by state we can acess by state.defaultState value
+- dispatch is consult from reduserFn 
+- In reduserFn(state, action)=>{} and any thing need to be change (dispatch) then must be provide dispatch({type : })
+ -  const clearList = () => {
+    dispatch({ type: CLEAR_LIST });
+  }; 
+  only need to be pass convension list
+
+  > # Diffrance Between UseMemo and CallbackHook
+  - useMemo is used to memoize a value, i.e., it returns a memoized value. It recalculates the value only when one of its dependencies changes.
+  - useCallback is used to memoize a callback function. It returns a memoized version of the callback function that only changes if one of its dependencies has changed.
+  ![alt text](image-5.png)
