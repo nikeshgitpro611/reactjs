@@ -85,3 +85,4 @@ Here defaultState -------------- is connected by state we can acess by state.def
 2. Components are part of a list or collection.
 3. Components involve expensive calculations or complex rendering.
 4. Parent components re-render frequently due to state changes.
+5. Pure function

@@ -13,6 +13,7 @@ import Navbar from './allhook/05-contextApi/Navbar'
 import NavBar from './allhook/05-contextApi/Navbar';
 import ReducerBasics from './allhook/06-useReduser/ReducerBasics';
 import UseMemoAndCallBack from './allhook/07-useMemo/useMemoAndUseCallback';
+import UiShow from './allhook/08- memo/uiShow';
 
 const App = () => {
   return (
@@ -29,7 +30,8 @@ const App = () => {
       {/* <UiTest /> */}
       {/* <Navbar/> */}
       {/* <ReducerBasics/> */}
-      <UseMemoAndCallBack />
+      {/* <UseMemoAndCallBack /> */}
+      <UiShow />
     </div>
   )
 }
