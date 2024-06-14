@@ -12,4 +12,4 @@
 - created Router need to be use child Route
 ![alt text](img/image.png)
 - outlet need to use for display child router
-![alt text](image1.png)
+![alt text](img/image1.png)
