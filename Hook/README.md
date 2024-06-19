@@ -32,9 +32,14 @@
 - 
 
 > contextApi
+- useContext is a hook in React that allows you to access and use context values in your functional components.Context provides a way to share values like themes, user information, or settings between components without having to pass props down manually at every level.
 - It is particularly useful for scenarios where multiple components need access to the same state or functions, such as theming, user authentication, and global settings. 
 - Avoids Prop Drilling: Passes data through the component tree without needing to pass props at every level.
 - Simplicity: No need to install additional libraries like Redux.
+- Creating a Context: createContext is used to create a new context.
+- Providing a Context Value: ThemeContext.Provider is used to wrap components and provide the context value ("dark" in this case).
+- Consuming the Context Value: useContext(ThemeContext) is used to access the current value of the context inside the ThemeButton component. It gives you the value provided by the nearest ThemeContext.Provider above in the component tree.
+
 01. Step-by-Step Implementation
  - Create a Context for Authentication:
  import React, { createContext, useState, useContext } from 'react';
@@ -77,9 +82,13 @@ Here defaultState -------------- is connected by state we can acess by state.def
   - useMemo is used to memoize a value, i.e., it returns a memoized value. It recalculates the value only when one of its dependencies changes.
   - useCallback is used to memoize a callback function. It returns a memoized version of the callback function that only changes if one of its dependencies has changed.
   ![alt text](img/image-5.png)
+  - Skipping re-rendering of components
+  - If you forget the dependency array, useCallback will return a new function every time:
 
   > #  React.memo
   - React.memo is a powerful tool for optimizing the performance of functional components by preventing unnecessary re-renders. It is particularly useful in scenarios where:
+  - React.memo: Wraps the Chart component to prevent re-rendering if the props do not change.
+  ![alt text](img/image6.png)
 
 1. Components receive static props that do not change often. 
 2. Components are part of a list or collection.
