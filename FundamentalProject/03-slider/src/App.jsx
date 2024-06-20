@@ -6,7 +6,7 @@ function App() {
 
   return (
     <div>
-        <FakeTest />
+      <FakeTest />
       <ErrorBoundary>
         <Main />
       </ErrorBoundary>

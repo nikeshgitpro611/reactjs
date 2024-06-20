@@ -282,8 +282,8 @@ main {
   margin-bottom: 1.5rem;
 }
 .person-img {
-  width: 100%;
-  height: 100%;
+  width: 10%;
+  height: 10%;
   display: block;
   object-fit: cover;
   border-radius: 50%;

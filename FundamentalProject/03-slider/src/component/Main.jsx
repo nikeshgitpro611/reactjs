@@ -6,18 +6,38 @@ const Main = () => {
     const [index, setIndex] = useState(0);
     const { id, image, job, name, text } = reviews[index];
 
+    const conDitionalHandling = (valuePass) => {
+        if (valuePass < 0) {
+            return reviews.length - 1
+        };
+
+        if (valuePass > reviews.length - 1) {
+            return 0;
+        };
+
+        return valuePass;
+
+    }
+
     const preValue = () => {
-        setIndex(prevValue => {
-            const newInex = prevValue - 1;
-            if (newInex < reviews.length - 1 ) {
-                return 0
-            }
-            return newInex
+        setIndex(prevVal => {
+            const newValue = prevVal - 1;
+            // const funAss = conDitionalHandling(newValue)
+            // if (newValue < 0) {
+            //     return reviews.length - 1
+            // }
+            return conDitionalHandling(newValue)
         })
     };
 
     const nextValue = () => {
-        setIndex(preVal => preVal + 1)
+        setIndex(preNext => {
+            const newVal = preNext + 1;
+            // if (newVal > reviews.length - 1) {
+            //     return 0;
+            // }
+            return conDitionalHandling(newVal)
+        })
     };
 
     return (
@@ -31,7 +51,7 @@ const Main = () => {
                     <h4 className='author'>{name}</h4>
                     <p className='job'>{job}</p>
                     <p className='info'>{text}</p>
-                    
+
                     <div className="btn-container">
                         <button className='prev-btn' onClick={preValue}><FaChevronLeft /></button>
                         <button className='next-btn' onClick={nextValue}><FaChevronRight /></button>
