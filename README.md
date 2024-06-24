@@ -21,7 +21,7 @@ repo - https://github.com/john-smilga/react-course-v3
 09. figcapion>: Provides a caption for the figure element.
 10. time>:Represents a specific period in time.
 
-02. Non-Symantic
+> Non-Symantic
 - Non-semantic tags in HTML are elements that do not provide any information about the content contained 
 - They are often used in conjunction with CSS and JavaScript to control the presentation and behavior of web content.
 - Example - 
