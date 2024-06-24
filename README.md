@@ -7,7 +7,7 @@ repo - https://github.com/john-smilga/react-course-v3
 <!-- -----------------Inter vIew question--------------------- -->
 # Q - What is symantic tag in html?
  Ans -  These tags provide better accessibility, improved SEO, and more meaningful markup. Tags are define in two ways.
- 01. Symantic
+ > Symantic
  - semantic tags help define the structure of the webpage, making it more understandable for both humans and machines.
  - Eaxample :- 
  1. header: Represents a container for introductory content or a set of navigational links.
@@ -27,3 +27,10 @@ repo - https://github.com/john-smilga/react-course-v3
 - Example - 
 01. div>: A generic container used to group together HTML elements.
 02. span>: A generic inline container used to group together text or inline elements.
+
+# Q - What is HOC component with example expain.
+- A Higher-Order Component (HOC) in React is an advanced technique for reusing component logic.
+- HOCs are functions that take a component as a argument and return a new component.
+- HOCs are Functions: They take a component as an argument and return a new component.
+![alt text](img/image.pngimage.png)
+
