@@ -32,5 +32,5 @@ repo - https://github.com/john-smilga/react-course-v3
 - A Higher-Order Component (HOC) in React is an advanced technique for reusing component logic.
 - HOCs are functions that take a component as a argument and return a new component.
 - HOCs are Functions: They take a component as an argument and return a new component.
-![alt text](img/image.pngimage.png)
+![alt text](Img/image.pngimage.png)
 
