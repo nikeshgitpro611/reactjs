@@ -34,3 +34,24 @@ repo - https://github.com/john-smilga/react-course-v3
 - HOCs are Functions: They take a component as an argument and return a new component.
 ![alt text](Img/image.png)
 
+# Q - Diffrence between context api and redux.
+Both the Context API and Redux are tools for managing state in React applications.
+
+> Context Api
+- 'Simple State Management:' Does not include complex state management features like middleware, side effects handling, or advanced debugging tools.
+- Avoid Props drilling.
+- Prop Drilling Solution: Helps to avoid prop drilling by providing a way to pass data deeply through the component tree without having to pass props manually at every level.
+- Basic State Management: Does not include complex state management features like middleware, side effects handling, or advanced debugging tools.
+
+
+> Redux
+- Complex State Management 
+- Global State Management: Suitable for managing global state across various parts of the application, even when the components are not directly related.
+- Single Source of Truth: State is stored in a single object, known as the store.
+- Middleware Support: Includes middleware for handling side effects (e.g., redux-thunk, redux-saga).
+- DevTools Integration: Powerful debugging tools such as Redux DevTools for inspecting state changes.
+- Time Travel Debugging: Ability to go back and forth in state changes for easier debugging.
+RTK /ReduxLates
+
+#  Q create a react app with Start,Stop and Reset button and when we click timer will start/stop/pause/reset
+
