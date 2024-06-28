@@ -15,6 +15,7 @@ import ReducerBasics from './allhook/06-useReduser/ReducerBasics';
 import UseMemoAndCallBack from './allhook/07-useMemo/useMemoAndUseCallback';
 import UiShow from './allhook/08- memo/uiShow';
 import UiToggle from './allhook/05-contextApi/Togglethem/UiToggle';
+import UiReduser from './allhook/06-useReduser/Concept/UiReduser';
 
 const App = () => {
   return (
@@ -33,7 +34,8 @@ const App = () => {
       {/* <ReducerBasics/> */}
       {/* <UseMemoAndCallBack /> */}
       {/* <UiShow /> */}
-      <UiToggle />
+      {/* <UiToggle /> */}
+      <UiReduser />
     </div>
   )
 }
