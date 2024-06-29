@@ -55,3 +55,20 @@ RTK /ReduxLates
 
 #  Q create a react app with Start,Stop and Reset button and when we click timer will start/stop/pause/reset
 
+# Q- const Arr = [1, [4, [5, 6]], [2, [3, [4, 5]]]]; 
+01. convert in [x,x,x,x,x]
+02. Asc
+03. remove duplicate
+- by new Set(Arr) will give unique value of object
+- const uniQueDat =  new Set(Assanding); //object
+const convertArr = [...uniQueDat]
+console.log('uniQueDat: ', convertArr)
+04. find even and odd
+05. total
+
+# Q- What is Prototype
+- dot use arrow function
+- In JavaScript, a prototype is an object
+- This is accessed via the __proto__ property (or more conventionally using Object.getPrototypeOf()).
+- Each object has an internal link to another object called its prototype.
+![alt text](Img/image2.png)
