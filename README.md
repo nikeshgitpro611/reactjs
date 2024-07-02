@@ -72,3 +72,40 @@ console.log('uniQueDat: ', convertArr)
 - This is accessed via the __proto__ property (or more conventionally using Object.getPrototypeOf()).
 - Each object has an internal link to another object called its prototype.
 ![alt text](Img/image2.png)
+
+# Q- Call, Apply, Bind
+- The call, apply, and bind methods in JavaScript are used to manipulate the this context in functions.
+- The apply method is similar to call, but it takes an array of arguments.
+- The bind method creates a new function that, when called, has its this context 
+- It will take two argument syntex - funcName.call(defineObject, 'Argument value inside the function')
+
+# what is the diffrence between rest and spread operator.
+ > Rest
+ -  the rest operator is used to gather elements into an array,
+- Used in function parameters to collect arguments into an array.
+- Capturing an arbitrary number of function arguments
+
+> Spread
+-  spread operator is used to spread the content of an array.
+- Concatenating arrays, passing arrays as arguments
+
+# Close
+- Inner function can acces outer function but outer function can't acces inner function
+const outerFun =(x)=>{
+  return (y) => {
+    return x + y
+  }
+};
+
+const ValGet = outerFun(23);
+console.log('ValGet : ', ValGet(12));
+
+- const closerTwo = (x) => {
+  let score = x;
+  return () => ++score;
+};
+
+const closer2 =  closerTwo(10);
+console.log(closer2()) //11
+console.log(closer2()) //12
+console.log(closer2()) //13
