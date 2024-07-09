@@ -6,7 +6,6 @@
 04. oncurrect answer click Show green 
 05. on wrong ans show Yellow
 06. Question progressbar
-07.
 
 # json-server
 - npm i json-server

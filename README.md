@@ -109,3 +109,36 @@ const closer2 =  closerTwo(10);
 console.log(closer2()) //11
 console.log(closer2()) //12
 console.log(closer2()) //13
+
+# String Reversal
+- Task - "helo world" reverse
+
+const reverse = (date) => {
+  return date.split('').reverse().join('');
+};
+
+const test = reverse('Hello World');
+console.log('DATA : ', test);
+
+>  task 2
+Calculate the occurrence of the strings ( HELLO ) => { H:1, E:1, L:2, 
+O:1 }
+- Ans :  const Occurance = (vsl) => {
+  let obj={}
+  for(let itrat of vsl){
+    // console.log('itrat : ', itrat)
+    if(obj[itrat]){
+      console.log('valCheck : ', obj[itrat])
+      obj[itrat]++
+    }else{
+      obj[itrat] =  1
+    }
+  }
+  console.log(obj)
+  return obj
+};
+
+const valpAss =  Occurance('Hello');
+// console.log('valpAss : ', valpAss)
+
+
