@@ -65,6 +65,55 @@ const convertArr = [...uniQueDat]
 console.log('uniQueDat: ', convertArr)
 04. find even and odd
 05. total
+```
+const arr = [1, [4, [5, 6]], [2, [3, [4, 5]]]];
+
+const isArrCheck = (valArr) => {
+  let result = [];
+  let total = 0;
+  let even;
+  let odd;
+  let duplicate;
+
+  const flatArr = (valArr) => {
+    valArr.forEach((element) => {
+      if (Array.isArray(element)) {
+        flatArr(element);
+      } else {
+        result.push(element);
+      }
+    });
+  };
+  flatArr(valArr);
+
+  //For Duplicate Find
+  const findDuplicate = (result) => {
+    const coutCheck = result.reduce((iniVal, items) => {
+       iniVal[items] = (iniVal[items] || 0 ) + 1;
+       return iniVal
+    }, {})
+    console.log('coutCheck : ', coutCheck)
+
+    return result.filter((item,index) => coutCheck[item] > 1 && result.indexOf(item) === index)
+  };
+
+  if (result.length > 0) {
+    result = result.sort((a, b) => a - b, 0);
+    total = result.reduce((a, b) => (a += b), 0);
+    even = result.filter((data) => data % 2 == 0);
+    odd = result.filter((data) => data % 2 != 0);
+  }
+  return {
+    result,
+    total,
+    even,
+    odd,
+    duplicate: findDuplicate(result),
+  };
+};
+const resultTest = isArrCheck(arr);
+console.log('resultTest : ', resultTest);
+```
 
 # Q- What is Prototype
 - dot use arrow function
