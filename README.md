@@ -388,5 +388,175 @@ console.log(datapass(transactions));
 
 ```
 
+# MAP QUESTION
+> Task - You are given an array of user objects, where each user object contains an array of addresses. Each address object has a label (e.g., "home", "work"), city, and country. Write a function using the map method to transform the array so that each user object includes only their addresses that are labeled as "home". The resulting array should maintain the original structure but with filtered addresses.
+```
+Expected OutPut-
+[
+  {
+    name: "Alice",
+    addresses: [
+      { label: "home", city: "New York", country: "USA" }
+    ]
+  },
+  {
+    name: "Bob",
+    addresses: [
+      { label: "home", city: "Toronto", country: "Canada" }
+    ]
+  },
+  {
+    name: "Charlie",
+    addresses: [
+      { label: "home", city: "London", country: "UK" }
+    ]
+  },
+  {
+    name: "David",
+    addresses: []
+  }
+]
+
+```
+
+```
+Solution - 
+const filterHomeAdd =  (data) => {
+  return data.map((data) => ({
+    ...data,
+    addresseUpdated : data.addresses.filter(data => data.label === "home")
+  }))
+};
+
+const result =  filterHomeAdd(users)
+console.log(result)
+
+> Task - You are given an array of products where each product has a name, a price, and an array of reviews. Each review object contains a rating (integer between 1 and 5) and a comment. Write a function using the map method to transform the array so that each product includes only the reviews with a rating of 4 or 5. Additionally, calculate the average rating of the filtered reviews and add it as a new property averageRating to each product. If a product has no reviews with a rating of 4 or 5, the averageRating should be set to null.
+
+Expected-
+//Given rating 1 to 5 
+//Write A function product having rating 4 or 5 
+// calculate Avg of each Product
+//No product then set null
+
+```
+Ans - 
+const products = [
+  {
+    name: "Product A",
+    price: 100,
+    reviews: [
+      { rating: 5, comment: "Excellent!" },
+      { rating: 3, comment: "Average" }
+    ]
+  },
+  {
+    name: "Product B",
+    price: 200,
+    reviews: [
+      { rating: 2, comment: "Poor" },
+      { rating: 4, comment: "Good" },
+      { rating: 5, comment: "Great!" }
+    ]
+  },
+  {
+    name: "Product C",
+    price: 300,
+    reviews: [
+      { rating: 1, comment: "Terrible" }
+    ]
+  }
+];
+
+
+const ratingTask = (valArr) => {
+  return valArr.map(data=>{
+    
+    const filterReviewRating = data.reviews.filter(data=> data.rating >=4)
+    const totalRating =  filterReviewRating.reduce((a,b)=> a += b.rating, 0)
+    const comment =  filterReviewRating.reduce((a, b) => b.comment, 0)
+    const avgRatingData =  filterReviewRating.length > 0 ? totalRating/filterReviewRating.length : null
+    return {
+      ...data,
+      reviewsUpdated: filterReviewRating,
+      avgRating : avgRatingData,
+      comment : comment
+    }
+    
+  })
+};
+
+const result = ratingTask(products);
+console.log(result)
+```
+
+
+> Task - You are given an array of orders where each order contains an orderId, customerId, orderDate (in ISO string format), and an array of items. Each item has a productId, quantity, and price. Write a function using the map and reduce methods to transform the array so that each order includes a totalPrice (the sum of the price times the quantity for all items in the order), and a customerInfo object that contains the customer's name and email. The customer information is provided in a separate array.
+
+Expected 
+//Totalprice
+//customerInfo {customer's name and email}
+```
+const orders = [
+  {
+    orderId: 1,
+    customerId: 101,
+    orderDate: '2024-01-15T13:00:00Z',
+    items: [
+      { productId: 1, quantity: 2, price: 100 },
+      { productId: 2, quantity: 1, price: 200 },
+    ],
+  },
+  {
+    orderId: 2,
+    customerId: 102,
+    orderDate: '2024-02-20T13:00:00Z',
+    items: [
+      { productId: 3, quantity: 3, price: 150 },
+      { productId: 4, quantity: 4, price: 50 },
+    ],
+  },
+  {
+    orderId: 3,
+    customerId: 101,
+    orderDate: '2024-03-05T13:00:00Z',
+    items: [
+      { productId: 1, quantity: 1, price: 100 },
+      { productId: 2, quantity: 2, price: 200 },
+    ],
+  },
+];
+
+const customers = [
+  { customerId: 101, name: 'Alice', email: 'alice@example.com' },
+  { customerId: 102, name: 'Bob', email: 'bob@example.com' },
+];
+
+const taskFind = (orders, customers) => {
+  return orders.map((data) => {
+    const Totalprice = data.items.reduce((a, b) => (a += b.price), 0);
+    const findDetails = customers.find(
+      (data) => data.customerId === data.customerId
+    );
+    console.log('findDetails : ', findDetails);
+    return {
+      ...data,
+      Totalprice,
+      customerInfo: {
+        name: findDetails.name,
+        email: findDetails.email,
+        customerId: findDetails.customerId,
+      },
+    };
+  });
+};
+const result = taskFind(orders, customers);
+console.log(result);
+
+// const taskFind = () => {}
+// const result = taskFind(orders, customers);
+// console.log(result)
+```
+
 
 
