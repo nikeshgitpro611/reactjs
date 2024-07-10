@@ -164,5 +164,74 @@ const groiupData =  (dataVal) => {
 const  valCheck =   groiupData(datsa);
 console.log('valCheck : ', valCheck)
 
+> Task-3  Given an array of objects representing a collection of books, write a function using the reduce method to compute the total number of pages in all books, and the number of books by each author. The function should return an object with two properties: totalPages and booksByAuthor.
+
+Ans - /totalPages
+//booksByAuthor
+const books = [
+  { title: 'Book 1', author: 'Author A', pages: 200 },
+  { title: 'Book 2', author: 'Author B', pages: 150 },
+  { title: 'Book 3', author: 'Author A', pages: 300 },
+  { title: 'Book 4', author: 'Author C', pages: 250 },
+  { title: 'Book 5', author: 'Author B', pages: 100 },
+];
+
+const TotalPageByAuthor = (book) => {
+  return book.reduce(
+    (iniVal, val) => {
+      const { author, pages } = val;
+      iniVal.totalPage += pages;
+      if(iniVal.BookByAuthor[author]){
+        iniVal.BookByAuthor[author]++
+      }else{
+        iniVal.BookByAuthor[author] = 1
+      }
+
+      return iniVal;
+    },
+    { totalPage: 0, BookByAuthor: {} }
+  );
+};
+
+const result = TotalPageByAuthor(books);
+console.log(result);
+
+
+> Task // Given an array of objects representing a collection of books, write a function using the reduce method to compute the total number of pages in all books, and the number of books by each author. The function should return an object with two properties: totalPages and booksByAuthor.
+
+//totalPages
+//booksByAuthor
+ANs - const students = [
+  { name: 'Alice', age: 20, grades: [85, 90, 92] },
+  { name: 'Bob', age: 22, grades: [78, 85, 88] },
+  { name: 'Charlie', age: 21, grades: [92, 95] },
+  { name: 'David', age: 23, grades: [85, 88, 84] },
+];
+
+const studentAvg = (val) => {
+  return val.reduce(
+    (iniVal, val) => {
+      const { name, grades } = val;
+      const Avg =
+        grades.reduce((initVal, val) => initVal + val, 0) / grades.length;
+      iniVal.classAverage = Avg.toFixed(2);
+
+      //Student Avg
+      iniVal.studentAverages[name] = Avg.toFixed(2);
+      iniVal.totalSum = grades.reduce((a,b)=> a + b,0);
+      iniVal.totalCount = grades.length;
+
+      return iniVal;
+    },
+    {
+      studentAverages: {},
+      classAverage: 0,
+      totalSum: 0,
+    totalCount: 0
+    }
+  );
+};
+const result = studentAvg(students);
+console.log(result);
 
 
