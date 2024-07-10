@@ -141,4 +141,28 @@ O:1 }
 const valpAss =  Occurance('Hello');
 // console.log('valpAss : ', valpAss)
 
+> Task - 3 :  Coding, give an array of objects with 'date' and 'cost'. Asked to group by date.
+- 
+const datsa = [
+  { date: '2023-07-01', cost: 10 },
+  { date: '2023-07-01', cost: 20 },
+  { date: '2023-07-02', cost: 15 },
+  { date: '2023-07-02', cost: 25 },
+  { date: '2023-07-03', cost: 30 },
+];
+
+const groiupData =  (dataVal) => {
+  return dataVal.reduce((acc, items) => {
+    const {date, cost} =  items;
+    if(!acc[date]){
+      acc[date] = []
+    }
+    acc[date].push(cost)
+    return {...acc}
+  })
+};
+const  valCheck =   groiupData(datsa);
+console.log('valCheck : ', valCheck)
+
+
 
