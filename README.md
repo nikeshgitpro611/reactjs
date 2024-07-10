@@ -278,7 +278,115 @@ const summarizeTransactions = (val) => {
 const result = summarizeTransactions(transactions);
 console.log(result);
 ```
+> Task Given an array of transactions where each transaction has a type (either "credit" or "debit"), an amount, a category, and a date (in ISO string format), write a function using the reduce method to compute the total balance, the total credits, the total debits, the total amount spent in each category, and the monthly breakdown of transactions. The function should return an object with five properties: totalBalance, totalCredits, totalDebits, amountByCategory, and monthlyBreakdown.
 
+Expected- Output
+```
+{
+  totalBalance: 100,
+  totalCredits: 300,
+  totalDebits: 200,
+  amountByCategory: {
+    Salary: 100,
+    Groceries: 70,
+    Entertainment: 30,
+    Freelance: 200,
+    Rent: 100
+  },
+  monthlyBreakdown: {
+    "2024-01": {
+      credits: 100,
+      debits: 50
+    },
+    "2024-02": {
+      credits: 200,
+      debits: 30
+    },
+    "2024-03": {
+      credits: 0,
+      debits: 120
+    }
+  }
+}
+```
+
+```
+Solution - 
+const transactions = [
+  {
+    type: 'credit',
+    amount: 100,
+    category: 'Salary',
+    date: '2024-01-15T13:00:00Z',
+  },
+  {
+    type: 'debit',
+    amount: 50,
+    category: 'Groceries',
+    date: '2024-01-20T13:00:00Z',
+  },
+  {
+    type: 'debit',
+    amount: 30,
+    category: 'Entertainment',
+    date: '2024-02-15T13:00:00Z',
+  },
+  {
+    type: 'credit',
+    amount: 200,
+    category: 'Freelance',
+    date: '2024-02-20T13:00:00Z',
+  },
+  {
+    type: 'debit',
+    amount: 20,
+    category: 'Groceries',
+    date: '2024-03-01T13:00:00Z',
+  },
+  {
+    type: 'debit',
+    amount: 100,
+    category: 'Rent',
+    date: '2024-03-05T13:00:00Z',
+  },
+];
+
+const datapass = (val) => {
+  return val.reduce(
+    (iniVal, items) => {
+      const { type, amount, category, date } = items;
+      iniVal.totalBalance += amount;
+
+      type === 'credit'
+        ? (iniVal.totalCredits += amount)
+        : (iniVal.totalDebits += amount);
+
+      iniVal.amountByCategory[category] = amount;
+
+      //Extract Months
+      const month = date.slice(0, 7);
+      console.log(month);
+      if (!iniVal.monthlyBreakdown[month]) {
+        iniVal.monthlyBreakdown[month] = { credits: 0, debits: 0 };
+      }
+      type === 'credit'
+        ? (iniVal.monthlyBreakdown[month].credits = amount)
+        : (iniVal.monthlyBreakdown[month].debits = amount);
+
+      return iniVal;
+    },
+    {
+      totalBalance: 0,
+      totalCredits: 0,
+      totalDebits: 0,
+      amountByCategory: {},
+      monthlyBreakdown: {},
+    }
+  );
+};
+console.log(datapass(transactions));
+
+```
 
 
 
