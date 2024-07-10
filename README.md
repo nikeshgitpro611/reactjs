@@ -91,6 +91,7 @@ console.log('uniQueDat: ', convertArr)
 
 # Close
 - Inner function can acces outer function but outer function can't acces inner function
+```
 const outerFun =(x)=>{
   return (y) => {
     return x + y
@@ -100,30 +101,29 @@ const outerFun =(x)=>{
 const ValGet = outerFun(23);
 console.log('ValGet : ', ValGet(12));
 
-- const closerTwo = (x) => {
+const closerTwo = (x) => {
   let score = x;
   return () => ++score;
 };
-
 const closer2 =  closerTwo(10);
 console.log(closer2()) //11
 console.log(closer2()) //12
 console.log(closer2()) //13
-
+```
 # String Reversal
 - Task - "helo world" reverse
-
+```
 const reverse = (date) => {
   return date.split('').reverse().join('');
 };
 
 const test = reverse('Hello World');
 console.log('DATA : ', test);
-
+```
 >  task 2
 Calculate the occurrence of the strings ( HELLO ) => { H:1, E:1, L:2, 
 O:1 }
-- Ans :  const Occurance = (vsl) => {
+- Ans : ``` const Occurance = (vsl) => {
   let obj={}
   for(let itrat of vsl){
     // console.log('itrat : ', itrat)
@@ -140,9 +140,9 @@ O:1 }
 
 const valpAss =  Occurance('Hello');
 // console.log('valpAss : ', valpAss)
-
+```
 > Task - 3 :  Coding, give an array of objects with 'date' and 'cost'. Asked to group by date.
-- 
+```
 const datsa = [
   { date: '2023-07-01', cost: 10 },
   { date: '2023-07-01', cost: 20 },
@@ -163,10 +163,11 @@ const groiupData =  (dataVal) => {
 };
 const  valCheck =   groiupData(datsa);
 console.log('valCheck : ', valCheck)
-
+```
 > Task-3  Given an array of objects representing a collection of books, write a function using the reduce method to compute the total number of pages in all books, and the number of books by each author. The function should return an object with two properties: totalPages and booksByAuthor.
 
-Ans - /totalPages
+Ans - 
+```/totalPages
 //booksByAuthor
 const books = [
   { title: 'Book 1', author: 'Author A', pages: 200 },
@@ -195,13 +196,15 @@ const TotalPageByAuthor = (book) => {
 
 const result = TotalPageByAuthor(books);
 console.log(result);
-
+```
 
 > Task // Given an array of objects representing a collection of books, write a function using the reduce method to compute the total number of pages in all books, and the number of books by each author. The function should return an object with two properties: totalPages and booksByAuthor.
 
 //totalPages
 //booksByAuthor
-ANs - const students = [
+ANs - 
+```
+const students = [
   { name: 'Alice', age: 20, grades: [85, 90, 92] },
   { name: 'Bob', age: 22, grades: [78, 85, 88] },
   { name: 'Charlie', age: 21, grades: [92, 95] },
@@ -233,6 +236,7 @@ const studentAvg = (val) => {
 };
 const result = studentAvg(students);
 console.log(result);
+```
 
 > Task Given an array of transaction objects where each transaction has a type (either "credit" or "debit"), an amount, and a category, write a function using the reduce method to compute the total balance, the total credits, the total debits, and the total amount spent in each category. The function should return an object with four properties: totalBalance, totalCredits, totalDebits, and amountByCategory.
 
