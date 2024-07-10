@@ -237,6 +237,7 @@ console.log(result);
 > Task Given an array of transaction objects where each transaction has a type (either "credit" or "debit"), an amount, and a category, write a function using the reduce method to compute the total balance, the total credits, the total debits, and the total amount spent in each category. The function should return an object with four properties: totalBalance, totalCredits, totalDebits, and amountByCategory.
 
 Ans -  
+//
 const transactions = [
   { type: 'credit', amount: 100, category: 'Salary' },
   { type: 'debit', amount: 50, category: 'Groceries' },
@@ -258,8 +259,7 @@ const summarizeTransactions = (val) => {
         : (initVal.totalDebits += amount);
 
         initVal.amountByCategory[category] = amount
-        testsvdjdjd
-      return initVal;
+        return initVal;
     },
     {
       totalBalance: 0,
@@ -271,6 +271,7 @@ const summarizeTransactions = (val) => {
 };
 const result = summarizeTransactions(transactions);
 console.log(result);
+//
 
 
 
