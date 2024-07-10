@@ -416,9 +416,7 @@ Expected OutPut-
     addresses: []
   }
 ]
-
 ```
-
 ```
 Solution - 
 const filterHomeAdd =  (data) => {
@@ -430,6 +428,7 @@ const filterHomeAdd =  (data) => {
 
 const result =  filterHomeAdd(users)
 console.log(result)
+```
 
 > Task - You are given an array of products where each product has a name, a price, and an array of reviews. Each review object contains a rating (integer between 1 and 5) and a comment. Write a function using the map method to transform the array so that each product includes only the reviews with a rating of 4 or 5. Additionally, calculate the average rating of the filtered reviews and add it as a new property averageRating to each product. If a product has no reviews with a rating of 4 or 5, the averageRating should be set to null.
 
