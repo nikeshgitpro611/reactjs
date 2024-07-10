@@ -123,7 +123,9 @@ console.log('DATA : ', test);
 >  task 2
 Calculate the occurrence of the strings ( HELLO ) => { H:1, E:1, L:2, 
 O:1 }
-- Ans : ``` const Occurance = (vsl) => {
+
+``` 
+const Occurance = (vsl) => {
   let obj={}
   for(let itrat of vsl){
     // console.log('itrat : ', itrat)
@@ -164,10 +166,10 @@ const groiupData =  (dataVal) => {
 const  valCheck =   groiupData(datsa);
 console.log('valCheck : ', valCheck)
 ```
-> Task-3  Given an array of objects representing a collection of books, write a function using the reduce method to compute the total number of pages in all books, and the number of books by each author. The function should return an object with two properties: totalPages and booksByAuthor.
+> Task  Given an array of objects representing a collection of books, write a function using the reduce method to compute the total number of pages in all books, and the number of books by each author. The function should return an object with two properties: totalPages and booksByAuthor.
 
-Ans - 
-```/totalPages
+```
+/totalPages
 //booksByAuthor
 const books = [
   { title: 'Book 1', author: 'Author A', pages: 200 },
