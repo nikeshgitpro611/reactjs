@@ -556,6 +556,101 @@ console.log(result);
 // const result = taskFind(orders, customers);
 // console.log(result)
 ```
+> Task - You are given two arrays: one containing orders and the other containing products. Each order includes an orderId, orderDate (ISO string), customerId, and an array of items. Each item has a productId and a quantity. The products array includes details like productId, productName, category, and price.
+
+// totalPrice
+//productDetails {productName, category, quantity, totalPrice}
+// Sort Total price
+
+```
+Solution - 
+const orders = [
+  {
+    orderId: 1,
+    orderDate: '2024-01-15T13:00:00Z',
+    customerId: 101,
+    items: [
+      { productId: 1, quantity: 2 },
+      { productId: 2, quantity: 1 },
+    ],
+  },
+  {
+    orderId: 2,
+    orderDate: '2024-02-20T13:00:00Z',
+    customerId: 102,
+    items: [
+      { productId: 3, quantity: 3 },
+      { productId: 4, quantity: 4 },
+    ],
+  },
+  {
+    orderId: 3,
+    orderDate: '2024-03-05T13:00:00Z',
+    customerId: 101,
+    items: [
+      { productId: 1, quantity: 1 },
+      { productId: 2, quantity: 2 },
+    ],
+  },
+];
+
+const products = [
+  {
+    productId: 1,
+    productName: 'Product A',
+    category: 'Category 1',
+    price: 100,
+  },
+  {
+    productId: 2,
+    productName: 'Product B',
+    category: 'Category 2',
+    price: 200,
+  },
+  {
+    productId: 3,
+    productName: 'Product C',
+    category: 'Category 1',
+    price: 150,
+  },
+  { productId: 4, productName: 'Product D', category: 'Category 3', price: 50 },
+];
+
+const taskFind = (orders, products) => {
+  return orders.map((orderDat) => {
+    let itemQuantity;
+    let productPrice;
+
+    const Items = orderDat.items.map((item) => {
+      itemQuantity = item.quantity;
+
+      const productIdMatch = products.find(
+        (dataMatch) => dataMatch.productId === item.productId
+      );
+
+      return {
+        productName: productIdMatch.productName,
+        category: productIdMatch.category,
+        Quantity: itemQuantity,
+      };
+      console.log('productIdMatch: ', productIdMatch);
+    });
+
+    productPrice = products.find(
+      (product) => product.productId === itemQuantity
+    );
+
+    return {
+      ...orderDat,
+      totalPrice: itemQuantity * productPrice.price,
+      productDetails: Items,
+    };
+  });
+};
+const result = taskFind(orders, products);
+console.log(result);
+
+```
 
 
 
