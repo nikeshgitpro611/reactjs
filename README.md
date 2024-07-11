@@ -758,9 +758,9 @@ console.log(result);
 - In JavaScript, debouncing and throttling are techniques used to control the rate at which a function is executed.it will we occure during eventhandling events such as scrolling, resizing, or keypresses.
 - Debouncing ensures that a function is only called after a certain amount of time has passed since the last time it was invoked.  It is useful in scenarios where you want to delay the execution of a function until the activity has stopped.
 >  UseIn :- 
-Form Validation: Validating user input only after the user has stopped typing.
-Search Input: Sending an API request only after the user has finished typing in a search field.
-Window Resize: Adjusting the layout only after the user has stopped resizing the window.
+1. Form Validation: Validating user input only after the user has stopped typing.
+2. Search Input: Sending an API request only after the user has finished typing in a search field.
+3. Window Resize: Adjusting the layout only after the user has stopped resizing the window.
 - Use debouncing when you want to execute a function after the user has stopped performing an action
 - Use debouncing to wait until the user stops typing before making the server request.
 ```
