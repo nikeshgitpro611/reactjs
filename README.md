@@ -823,7 +823,7 @@ If you want to store the data in browser, frequently we are using below 3.
 - Session Storage data stored based on domain name.
 - Data stored in the Session Storage, always in the form of key,value pairs
 - The key is always unique and string type, value maybe string or number type.
-<!-- :: 4 method are available in window object. :: -->
+:: 4 method are available in window object. ::
 1. setItem(key,value) is the method, for insert and update the data in sessionStorage
 2. removeItem(key) is the method, for removing data from sessionStorage.
 3. getItem(key) is the method,for retrieve the data from sessionStorage.
