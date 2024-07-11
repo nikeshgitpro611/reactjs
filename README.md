@@ -156,6 +156,32 @@ const person = {
 }
 gret.call(person,'jone', 'rashmi')
 ```
+```
+// Apply
+function gret(nameA, nameB){
+console.log(`Hi,${this.welcom} ${nameA} and child of ${nameB}`)
+}
+
+//Acess by this 
+const person = {
+  welcom : 'Welcom'
+}
+gret.apply(person,['jone', 'rashmi'])
+```
+
+```
+// Bind
+function gret(nameA, nameB){
+console.log(`Hi,${this.welcom} ${nameA} and child of ${nameB}`)
+}
+
+//Acess by this 
+const person = {
+  welcom : 'Welcom'
+}
+const result = gret.bind(person,'jone', 'rashmi') //return type function so need to be pass in variable
+result()
+```
 # what is the diffrence between rest and spread operator.
  > Rest
  -  the rest operator is used to gather elements into an array,
