@@ -937,9 +937,50 @@ promise
     return 'step 4';
   })
   .catch((err) => console.log(err));
+```
+> Promise Methods
+
+1. Promise.all
+- Takes an array of promises and returns a single promise that resolves when all of the promises in the array have resolved, or rejects if any promise in the array rejects.
+- Waits for all promises to resolve if any fail then all will be fail
+```
+Promise.all([promise1, promise2, promise3])
+    .then((results) => {
+        console.log(results); // Array of results
+    })
+    .catch((error) => {
+        console.error(error);
+    });
+```
+2. Promise.race
+- Promise.race: Takes an array of promises and returns a single promise that resolves or rejects as soon as one of the promises in the array resolves or rejects.
+- first result matters more than waiting for all results.if first result having problem then reject all.
+- It helps you improve performance, reliability, and user experience by allowing you to quickly respond to the fastest completing promise.
 
 
 ```
+const promish1 = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve('Data For Promise One')
+    }, Math.random * 2000)
+  })
+};
+const promish2 = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve('Data Promise 2')
+    }, Math.random * 2000)
+  })
+};
+
+Promise.race([promish1(), promish2()]).then(data =>  console.log(data)).catch(err=> console.log(err));
+
+```
+3. Promise.allSettled
+- Promise.allSettled: Takes an array of promises and returns a single promise that resolves when all of the promises in the array have settled (either resolved or rejected)
+4. Promise.any
+- Promise.any: Takes an array of promises and returns a single promise that resolves as soon as any of the promises in the array resolves, or rejects if all promises in the array reject.
 
 
 
