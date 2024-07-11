@@ -116,11 +116,26 @@ console.log('resultTest : ', resultTest);
 ```
 
 # Q- What is Prototype
-- dot use arrow function
+- Definition : prototypes can be used to efficiently manage and reuse behavior across multiple instances of objects, which is particularly useful in scenarios like a library management system.
+- Constructor Functions: Have a prototype property, allowing methods to be added and shared among instances
+- Arrow Functions: Do not have a prototype property.
 - In JavaScript, a prototype is an object
 - This is accessed via the __proto__ property (or more conventionally using Object.getPrototypeOf()).
 - Each object has an internal link to another object called its prototype.
 ![alt text](Img/image2.png)
+
+```
+//constructer function this is acces by this method
+function person(name, age) {
+  this.name = name;
+  this.age = age;
+}
+person.prototype.greet = function () {
+  console.log(`Hello my name is ${this.name} and i am ${this.age}`);
+};
+const person1 = new person('Alool', 45);
+person1.greet();
+```
 
 # Q- Call, Apply, Bind
 - The call, apply, and bind methods in JavaScript are used to manipulate the this context in functions.
