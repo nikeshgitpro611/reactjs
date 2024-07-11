@@ -891,5 +891,57 @@ document.cookie = "key=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
 - Use Case: Less common than bubbling but can be useful when you need to handle events during the capturing phase before they reach the target element.
 - addEventListener method take 3 arguments, event name, call back function and boolean value.
 
+# Promise
+- Promises provide a powerful and flexible way to handle asynchronous operations in JavaScript.
+- They improve code readability and make it easier to manage complex sequences of asynchronous tasks. 
+- we can creat new Promises for new promise.
+- promises is chaining : One of the most powerful features of promises is chaining. You can chain multiple then calls to handle a sequence of asynchronous operations.
+> Three phases of promises
+1. Pending: The initial state, neither fulfilled nor rejected.
+2. Fulfilled: The operation completed successfully.
+3. Rejected: The operation failed.
+
+```
+let promises = new Promise((resolve, reject)=>{
+  let sucess =  true;
+  if(sucess){
+    resolve('Data Passing sucess')
+  }else{
+    reject('Having some problem')
+  }
+})
+promises.then(data=> console.log(data)).catch(err => console.log(err))
+```
+
+```
+Promise Chaning
+let promise = new Promise((resolve, reject) => {
+  resolve('step 1');
+});
+//Promising Chaning handle by multiple then in asyn operation
+promise
+  .then((data) => {
+    console.log(data);
+    return 'step 2';
+  })
+  .then((data) => {
+    console.log(data);
+    return 'step 3';
+  })
+  .then((data) => {
+    console.log(data);
+    return 'step 4';
+  })
+  .then((data) => {
+    console.log(data);
+    return 'step 4';
+  })
+  .catch((err) => console.log(err));
+
+
+```
+
+
+
 
 
