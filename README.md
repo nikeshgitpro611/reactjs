@@ -783,9 +783,9 @@ window.addEventListener('resize', debouncing(() => {
 ```
 - Throttling ensures that a function is only called at most once in a specified time period.it often happend during  event is triggered.
 > UseCase 
-Scrolling: Logging the scroll position at most once every 200 milliseconds.
-Button Clicks: Preventing a button from being clicked multiple times in quick succession.
-API Requests: Limiting the rate of API requests to avoid overloading the server.
+01. Scrolling: Logging the scroll position at most once every 200 milliseconds.
+02. Button Clicks: Preventing a button from being clicked multiple times in quick succession.
+03. API Requests: Limiting the rate of API requests to avoid overloading the server.
 - Use throttling when you want to execute a function at regular intervals while the user is performing an action
 ```
 function throttle(func, limit) {
