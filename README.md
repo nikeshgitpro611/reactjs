@@ -812,4 +812,19 @@ window.addEventListener('scroll', throttle(() => {
     console.log('Scrolled');
 }, 200));
 ```
+# Browser Storages
+If you want to store the data in browser, frequently we are using below 3.
+1.  sessionStorage
+2. localStorage
+3. cookies
 
+> sessionStorage
+- Session Storage data always persist to that particular tab only. Once tab is closed, the sessionStorage data was gone.
+- Session Storage data stored based on domain name.
+- Data stored in the Session Storage, always in the form of key,value pairs
+- The key is always unique and string type, value maybe string or number type.
+<!-- :: 4 method are available in window object. :: -->
+1. setItem(key,value) is the method, for insert and update the data in sessionStorage
+2. removeItem(key) is the method, for removing data from sessionStorage.
+3. getItem(key) is the method,for retrieve the data from sessionStorage.
+4. clear() is the method, to clear total sessionStorage data.
