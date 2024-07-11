@@ -880,4 +880,16 @@ document.cookie = "key=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
 
 ![alt text](Img/image3.png)
 
+# Event Bubbling and Event Capturing
+- Understanding these concepts is essential for managing how events are handled in web applications
+> Event Bubbling
+- Event bubbling is the phase where an event starts from the target element and propagates upwards to the parent elements until it reaches the root of the document (usually the <html> element).
+- Event is travelling from inner most element to outer most element.By defalut all HTML elements have event bubbling behavior.
+
+> Event Capturing
+- Event is travelling from outer most element to inner most element.
+- Use Case: Less common than bubbling but can be useful when you need to handle events during the capturing phase before they reach the target element.
+- addEventListener method take 3 arguments, event name, call back function and boolean value.
+
+
 
