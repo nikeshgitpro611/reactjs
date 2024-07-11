@@ -97,6 +97,9 @@ const isArrCheck = (valArr) => {
     return result.filter((item,index) => coutCheck[item] > 1 && result.indexOf(item) === index)
   };
 
+//2nd Method Find duplicat
+   const duplicatValFinf = resultData.filter((val, index) => resultData.indexOf(val) !== index)
+
   if (result.length > 0) {
     result = result.sort((a, b) => a - b, 0);
     total = result.reduce((a, b) => (a += b), 0);
