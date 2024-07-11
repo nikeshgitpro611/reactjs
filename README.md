@@ -754,6 +754,62 @@ const result = taskFind(orders, products);
 console.log(result);
 
 ```
+# Debouncing and Throting
+- In JavaScript, debouncing and throttling are techniques used to control the rate at which a function is executed.it will we occure during eventhandling events such as scrolling, resizing, or keypresses.
+- Debouncing ensures that a function is only called after a certain amount of time has passed since the last time it was invoked.  It is useful in scenarios where you want to delay the execution of a function until the activity has stopped.
+>  UseIn :- 
+Form Validation: Validating user input only after the user has stopped typing.
+Search Input: Sending an API request only after the user has finished typing in a search field.
+Window Resize: Adjusting the layout only after the user has stopped resizing the window.
+- Use debouncing when you want to execute a function after the user has stopped performing an action
+- Use debouncing to wait until the user stops typing before making the server request.
+```
+//During Resize Window
 
+const debouncing = (fun, delay) => {
+  let timer;
+  return (...args) => {
+    clearTimeout(timer);
+    timer =  setTimeout(() => {
+      fun.call(this, args)
+    }, delay)
+  }
+}
 
+//Usage
+window.addEventListener('resize', debouncing(() => {
+  console.log('Window Resize')
+}, 300))
+```
+- Throttling ensures that a function is only called at most once in a specified time period.it often happend during  event is triggered.
+> UseCase 
+Scrolling: Logging the scroll position at most once every 200 milliseconds.
+Button Clicks: Preventing a button from being clicked multiple times in quick succession.
+API Requests: Limiting the rate of API requests to avoid overloading the server.
+- Use throttling when you want to execute a function at regular intervals while the user is performing an action
+```
+function throttle(func, limit) {
+    let lastFunc;
+    let lastRan;
+    return function(...args) {
+        if (!lastRan) {
+            func.apply(this, args);
+            lastRan = Date.now();
+        } else {
+            clearTimeout(lastFunc);
+            lastFunc = setTimeout(() => {
+                if ((Date.now() - lastRan) >= limit) {
+                    func.apply(this, args);
+                    lastRan = Date.now();
+                }
+            }, limit - (Date.now() - lastRan));
+        }
+    };
+}
+
+// Usage
+window.addEventListener('scroll', throttle(() => {
+    console.log('Scrolled');
+}, 200));
+```
 
