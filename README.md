@@ -813,6 +813,7 @@ window.addEventListener('scroll', throttle(() => {
 }, 200));
 ```
 # Browser Storages
+- Data is not sent to the server with each HTTP request. It is only accessible via JavaScript on the client-side.
 If you want to store the data in browser, frequently we are using below 3.
 1.  sessionStorage
 2. localStorage
@@ -828,3 +829,55 @@ If you want to store the data in browser, frequently we are using below 3.
 2. removeItem(key) is the method, for removing data from sessionStorage.
 3. getItem(key) is the method,for retrieve the data from sessionStorage.
 4. clear() is the method, to clear total sessionStorage data.
+```
+sessionStorage.setItem('age',30);
+sessionStorage.clear();
+```
+> localStorage
+- Data lost even after the browser is closed and reopened.
+- Capacity: Typically around 5-10 MB per origin.
+- Usage: Typically used for storing large amounts of data that should persist across sessions (e.g., user preferences, offline data).
+
+```
+// Store data
+localStorage.setItem('key', 'value');
+
+// Retrieve data
+let value = localStorage.getItem('key');
+
+// Remove data
+localStorage.removeItem('key');
+
+// Clear all data
+localStorage.clear();
+```
+> Cookies
+- Cookies are small pieces of data sent from a website and stored in the user's web browser while the user is browsing.
+- Capacity: Limited to about 4 KB per cookie.
+- Usage: Commonly used for session management (e.g., authentication tokens, user tracking).
+ > type of cookies
+1. inmemory cookie
+- Inmemory cookie data is available only in the current browser(notlike sessionStorage available for one tab). Once browser closed, cookie data was gone.
+
+2. persistent cookie
+- If you want to store data in cookies for a particular amount of time, irrespective of tab closing or browser closing or system shutdown. Then we can go with persistent cookies.
+
+```
+// Set a cookie
+document.cookie = "key=value; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
+
+// Retrieve cookies
+function getCookie(name) {
+    let matches = document.cookie.match(new RegExp(
+        "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+    ));
+    return matches ? decodeURIComponent(matches[1]) : undefined;
+}
+
+// Delete a cookie
+document.cookie = "key=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
+```
+
+![alt text](Img/image3.png)
+
+
