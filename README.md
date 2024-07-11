@@ -951,6 +951,18 @@ Promise.all([promise1, promise2, promise3])
     .catch((error) => {
         console.error(error);
     });
+
+
+    2nd Task----------
+    const fetch1 = fetch('https://jsonplaceholder.typicode.com/posts');
+const fetch2 = fetch('https://jsonplaceholder.typicode.com/users');
+const fetch3 = fetch('https://jsonplaceholder.typicode.com/todoss');
+// const fetch3 = fetch('https://api.example.com/data3');
+
+Promise.all([fetch1, fetch2, fetch3]).then(responce => {
+  // console.log(responce)
+  return Promise.all(responce.map((data)=> data.json()))
+}).then(data=> console.log(data))
 ```
 2. Promise.race
 - Promise.race: Takes an array of promises and returns a single promise that resolves or rejects as soon as one of the promises in the array resolves or rejects.
@@ -978,10 +990,29 @@ Promise.race([promish1(), promish2()]).then(data =>  console.log(data)).catch(er
 
 ```
 3. Promise.allSettled
-- Promise.allSettled: Takes an array of promises and returns a single promise that resolves when all of the promises in the array have settled (either resolved or rejected)
+- Promise.allSettled: Takes an array of promises and returns a single promise that resolves when all of the promises in the array have settled (either resolved or rejected).
+- Promise.allSettled is a useful method for scenarios where you need to handle multiple promises and want to ensure that you get the outcome of all promises, regardless of whether they succeed or fail. 
+
+```
+const fetch1 = fetch('https://jsonplaceholder.typicode.com/posts');
+const fetch2 = fetch('https://jsonplaceholder.typicode.com/users');
+// const fetch3 = fetch('https://jsonplaceholder.typicode.com/todoss');
+const fetch3 = fetch('https://api.example.com/data3');
+
+Promise.allSettled([fetch1, fetch2, fetch3]).then(data=> data.forEach((val, index)=>{
+  // console.log(val)
+  if(val.status === 'fulfilled'){
+    console.log(val.value)
+  }
+  if(val.status === 'rejected'){
+    console.log(val.reason.message)
+  }
+})).catch(err=> console.log(err))
+```
 4. Promise.any
 - Promise.any: Takes an array of promises and returns a single promise that resolves as soon as any of the promises in the array resolves, or rejects if all promises in the array reject.
 
+```
 
 
 
