@@ -138,11 +138,24 @@ person1.greet();
 ```
 
 # Q- Call, Apply, Bind
+- Definition : call, apply, and bind are methods in JavaScript that can be used to manipulate the this context of functions. 
 - The call, apply, and bind methods in JavaScript are used to manipulate the this context in functions.
 - The apply method is similar to call, but it takes an array of arguments.
 - The bind method creates a new function that, when called, has its this context 
 - It will take two argument syntex - funcName.call(defineObject, 'Argument value inside the function')
+```
+Call(can't use arrow function buz accessing this property so it will not work)
+// call
+function gret(nameA, nameB){
+console.log(`Hi,${this.welcom} ${nameA} and ${nameB}`)
+}
 
+//Acess by this 
+const person = {
+  welcom : 'Welcom'
+}
+gret.call(person,'jone', 'rashmi')
+```
 # what is the diffrence between rest and spread operator.
  > Rest
  -  the rest operator is used to gather elements into an array,
