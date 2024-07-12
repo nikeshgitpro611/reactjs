@@ -1027,6 +1027,48 @@ Promise.allSettled([fetch1, fetch2, fetch3]).then(data=> data.forEach((val, inde
 -  Webpack is a module bundler that prepares assets for deployment.
 - Webpack manages and optimizes asset bundling, including JavaScript and beyond.
 
+> Task Find Duplicate and occuration
+```
+let arr = [1, 4, 5, 6, 2, 3, 4, 5];
+
+const countDuplicat = (arr) => {
+  let count = {};
+  let dupCon = {};
+  //Cout Occurance
+  for (let i = 0; i < arr.length; i++) {
+    const itrat = arr[i];
+    if (count[itrat]) {
+      count[itrat]++;
+    } else {
+      count[itrat] = 1;
+    }
+  }
+
+  //Find Duplicat Count
+  for (let Itrat in count) {
+    console.log('Itrsr : ', Itrat);
+    if (count[Itrat] > 1) {
+      dupCon[Itrat] = count[Itrat];
+    }
+  }
+
+  //Find Duplicat
+  let element = [];
+  let duplicateEle = [];
+  for (let i = 0; i < arr.length; i++) {
+    const ItratData = arr[i];
+    if (element.includes(ItratData)) {
+      duplicateEle.push(ItratData);
+    } else {
+      element.push(ItratData);
+    }
+  }
+  return { element, duplicateEle, dupCon, count };
+};
+const result = countDuplicat(arr);
+console.log('Result : ', result);
+```
+
 
 
 
