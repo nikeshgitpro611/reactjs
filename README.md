@@ -1067,6 +1067,39 @@ const countDuplicat = (arr) => {
 };
 const result = countDuplicat(arr);
 console.log('Result : ', result);
+
+2nd Task---
+let arr = [1, 4, 5, 6, 2, 3, 4, 5];
+//lable put
+
+const lableDupl = (arr) => {
+  let count = {};
+  let dupl = {};
+
+  //Occurance
+  for (let i = 0; i < arr.length; i++) {
+    const Itrat = arr[i];
+    if (count[Itrat]) {
+      count[Itrat]++;
+    } else {
+      count[Itrat] = 1;
+    }
+  }
+
+  //Put Lable Accoding To Occurance
+  const label = arr.map((ele) => {
+    return {
+      value: ele,
+      label: count[ele] > 1 ? 'Duplicat' : 'Unique',
+    };
+  });
+
+  //Val Result
+  return { count, label };
+};
+const result = lableDupl(arr);
+console.log(result);
+
 ```
 
 
