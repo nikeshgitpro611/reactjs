@@ -140,6 +140,34 @@ const person1 = new person('Alool', 45);
 person1.greet();
 ```
 
+```
+function person(name, age, vill) {
+  this.name = name;
+  this.age = age;
+  this.vill = vill;
+}
+
+person.prototype.greet = function () {
+  console.log(
+    `Hey You ${this.name} and ${this.age} or Village is ${this.vill}`
+  );
+};
+
+person.prototype.Birthday = function () {
+  this.age += 17;
+  console.log(
+    `Hey You ${this.name} and ${this.age} or Village is ${this.vill}`
+  );
+};
+
+//Instance
+const person1 = new person('jone', 33, 'Usa');
+const person2 = new person('jone', 39, 'Usa');
+
+person1.greet();
+person2.Birthday();
+```
+
 # Q- Call, Apply, Bind
 - Definition : call, apply, and bind are methods in JavaScript that can be used to manipulate the this context of functions. 
 - The call, apply, and bind methods in JavaScript are used to manipulate the this context in functions.
@@ -271,6 +299,77 @@ const groiupData =  (dataVal) => {
 };
 const  valCheck =   groiupData(datsa);
 console.log('valCheck : ', valCheck)
+```
+
+```
+Grouping Question
+
+const workHoursData = [
+  { employee: 'Alice', hours: 8 },
+  { employee: 'Bob', hours: 7 },
+  { employee: 'Alice', hours: 9 },
+  { employee: 'Charlie', hours: 6 },
+  { employee: 'Bob', hours: 8 },
+  { employee: 'Alice', hours: 8 },
+];
+
+const impLog = (log) => {
+  return log.reduce((acc, items) => {
+    const { employee, hours } = items;
+    if (!acc[employee]) {
+      acc[employee] = { totalHours: 0, hoursLog: [] };
+    }
+    acc[employee].totalHours += hours;
+    acc[employee].hoursLog.push(hours);
+    return acc;
+  }, {});
+};
+
+const result = impLog(workHoursData);
+console.log(result);
+```
+```
+Task 3
+const salesData = [
+  { product: 'A', amount: 100, date: '2023-07-01' },
+  { product: 'B', amount: 200, date: '2023-07-02' },
+  { product: 'A', amount: 150, date: '2023-07-15' },
+  { product: 'C', amount: 300, date: '2023-08-01' },
+  { product: 'B', amount: 250, date: '2023-08-03' },
+  { product: 'A', amount: 200, date: '2023-08-10' },
+];
+
+// { totalAmount: 0, count: 0 };
+
+const task = (arr) => {
+  const result = arr.reduce((acc, items) => {
+    const { product, amount, date } = items;
+
+    if (!acc[product]) {
+      acc[product] = {};
+    }
+    if (!acc[product][date]) {
+      acc[product][date] = { totalAmount: 0, count: 0 };
+    }
+    acc[product][date].totalAmount += amount;
+    acc[product][date].count += 1;
+
+    return acc;
+  }, {});
+
+  //Avg Sales
+  for (let product in result) {
+    for (let month in result[product]) {
+      console.log(month);
+      const { totalAmount, count } = result[product][month];
+      result[product][month].averageAmount = totalAmount / count;
+    }
+  }
+
+  return result;
+};
+const result = task(salesData);
+console.log(result);
 ```
 > Task  Given an array of objects representing a collection of books, write a function using the reduce method to compute the total number of pages in all books, and the number of books by each author. The function should return an object with two properties: totalPages and booksByAuthor.
 
