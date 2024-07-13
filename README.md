@@ -1114,6 +1114,19 @@ Promise.allSettled([fetch1, fetch2, fetch3]).then(data=> data.forEach((val, inde
 4. Promise.any
 - Promise.any: Takes an array of promises and returns a single promise that resolves as soon as any of the promises in the array resolves, or rejects if all promises in the array reject.
 
+```
+const promise1 = Promise.reject('Error 1');
+const promise2 = new Promise((resolve, reject) => setTimeout(resolve, 100, 'Result 2'));
+const promise3 = new Promise((resolve, reject) => setTimeout(resolve, 200, 'Result 3'));
+
+Promise.any([promise1, promise2, promise3])
+  .then(value => {
+    console.log(value); // "Result 2"
+  })
+  .catch(error => {
+    console.error(error);
+  });
+```
 # Webpack and Babel
 - Webpack and Babel are both essential tools in modern JavaScript development
 > Babel
