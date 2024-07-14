@@ -16,6 +16,7 @@ import UseMemoAndCallBack from './allhook/07-useMemo/useMemoAndUseCallback';
 import UiShow from './allhook/08- memo/uiShow';
 import UiToggle from './allhook/05-contextApi/Togglethem/UiToggle';
 import UiReduser from './allhook/06-useReduser/Concept/UiReduser';
+import UiPagination from '../Task/useStateConcept/Pagination/UiPagination';
 
 const App = () => {
   return (
@@ -35,7 +36,8 @@ const App = () => {
       {/* <UseMemoAndCallBack /> */}
       {/* <UiShow /> */}
       {/* <UiToggle /> */}
-      <UiReduser />
+      {/* <UiReduser /> */}
+      <UiPagination />
     </div>
   )
 }
