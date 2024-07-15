@@ -8,7 +8,6 @@ const Formreff = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         const inputVal =  refContainer.current.value;
-        
         setVal((preVal)=> [...preVal, inputVal])
     }
 

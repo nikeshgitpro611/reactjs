@@ -17,6 +17,7 @@ import UiShow from './allhook/08- memo/uiShow';
 import UiToggle from './allhook/05-contextApi/Togglethem/UiToggle';
 import UiReduser from './allhook/06-useReduser/Concept/UiReduser';
 import UiPagination from '../Task/useStateConcept/Pagination/UiPagination';
+import FormAddUi from '../Task/useStateConcept/usereffConcept/FormAddInput/FormAddUi';
 
 const App = () => {
   return (
@@ -37,7 +38,8 @@ const App = () => {
       {/* <UiShow /> */}
       {/* <UiToggle /> */}
       {/* <UiReduser /> */}
-      <UiPagination />
+      {/* <UiPagination /> */}
+      <FormAddUi />
     </div>
   )
 }
