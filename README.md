@@ -1045,6 +1045,10 @@ promise
 1. Promise.all
 - Takes an array of promises and returns a single promise that resolves when all of the promises in the array have resolved, or rejects if any promise in the array rejects.
 - Waits for all promises to resolve if any fail then all will be fail
+
+::  Resources : :
+- it will wait for all them to finish. if any one api will be fail then all will be rejected.
+- if All are sucess then output will be come
 ```
 Promise.all([promise1, promise2, promise3])
     .then((results) => {
@@ -1070,6 +1074,11 @@ Promise.all([fetch1, fetch2, fetch3]).then(responce => {
 - Promise.race: Takes an array of promises and returns a single promise that resolves or rejects as soon as one of the promises in the array resolves or rejects.
 - first result matters more than waiting for all results.if first result having problem then reject all.
 - It helps you improve performance, reliability, and user experience by allowing you to quickly respond to the fastest completing promise.
+
+::  Resources : :
+- it will wait for first promish settled/sucessfull.
+- if [p1(sucess), p2(fail)] then it will be ignore the result of failuer.
+- if All are sucess then output will be come
 
 
 ```
