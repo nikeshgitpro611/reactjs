@@ -1136,6 +1136,11 @@ Promise.any([promise1, promise2, promise3])
     console.error(error);
   });
 ```
+# Async and Await
+- we can handling promises by async and await
+- async is a js key we can using during function creation. and it is allowing to retern promises.
+- async and await is combo use for handel promises.
+- why using await ? because code will be wait few sec to get promises resolve then it will be go next line
 # Webpack and Babel
 - Webpack and Babel are both essential tools in modern JavaScript development
 > Babel
