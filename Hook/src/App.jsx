@@ -19,6 +19,7 @@ import UiReduser from './allhook/06-useReduser/Concept/UiReduser';
 import UiPagination from '../Task/useStateConcept/Pagination/UiPagination';
 import FormAddUi from '../Task/useStateConcept/usereffConcept/FormAddInput/FormAddUi';
 import FormHandling from '../Task/useStateConcept/usereffConcept/FormAddInput/FormHandling';
+import MultipleFormContentHandling from '../Task/useStateConcept/usereffConcept/FormAddInput/multipleFormContentHandling';
 
 const App = () => {
   return (
@@ -41,7 +42,8 @@ const App = () => {
       {/* <UiReduser /> */}
       {/* <UiPagination /> */}
       {/* <FormAddUi /> */}
-      <FormHandling />
+      {/* <FormHandling /> */}
+      <MultipleFormContentHandling />
     </div>
   )
 }
