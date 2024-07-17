@@ -1279,6 +1279,58 @@ export default App;
 > Monitoring and Logging Services
 - CloudWatch: Monitoring and management service for collecting and tracking metrics, logs, and events.
 
+# Redux Thunk and Redux Saga 
+- both middleware libraries for managing side effects in Redux applications.
+> Redux Thunk
+-  Redux Thunk is a good choice for simpler applications or when you need to get started quickly with asynchronous actions. 
+- Redux Thunk allows you to write action creators that return a function  and returned function receives the store's dispatch and getState methods
+- it is familiar with JavaScript and asynchronous programming (e.g., Promises)
+- Suitable for smaller projects or simple asynchronous tasks such as fetching data from an API or performing basic side effects.
+```
+// Action creator with Redux Thunk
+const fetchData = () => {
+  return async (dispatch, getState) => {
+    dispatch({ type: 'FETCH_DATA_REQUEST' });
+    try {
+      const response = await fetch('/api/data');
+      const data = await response.json();
+      dispatch({ type: 'FETCH_DATA_SUCCESS', payload: data });
+    } catch (error) {
+      dispatch({ type: 'FETCH_DATA_FAILURE', payload: error });
+    }
+  };
+};
+```
+> Redux Saga
+- need to be i npm redux-saga/effects
+- Redux Saga is more suited for complex applications where you need fine-grained control over side  effects and asynchronous flows.
+- Redux Saga uses generator functions to handle side effects. using yeild key 
+- Sagas are more powerful and flexible compared to Thunks.but they come with added complexity. 
+- They can manage more complex scenarios and provide better control over the flow of asynchronous operations.
+: Usecase
+- Suitable for larger projects or more complex asynchronous workflows that involve coordination between multiple tasks, handling race conditions, or managing long-running processes.
+- Ideal for applications where you need advanced control over side effects, such as canceling ongoing requests or sequencing multiple actions.
+```
+import { call, put, takeEvery } from 'redux-saga/effects';
+
+// Worker saga
+function* fetchData() {
+  try {
+    const response = yield call(fetch, '/api/data');
+    const data = yield response.json();
+    yield put({ type: 'FETCH_DATA_SUCCESS', payload: data });
+  } catch (error) {
+    yield put({ type: 'FETCH_DATA_FAILURE', payload: error });
+  }
+}
+
+// Watcher saga
+function* watchFetchData() {
+  yield takeEvery('FETCH_DATA_REQUEST', fetchData);
+}
+
+export default watchFetchData;
+```
 
 
 
