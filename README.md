@@ -1263,9 +1263,21 @@ const App = () => {
 
 export default App;
 
-
-
 ```
+# Tools used for deployment in your previous organisation ?
+> Compute Services
+- In AWS Using Ec2 server
+- Lambda: Serverless compute service that runs code in response to events and automatically manages the compute resources.
+> Storage Services
+- s3 (Scalable object storage) service for storing application assets, backups, and static files.
+> Database Services
+- RDS (Relational Database Service): Managed relational database service supporting multiple database engines.
+> Networking Services
+- API Gateway: Managed service for creating, deploying, and managing APIs.
+> CI/CD Services
+- CodeCommit: Source control service for hosting Git repositories.
+> Monitoring and Logging Services
+- CloudWatch: Monitoring and management service for collecting and tracking metrics, logs, and events.
 
 
 
