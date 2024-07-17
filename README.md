@@ -1227,6 +1227,45 @@ const result = lableDupl(arr);
 console.log(result);
 
 ```
+# What is Styled-components
+- Styled-components is a popular library in the React ecosystem that allows developers dynamic Css
+- It utilizes template literals to style components.
+> Usecase
+1. Dynamic Styling
+2. Improved Maintainability:
+3. Styled-components allow for conditional styling based on component props.
+
+```
+npm install styled-components
+
+import React from 'react';
+import styled from 'styled-components';
+
+// Define a styled button component
+const Button = styled.button`
+  background-color: ${(props) => (props.primary ? 'blue' : 'white')};
+  color: ${(props) => (props.primary ? 'white' : 'black')};
+  font-size: 1em;
+  margin: 1em;
+  padding: 0.25em 1em;
+  border: 2px solid blue;
+  border-radius: 3px;
+`;
+
+const App = () => {
+  return (
+    <div>
+      <Button>Normal Button</Button>
+      <Button primary>Primary Button</Button>
+    </div>
+  );
+};
+
+export default App;
+
+
+
+```
 
 
 
