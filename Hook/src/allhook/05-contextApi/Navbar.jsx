@@ -3,7 +3,6 @@ import NavbarLinks from './NavbarLinks'
 
 export const Authrise = createContext();
 
-
 const NavBar = () => {
   const [val, setVal] = useState({ name: 'jone' });
   const logout = () => {setVal(null)}

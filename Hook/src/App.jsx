@@ -20,6 +20,7 @@ import UiPagination from '../Task/useStateConcept/Pagination/UiPagination';
 import FormAddUi from '../Task/useStateConcept/usereffConcept/FormAddInput/FormAddUi';
 import FormHandling from '../Task/useStateConcept/usereffConcept/FormAddInput/FormHandling';
 import MultipleFormContentHandling from '../Task/useStateConcept/usereffConcept/FormAddInput/multipleFormContentHandling';
+import Authentication from '../Task/usecontextwithreduse/Authentication';
 
 const App = () => {
   return (
@@ -43,7 +44,8 @@ const App = () => {
       {/* <UiPagination /> */}
       {/* <FormAddUi /> */}
       {/* <FormHandling /> */}
-      <MultipleFormContentHandling />
+      {/* <MultipleFormContentHandling /> */}
+      <Authentication />
     </div>
   )
 }
