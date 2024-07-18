@@ -34,6 +34,61 @@ repo - https://github.com/john-smilga/react-course-v3
 - HOCs are Functions: They take a component as an argument and return a new component.
 ![alt text](Img/image.png)
 
+```
+Task - 01
+//Show two Array Filter by search
+Hoc.jsx
+import React, { useRef, useState } from 'react'
+
+const Hoc = (Orignal) => {
+
+    return () => {
+        const list1 = ['Eggfruit', 'Fig', 'Grape', 'Honeydew', 'Apple'];
+        const list2 = ['Apple', 'Banana', 'Cherry', 'Date'];
+        const [serch, setSearc] =  useState('')
+        const inputReff =  useRef();
+
+        const filterSearch = (list1, search)=> {
+            return list1.filter(data=> data.toLowerCase().includes(serch.toLowerCase()))
+        }
+        const filter1 = filterSearch(list1, serch)
+        const filter2 = filterSearch(list2, serch)
+        return (
+        <div className="">
+            <input type="text" ref={inputReff} value={serch} onChange={()=> setSearc(inputReff.current.value)} placeholder='search me'/>
+            <Orignal list1 = {filter1} list2 = {filter2}/>
+        </div>
+        )
+    }
+}
+
+export default Hoc
+
+:::Uishow.jsx:::
+import React from 'react'
+import Hoc from './Hoc'
+
+const UiList = ({list1, list2}) => {
+  return (
+    <div>
+      <h2>HOC Concept</h2>
+      <ul>
+        <p>List one</p>
+        {list1.map(data=> <li>{data}</li>)}
+      </ul>
+      <ul>
+        <p>List Two</p>
+        {list2.map(data=> <li>{data}</li>)}
+      </ul>
+    </div>
+  )
+}
+
+export default Hoc(UiList)
+
+
+```
+
 # Q - Diffrence between context api and redux.
 Both the Context API and Redux are tools for managing state in React applications.
 
