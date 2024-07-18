@@ -938,6 +938,11 @@ window.addEventListener('resize', debouncing(() => {
   console.log('Window Resize')
 }, 300))
 ```
+
+::ADVANCE OF DEBOUNSING::
+- Debouncing is a strategy used to improve the performance of a feature by controlling the time at which a function should be executed
+- Uses lodash's debounce to delay the search input handling, improving performance for large lists.
+ npm i lodash
 - Throttling ensures that a function is only called at most once in a specified time period.it often happend during  event is triggered.
 > UseCase 
 01. Scrolling: Logging the scroll position at most once every 200 milliseconds.
