@@ -306,6 +306,14 @@ const obj2 = {
 };
 obj1.greet();
 obj1.greet.call(obj2); //context menupulat
+
+// task -3 add valur by call method
+function sum(a, b, c) {
+  return a + b + c;
+}
+
+const result = sum.call(null, 1, 2, 3);  // Output: 6
+console.log(result);
 ```
 ```
 // Apply
