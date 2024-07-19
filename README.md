@@ -249,6 +249,30 @@ const person2 = new person('jone', 39, 'Usa');
 person1.greet();
 person2.Birthday();
 ```
+```
+//book menagment
+function library(name) {
+  this.name = name;
+  if (!library.count) {
+    library.count = 0;
+  }
+  library.count++;
+}
+
+library.prototype.greet = function () {
+  console.log(`Hey! ${this.name}`);
+};
+library.countData = function () {
+  console.log(`Total Book : ${library.count}`);
+};
+
+//instance
+const libraryMenag = new library('village Librayr');
+const cityMenag = new library('countery Librayr');
+libraryMenag.greet();
+cityMenag.greet();
+library.countData();
+```
 
 # Q- Call, Apply, Bind
 - Definition : call, apply, and bind are methods in JavaScript that can be used to manipulate the this context of functions. 
