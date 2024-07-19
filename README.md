@@ -381,6 +381,13 @@ const reverse = (date) => {
 
 const test = reverse('Hello World');
 console.log('DATA : ', test);
+
+--------Task 2 ----------
+const sentence = 'hello world, this is a test';
+//Output: "Hello World, This Is A Test"
+
+const result = sentence.split(' ').map(data => data.charAt(0).toUpperCase() + data.slice(1)).join(' ');
+console.log(result)
 ```
 >  task 2
 Calculate the occurrence of the strings ( HELLO ) => { H:1, E:1, L:2, 
@@ -530,6 +537,28 @@ const TotalPageByAuthor = (book) => {
 };
 
 const result = TotalPageByAuthor(books);
+console.log(result);
+```
+```
+let arr = ['a', 'a', 'a', 'b', 'b', 'b', 'c', 'c', 'c', 'a', 'a'];
+//Output : a=3,b=3,c=3,a=2
+const occurance = (arr) => {
+  let arrSplit = [];
+  let count = 1;
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === arr[i + 1]) {
+      // console.log(arr[i] ,arr[i + 1])
+      count++;
+    } else {
+      // console.log(arr[i] ,arr[i + 1])
+      arrSplit.push(arr[i] + '=' + count);
+      count = 1;
+    }
+  }
+  return arrSplit.join(',');
+};
+const result = occurance(arr);
 console.log(result);
 ```
 
