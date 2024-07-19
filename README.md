@@ -292,6 +292,20 @@ const person = {
   welcom : 'Welcom'
 }
 gret.call(person,'jone', 'rashmi')
+
+// Task Contest menupulat...................
+const obj1 = {
+  name: 'jone',
+  greet: function () {
+    console.log(`hello my name is ${this.name}`);
+  },
+};
+
+const obj2 = {
+  name: 'Bob',
+};
+obj1.greet();
+obj1.greet.call(obj2); //context menupulat
 ```
 ```
 // Apply
