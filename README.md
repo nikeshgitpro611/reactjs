@@ -110,6 +110,33 @@ RTK /ReduxLates
 
 #  Q create a react app with Start,Stop and Reset button and when we click timer will start/stop/pause/reset
 
+```
+const arr = [1, 4, 5, 6, 2, 3, 4, 5];
+
+const duplicatFind = (arr) => {
+  let duplicat = [];
+  let unique = [];
+  let nestedDuplicat = [];
+
+  for (let key of arr) {
+    if (key % 2 === 0) {
+      duplicat.push(key);
+      if (unique.includes(key)) {
+        console.log(unique.includes(key));
+        nestedDuplicat.push(key);
+      } else {
+        console.log(unique.includes(key));
+        unique.push(key);
+      }
+    }
+  }
+
+  return { duplicat, unique, nestedDuplicat };
+};
+const result = duplicatFind(arr);
+console.log(result);
+
+```
 # Q- const Arr = [1, [4, [5, 6]], [2, [3, [4, 5]]]]; 
 01. convert in [x,x,x,x,x]
 02. Asc
