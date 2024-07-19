@@ -1435,4 +1435,49 @@ const isGreaterThanThree = (x) => x;
 console.log(input.test(isGreaterThanThree));
 
 ```
+```
+const input = [1, 2, 3, 4, 4, 5, 6, 6, 7, 7];
+//Find filter,map, reduce
+
+Array.prototype.test = function ({
+  filter = null,
+  map = null,
+  reduc = null,
+  initalval = null,
+}) {
+  let data = this;
+  let result = data;
+  let mapDAta = [];
+  let filterDat = [];
+  let reduceDat = [];
+
+  if (filter) {
+    result = result.filter(filter);
+    filterDat.push(result);
+  }
+
+  if (map) {
+    result = result.map(map);
+    mapDAta.push(result);
+  }
+  if (reduc) {
+    result = result.reduce(reduc, initalval);
+    reduceDat.push(result);
+  }
+  return { mapDAta, filterDat, reduceDat };
+};
+
+//Condition
+const isGraterThen = (x) => x > 3;
+const isMap = (x) => x * 3;
+const reduceData = (x, y) => x + y;
+console.log(
+  input.test({
+    filter: isGraterThen,
+    map: isMap,
+    reduc: reduceData,
+    initalval: 0,
+  })
+);
+```
 
