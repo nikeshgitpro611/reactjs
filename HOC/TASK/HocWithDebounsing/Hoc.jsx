@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, {  useCallback, useRef, useState } from 'react'
 
 const Hoc = (OrignalFunction) => {
     const students = [
@@ -38,7 +38,7 @@ const Hoc = (OrignalFunction) => {
         const debouns = customDebousing((searchInput) => {
             console.log('Cll');
             setSearch(searchInput)
-        }, 300)
+        }, 100)
         return (
             <div className="">
                 <h5>Hoc Concept With Debounsing...</h5>

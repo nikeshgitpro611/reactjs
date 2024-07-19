@@ -1391,6 +1391,48 @@ function* watchFetchData() {
 
 export default watchFetchData;
 ```
+# polifil
+> Task const input = [1, 2, 3, 4, 4, 5, 6, 6, 7, 7];
+- find Duplicat
+```
+const input = [1, 2, 3, 4, 4, 5, 6, 6, 7, 7];
+Array.prototype.test = function(greet){
+  let data = this;
+  let arr = [];
+  for(let i=0; i< data.length; i++){
+    const Itrat =  data[i];
+    // console.log(Itrat)
+    if(Itrat > 4){
+      arr.push(Itrat)
+    }
+  }
 
+  return arr
+}
+let graterThaFour = x => x > 4;
+console.log(input.test(graterThaFour))
+```
+```
+2nd Task
+//grouping Even add odd
+const input = [1, 2, 3, 4, 4, 5, 6, 6, 7, 7];
 
+Array.prototype.test = function (greet) {
+  let data = this;
+  let arr = {};
+  for (let i = 0; i < data.length; i++) {
+    const Itrat = data[i];
+    if (!arr[Itrat]) {
+      arr[Itrat] = { even: [], odd: [] };
+    }
+    (Itrat % 2 === 0) ? arr[Itrat].even.push('Even') : arr[Itrat].odd.push('Odd')
+    
+  }
+  return {...arr};
+};
+
+const isGreaterThanThree = (x) => x;
+console.log(input.test(isGreaterThanThree));
+
+```
 
