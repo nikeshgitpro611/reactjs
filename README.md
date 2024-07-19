@@ -1480,4 +1480,53 @@ console.log(
   })
 );
 ```
+```
+const input = [1, 2, 3, 4, 4, 5, 6, 6, 7, 7];
+//Find filter,map, reduce, even, odd
+
+Array.prototype.test = function (operation) {
+  let data = this;
+  let result = data;
+  let graterThenThree = [];
+  let mapData = [];
+  let evenData = [];
+  let oddData = [];
+
+  operation.forEach((data) => {
+    const { type, fn } = data;
+    console.log(fn);
+    if (type === 'filter') {
+      result = result.filter(fn);
+      graterThenThree.push(result);
+    }
+
+    if (type === 'map') {
+      result = result.map(fn);
+      mapData.push(result);
+    }
+
+    if (type === 'even') {
+      result = result.filter(fn);
+      evenData.push(result);
+    }
+    if (type === 'odd') {
+      result = result.filter(fn);
+      oddData.push(result);
+    }
+  });
+  return { graterThenThree, mapData, evenData, oddData };
+};
+let filterGraterThree = (x) => x > 3;
+let mapMultipleFour = (x) => x * 4;
+let evenData = (x) => x % 2 === 0;
+let oddData = (x) => x % 2 != 0;
+
+const operation = [
+  { type: 'filter', fn: filterGraterThree },
+  { type: 'map', fn: mapMultipleFour },
+  { type: 'even', fn: evenData },
+  { type: 'odd', fn: oddData },
+];
+console.log(input.test(operation));
+```
 
