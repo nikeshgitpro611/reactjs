@@ -1691,3 +1691,44 @@ function App() {
 
 export default App;
 ```
+# outlet
+- for Acess our child component
+```
+// import React from 'react'
+
+import { Outlet } from "react-router-dom"
+import CartOverView from "../features/cart/CartOverView"
+import Header from "./Header"
+
+const AppLayout = () => {
+  return (
+    <div>
+        <Header />
+        <main>
+            <h1>Content</h1>
+            <Outlet /> // Home,cart etc include in child
+        </main>
+        <CartOverView />
+    </div>
+  )
+}
+
+export default AppLayout
+
+
+
+
+::::::::::::App.js
+const route = createBrowserRouter([
+  {
+    element: <AppLayout />,
+    children: [
+      { path: "/", element: <Home /> },
+      { path: "/menu", element: <Menu /> },
+      { path: "/cart", element: <Cart /> },
+      { path: "/order/new", element: <CreatOrder /> },
+      { path: "/order/:orderId", element: <Order /> },
+    ],
+  },
+]);
+```
