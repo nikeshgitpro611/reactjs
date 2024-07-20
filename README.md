@@ -1732,3 +1732,130 @@ const route = createBrowserRouter([
   },
 ]);
 ```
+# Loder Route
+- Each route can define a "loader" function to provide data to the route element before it renders.
+- The loader function in React Router v6.4 and above provides several benefits for handling data fetching in routes.they enhance route handling:
+> Benefits of Using loader Functions
+1. Centralized Data Fetching:
+2. Server-Side Rendering (SSR) Support: Loaders are designed to work seamlessly with server-side rendering (SSR). This means you can fetch data on the server before the React components are rendered, improving initial load performance and SEO.
+3. Integrated Error Handling: Handel error occurance during fetch APi
+4. Since loaders run before the route component is rendered, you can be sure that the required data is available when the component mounts.
+```
+createBrowserRouter([
+    {
+    path: '/profile',
+    element: <Profile />,
+    loader: async () => {
+      const userProfile = await fetchUserProfile(); //fetchUserProfile = custom Hook
+      return { userProfile };
+    },
+    errorElement: <div>Error loading profile</div>,
+  },
+
+  {
+    element: <Teams />,
+    path: "teams",
+    loader: async () => {
+      return fakeDb.from("teams").select("*");
+    },
+    children: [
+      {
+        element: <Team />,
+        path: ":teamId",
+        loader: async ({ params }) => {
+          return fetch(`/api/teams/${params.teamId}.json`);
+        },
+      },
+    ],
+  },
+]);
+```
+# useLoaderData or Dataloading water falls
+- The useLoaderData hook, combined with the loader function, provides a robust solution for data fetching in React Router v6.4+.
+- for get all loder data acess.
+
+```
+import Menu, {loder as menuLoder} from "../src/features/menu/Menu";
+{ path: "/menu", element: <Menu />, loader : menuLoder },
+
+Menu.jsx
+const menu = useLoaderData();
+console.log('Menu : ', menu);
+
+export const loder = async() => {
+  const menu = await getMenu();
+  return menu
+}
+```
+# useNavigation()
+- The useNavigation hook is a powerful tool in React Router v6.4+ that provides fine-grained control over navigation events and states.
+-  It is particularly useful for displaying loading indicators during navigation, handling programmatic navigation, rendering conditionally based on navigation state, and logging navigation events.
+# useRouteError()
+- The useRouteError hook in React Router v6.4+ .
+- This is particularly useful for handling errors gracefully and displaying meaningful error messages to the user.
+> Task Login Authentication...
+```
+// src/Login.js
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+function Login() {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
+
+  const handleLogin = async (event) => {
+    event.preventDefault();
+    
+    // Simulate an API call
+    const isAuthenticated = await fakeAuthAPI(username, password);
+    
+    if (isAuthenticated) {
+      // Navigate to the home page after successful login
+      navigate('/');
+    } else {
+      alert('Login failed. Please check your credentials and try again.');
+    }
+  };
+
+  return (
+    <div>
+      <h2>Login</h2>
+      <form onSubmit={handleLogin}>
+        <div>
+          <label>Username:</label>
+          <input
+            type="text"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+        </div>
+        <div>
+          <label>Password:</label>
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+        <button type="submit">Login</button>
+      </form>
+    </div>
+  );
+}
+
+// Simulated authentication function
+const fakeAuthAPI = (username, password) => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      if (username === 'user' && password === 'password') {
+        resolve(true);
+      } else {
+        resolve(false);
+      }
+    }, 1000);
+  });
+};
+
+export default Login;
+```
