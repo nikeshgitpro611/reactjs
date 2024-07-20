@@ -1631,4 +1631,63 @@ const operation = [
 ];
 console.log(input.test(operation));
 ```
+# React-router-Dom
+- Latest version 6.4
+- npm i react-router-com@6
+- routing we can menage by createBrowserRouter
+> createBrowserRouter
+- that aims to simplify routing and provide more advanced features for handling navigation, data fetching, and UI updates.
+- Improvment in
+1. Improved Error Handling
+- Error handling in routes is more robust, allowing for specific error components to be rendered when data fetching fails.
+2. Nested Routes
+- Nested routes are more straightforward to define and manage, providing better control over component rendering based on the route hierarchy.
 
+
+```
+import { createBrowserRouter, RouterProvider, Route, Link } from 'react-router-dom';
+import Home from './Home';
+import About from './About';
+import Contact, { contactAction } from './Contact';
+import Profile, { profileLoader } from './Profile';
+import HomeError from './HomeError';
+import ProfileError from './ProfileError';
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home />,
+    errorElement: <HomeError />,
+  },
+  {
+    path: "/about",
+    element: <About />,
+  },
+  {
+    path: "/contact",
+    element: <Contact />,
+    action: contactAction,
+  },
+  {
+    path: "/profile",
+    element: <Profile />,
+    loader: profileLoader,
+    errorElement: <ProfileError />,
+  },
+]);
+
+function App() {
+  return (
+    <RouterProvider router={router}>
+      <nav>
+        <Link to="/">Home</Link>
+        <Link to="/about">About</Link>
+        <Link to="/contact">Contact</Link>
+        <Link to="/profile">Profile</Link>
+      </nav>
+    </RouterProvider>
+  );
+}
+
+export default App;
+```
