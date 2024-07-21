@@ -21,6 +21,7 @@ import FormAddUi from '../Task/useStateConcept/usereffConcept/FormAddInput/FormA
 import FormHandling from '../Task/useStateConcept/usereffConcept/FormAddInput/FormHandling';
 import MultipleFormContentHandling from '../Task/useStateConcept/usereffConcept/FormAddInput/multipleFormContentHandling';
 import Authentication from '../Task/usecontextwithreduse/Authentication';
+import UiTimer from '../Task/USESTATE/UiTimer';
 
 const App = () => {
   return (
@@ -45,7 +46,9 @@ const App = () => {
       {/* <FormAddUi /> */}
       {/* <FormHandling /> */}
       {/* <MultipleFormContentHandling /> */}
-      <Authentication />
+      {/* <Authentication /> */}
+      <UiTimer />
+      
     </div>
   )
 }
