@@ -95,3 +95,58 @@ Here defaultState -------------- is connected by state we can acess by state.def
 3. Components involve expensive calculations or complex rendering.
 4. Parent components re-render frequently due to state changes.
 5. Pure function
+```
+// use all three hook memo, usememo, useCallback
+import { useCallback, useState } from 'react';
+import Items from './Items';
+
+//Use usecall back, react.memo
+const Uishow = () => {
+  const [items, setItems] = useState([
+    { id: 1, name: 'Item 1', count: 0 },
+    { id: 2, name: 'Item 2', count: 0 },
+    { id: 3, name: 'Item 3', count: 0 },
+  ]);
+
+  const incriment = useCallback((id) => {
+    console.log('click');
+    setItems((prev) =>
+      prev.map((data) =>
+        data.id === id ? { ...data, count: data.count + 1 } : data
+      )
+    );
+  }, []);
+  return (
+    <div>
+      <h2>Advace React with Hook</h2>
+      {items.map((data) => (
+        <Items key={data.id} data={data} incriment={incriment} />
+      ))}
+    </div>
+  );
+};
+export default Uishow;
+
+::::::::::::::Items.jsx
+import { memo, useMemo } from 'react';
+
+const Items = memo(({ data, incriment }) => {
+  console.log('memo concept');
+  const { id, count, name } = data;
+
+  const memoTask = useMemo(() => {
+    console.log('memotaskkkk');
+    return count;
+  }, [count]);
+  return (
+    <div>
+      <h4>Items Counts...</h4>
+      <p>
+        {name}: {memoTask}
+      </p>
+      <button onClick={() => incriment(id)}>➕</button>
+    </div>
+  );
+});
+export default Items;
+```
