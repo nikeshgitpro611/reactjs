@@ -150,3 +150,13 @@ const Items = memo(({ data, incriment }) => {
 });
 export default Items;
 ```
+> Find persent elements
+```
+const arr1 = [1,2,3,4,5,6]
+const arr2 = [4,5,6,7,8,9]
+const arr3 = [4,5,8,9]
+
+const test = (a,b,c) => b.filter(data=> a.includes(data) && c.includes(data));
+const result = test(arr1, arr2,arr3);
+console.log(result)
+```
