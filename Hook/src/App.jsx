@@ -13,7 +13,7 @@ import Navbar from './allhook/05-contextApi/Navbar'
 import NavBar from './allhook/05-contextApi/Navbar';
 import ReducerBasics from './allhook/06-useReduser/ReducerBasics';
 import UseMemoAndCallBack from './allhook/07-useMemo/useMemoAndUseCallback';
-import UiShow from './allhook/08- memo/uiShow';
+// import UiShow from './allhook/08- memo/uiShow';
 import UiToggle from './allhook/05-contextApi/Togglethem/UiToggle';
 import UiReduser from './allhook/06-useReduser/Concept/UiReduser';
 import UiPagination from '../Task/USESTATE/Pagination/UiPagination';
@@ -23,6 +23,8 @@ import MultipleFormContentHandling from '../Task/useStateConcept/usereffConcept/
 import Authentication from '../Task/usecontextwithreduse/Authentication';
 import UiTimer from '../Task/USESTATE/UiTimer';
 import TodoList from '../Task/USESTATE/TodoList';
+import UiShow from '../Task/CONTEXTWITHREDUSER/UiShow';
+// import UiShow from '../Task/CONTEXTAPI/UiShow';
 
 const App = () => {
   return (
@@ -49,7 +51,8 @@ const App = () => {
       {/* <MultipleFormContentHandling /> */}
       {/* <Authentication /> */}
       {/* <UiTimer /> */}
-      <TodoList />
+      {/* <TodoList /> */}
+      <UiShow />
       
     </div>
   )
