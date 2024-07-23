@@ -348,6 +348,14 @@ res1.hello2 = res.hello2;
 console.log(res1.hello2());  // Invoke hello2 on res1
 
 ```
+```
+let obj = {
+  toString() {
+    return 'Hello';
+  },
+};
+console.log(obj + 'World'); //"Hello World"
+```
 
 # Q- Call, Apply, Bind
 - Definition : call, apply, and bind are methods in JavaScript that can be used to manipulate the this context of functions. 
