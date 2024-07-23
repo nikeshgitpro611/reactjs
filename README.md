@@ -209,6 +209,7 @@ console.log('resultTest : ', resultTest);
 - Each object has an internal link to another object called its prototype.
 ![alt text](Img/image2.png)
 
+
 ```
 //constructer function this is acces by this method
 function person(name, age) {
@@ -272,6 +273,72 @@ const cityMenag = new library('countery Librayr');
 libraryMenag.greet();
 cityMenag.greet();
 library.countData();
+```
+```
+class A {
+  constructor(name, age) {
+    (this.name = name),
+      (this.age = age),
+      (this.hello = () => {
+        console.log(this);
+        return 'Hello';
+      });
+  }
+  hello1() {
+    console.log(this);
+    return 'Hello1';
+  }
+  hello2() {
+    console.log(this);
+    return 'Hello2';
+  }
+  setHello() {
+    //Instance adding in this method
+    this.hello2 = () => {
+      console.log(this);
+      return 'Adding Hello2 in this';
+    };
+  }
+}
+
+const res = new A('ramesh', 26);
+console.log(res.hello());
+console.log(res.hello1());
+console.log(res.hello2());
+res.setHello(); //If log then get undefine
+
+::::::::::::2nd Similar example
+class B {
+  constructor(title, year) {
+    this.title = title;
+    this.year = year;
+    this.greet = () => {
+      console.log(this);
+      return 'Greetings';
+    };
+  }
+
+  display() {
+    console.log(this);
+    return `${this.title} (${this.year})`;
+  }
+
+  setGreet() {
+    this.customGreet = () => {
+      console.log(this);
+      return `Hello from ${this.title}`;
+    };
+  }
+}
+
+let book = new B('The Great Gatsby', 1925);
+
+console.log(book.greet());       // Logs the instance of B and returns 'Greetings'
+console.log(book.display());     // Logs the instance of B and returns 'The Great Gatsby (1925)'
+
+book.setGreet();                 // Adds the customGreet method to the instance
+console.log(book.customGreet()); // Logs the instance of B and returns 'Hello from The Great Gatsby'
+
 ```
 
 # Q- Call, Apply, Bind
