@@ -1943,3 +1943,14 @@ const fakeAuthAPI = (username, password) => {
 
 export default Login;
 ```
+# what is concurrency in react.
+- Concurrency in React refers to the ability of React to handle multiple tasks or updates simultaneously without blocking the main thread.
+- This is particularly useful for improving the performance and responsiveness of React applications. 
+> Handel By -
+- Suspense:
+```
+<Suspense fallback={<div>Loading...</div>}>
+        <DataComponent />
+      </Suspense>
+```
+-  transitions - Transitions help differentiate between urgent and non-urgent updates. Urgent updates, like typing, are processed immediately, while non-urgent updates, like animations, can be deferred.
