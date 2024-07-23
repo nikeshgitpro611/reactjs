@@ -201,6 +201,7 @@ console.log('resultTest : ', resultTest);
 ```
 
 # Q- What is Prototype
+- Prototypes are the mechanism by which JavaScript objects inherit features from one another.
 - Definition : prototypes can be used to efficiently manage and reuse behavior across multiple instances of objects, which is particularly useful in scenarios like a library management system.
 - Constructor Functions: Have a prototype property, allowing methods to be added and shared among instances
 - Arrow Functions: Do not have a prototype property.
