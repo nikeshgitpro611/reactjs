@@ -338,6 +338,14 @@ console.log(book.display());     // Logs the instance of B and returns 'The Grea
 
 book.setGreet();                 // Adds the customGreet method to the instance
 console.log(book.customGreet()); // Logs the instance of B and returns 'Hello from The Great Gatsby'
+::::Task what will be output
+let res1 = {};
+// Assuming res is an instance of class A from the previous example
+let res = new A('Ramesha', 26);
+res.setHello();  // Ensure res.hello2 is defined
+
+res1.hello2 = res.hello2;
+console.log(res1.hello2());  // Invoke hello2 on res1
 
 ```
 
