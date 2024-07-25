@@ -530,6 +530,7 @@ console.log(closer2()) //13
 ```
 ```
 // Module Pattern with Closures
+// Module Pattern with Closures
 const BanckingData = (() => {
   let balance = 0;
   const logTransition = (type, amount) => {
@@ -553,10 +554,15 @@ const BanckingData = (() => {
         console.log(`Hey! your is ${amount}`);
       }
     },
+    current: () => {
+      console.log(`Wallet totalBalance ${balance}`);
+      return balance;
+    },
   };
 })();
 BanckingData.deposit(100);
 BanckingData.withdrawl(10);
+console.log(BanckingData.current());
 ```
 # String Reversal
 - Task - "helo world" reverse
