@@ -465,6 +465,36 @@ result()
 
 # Close
 - Inner function can acces outer function but outer function can't acces inner function
+- all operation inside of closer happning in asyn operation due to call back.
+> Usecase
+- techniques use in such as data encapsulation, function factories, callbacks, currying, and state management in asynchronous operations
+1. Data Privacy and Encapsulation
+- Closures can be used to create private variables that are not accessible from outside the function.
+```
+function createCounter() {
+    let count = 0; // Private variable
+    return {
+        increment: function() {
+            count++;
+            return count;
+        },
+        decrement: function() {
+            count--;
+            return count;
+        },
+        getCount: function() {
+            return count;
+        }
+    };
+}
+
+const counter = createCounter();
+console.log(counter.increment()); // Outputs: 1
+console.log(counter.increment()); // Outputs: 2
+console.log(counter.getCount());  // Outputs: 2 // not access outer count so value is 2
+console.log(counter.decrement()); // Outputs: 1
+```
+2. Partial Application and Currying
 ```
 const outerFun =(x)=>{
   return (y) => {
@@ -1982,3 +2012,18 @@ export default Login;
       </Suspense>
 ```
 -  transitions - Transitions help differentiate between urgent and non-urgent updates. Urgent updates, like typing, are processed immediately, while non-urgent updates, like animations, can be deferred.
+# what diffrance between ++count and count++
+- count++ is post increment where ++count is pre increment. suppose you write count++ means value increase after execute this statement. but in case ++count value will increase while executing this line.
+```
+let preCount = 0;
+let postCount = 0;
+let preResultCount = [];
+let postResultCount = [];
+
+for (let i = 0; i < 5; i++) {
+  preResultCount.push(++preCount); // pre incriment
+  postResultCount.push(postCount++); // post incriment
+}
+console.log(preResultCount); //[1,2,3,4,5] value will be execute statment line by line.
+console.log(postResultCount); //[0,1,2,3,4] value will be execute after execute this statment.
+```
