@@ -526,6 +526,37 @@ const closer2 =  closerTwo(10);
 console.log(closer2()) //11
 console.log(closer2()) //12
 console.log(closer2()) //13
+
+```
+```
+// Module Pattern with Closures
+const BanckingData = (() => {
+  let balance = 0;
+  const logTransition = (type, amount) => {
+    console.log(`Hey! you ${type} ${amount} and wallet amount ${balance}`);
+  };
+
+  return {
+    deposit: (amount) => {
+      if (amount > 0) {
+        balance += amount;
+        logTransition('deposit', amount);
+      } else {
+        console.log(`Hey Amount Accept only positive Value`);
+      }
+    },
+    withdrawl: (amount) => {
+      if (amount > 0 && amount <= balance) {
+        balance -= amount;
+        logTransition('withdrawl', amount);
+      } else {
+        console.log(`Hey! your is ${amount}`);
+      }
+    },
+  };
+})();
+BanckingData.deposit(100);
+BanckingData.withdrawl(10);
 ```
 # String Reversal
 - Task - "helo world" reverse
