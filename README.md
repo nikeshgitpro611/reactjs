@@ -493,6 +493,19 @@ console.log(counter.increment()); // Outputs: 1
 console.log(counter.increment()); // Outputs: 2
 console.log(counter.getCount());  // Outputs: 2 // not access outer count so value is 2
 console.log(counter.decrement()); // Outputs: 1
+
+```
+```
+const task = () => {
+  for (let i = 0; i <= 3; i++) {
+    (function (i) {
+      setTimeout(() => {
+        console.log(`Timer ${i} done`);
+      }, i * 1000);
+    })(i);
+  }
+};
+task();
 ```
 2. Partial Application and Currying
 ```
