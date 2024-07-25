@@ -2077,3 +2077,24 @@ for (let i = 0; i < 5; i++) {
 console.log(preResultCount); //[1,2,3,4,5] value will be execute statment line by line.
 console.log(postResultCount); //[0,1,2,3,4] value will be execute after execute this statment.
 ```
+# In property
+- in for object
+- The in operator returns true if the specified property is in the specified object.
+- The in operator cannot be used to search for values in other collections.
+```
+const strings = ['Alice', 'Alice', 'Alice'];
+//[1,1,1]
+const number = (str) => {
+  const uniqNum = {};
+  let nextNumber = 1;
+  const val = str.map((data) => {
+    if (!(data in uniqNum)) {
+      uniqNum[data] = nextNumber++;
+    }
+    return uniqNum[data];
+  });
+
+  return { uniqNum, val };
+};
+console.log(number(strings));
+```
