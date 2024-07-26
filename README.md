@@ -2098,3 +2098,79 @@ const number = (str) => {
 };
 console.log(number(strings));
 ```
+# Which Condition we use children and element props // Reusable components
+> children
+- The children prop is a special prop automatically passed to components that contain nested elements.
+- It allows components to accept and render any child elements placed between their opening and closing tags.
+- Use Case : You have a Card component that can wrap and display any content passed to it.
+```
+// Card.js
+import React from 'react';
+
+const Card = ({ children }) => {
+  return (
+    <div className="card">
+      {children}
+    </div>
+  );
+};
+
+export default Card;
+
+// App.js
+import React from 'react';
+import Card from './Card';
+
+const App = () => {
+  return (
+    <div>
+      <h1>My App</h1>
+      <Card>
+        <h2>Title</h2>
+        <p>This is some content inside the card.</p>
+      </Card>
+      <Card>
+        <img src="image.jpg" alt="Example" />
+      </Card>
+    </div>
+  );
+};
+
+export default App;
+
+```
+> element
+- element Prop: Use this when you want to pass a single React element or component as a prop and render it within another component.
+- This is useful for scenarios where you need to pass custom content or components dynamically.
+- useCase : You have a Modal component that needs to render different types of content based on what is passed to it.
+
+```
+// Modal.js
+import React from 'react';
+
+const Modal = ({ element }) => {
+  return (
+    <div className="modal">
+      {element}
+    </div>
+  );
+};
+
+export default Modal;
+
+// App.js
+import React from 'react';
+import Modal from './Modal';
+
+const App = () => {
+  return (
+    <div>
+      <h1>My App</h1>
+      <Modal element={<p>This is a dynamic paragraph.</p>} />
+      <Modal element={<button>Click Me</button>} />
+    </div>
+  );
+};
+
+export default App;
+```
