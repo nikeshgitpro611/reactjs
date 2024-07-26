@@ -2174,3 +2174,28 @@ const App = () => {
 
 export default App;
 ```
+# Array.from
+- In JavaScript, Array.from is a static method that creates a new, shallow-copied array instance from an array-like or iterable object.
+- This method is useful when you need to convert these objects into arrays.
+```
+Array.from(arrayLike[, mapFn[, thisArg]])
+
+const str = 'hello';
+const array = Array.from(str, char => char.toUpperCase());
+console.log(array); // Outputs: ['H', 'E', 'L', 'L', 'O']
+
+::::::::::::::: 2nd Example
+ Using Array.from to Create Arrays with a Given Length
+ const array = Array.from({ length: 5 }, (_, i) => i + 1);
+  console.log(array); // Outputs: [1, 2, 3, 4, 5]
+
+```
+# What is Lifecycle
+> Mounting or inital render
+- components render first time []
+- fresh state and props are created
+> re-render
+- state, props, context all will be change
+> Un-mounting
+- component instance destroy
+- state and props are destroy

@@ -11,6 +11,8 @@ BY jonasschmedtmann- https://github.com/jonasschmedtmann/ultimate-react-course
 > Project 01 usepopcons
 - INTERMEDIATREACT@2 folder
 > Featers
+- star rating 
+- re-usable components
 > NPM 
 > Challanges
 
