@@ -2199,3 +2199,64 @@ console.log(array); // Outputs: ['H', 'E', 'L', 'L', 'O']
 > Un-mounting
 - component instance destroy
 - state and props are destroy
+
+# new AbortController();// it's browser Api
+- The AbortController is a web API that allows you to abort ongoing operations, such as fetch requests.
+- the fetch request is aborted if the component unmounts before the request completes, preventing potential memory leaks and handling cases where the component no longer needs the fetched data.
+```
+import React, { useState, useEffect } from 'react';
+
+function DataFetchingComponent() {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const controller = new AbortController();
+    const signal = controller.signal;
+
+    const fetchData = async () => {
+      try {
+        const response = await fetch('https://api.example.com/data', { signal });
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const result = await response.json();
+        setData(result);
+      } catch (error) {
+        if (error.name === 'AbortError') {
+          console.log('Fetch aborted');
+        } else {
+          setError(error);
+        }
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+
+    // Cleanup function to abort the fetch request if the component unmounts
+    return () => {
+      controller.abort();
+    };
+  }, []);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
+
+  return (
+    <div>
+      <h1>Data:</h1>
+      <pre>{JSON.stringify(data, null, 2)}</pre>
+    </div>
+  );
+}
+
+export default DataFetchingComponent;
+```
