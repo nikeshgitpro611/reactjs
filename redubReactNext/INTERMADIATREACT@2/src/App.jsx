@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   NumResults,
   Search,
@@ -19,7 +19,11 @@ export default function App() {
   const [query, setQuery] = useState("");
   const { movies, isLoading, error } = useMovies(query);
   const [selectedId, setSelectedId] = useState(null);
-  const [watched, setWatched] = useState([]);
+  const [watched, setWatched] = useState(()=>{
+    const storeVal = localStorage.getItem('watched');
+    // console.log(storeVal);
+   return JSON.parse(storeVal)
+  });
 
   // console.log('movies : ', movies);
   const handleSelectMovie = (id) => {
@@ -34,10 +38,15 @@ export default function App() {
   const handelAllClickData = (movies) => {
     setWatched(watched=> [...watched, movies])
   }
-
+  
   const handelDeleted = (id)=>{
     setWatched(movies=> movies.filter(data=> data.selectedId !== id))
   }
+  
+  useEffect(() => {
+    localStorage.setItem('watched', JSON.stringify([...watched, movies]))
+
+  }, [watched])
   return (
     <>
       <NavBar

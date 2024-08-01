@@ -2260,3 +2260,4 @@ function DataFetchingComponent() {
 
 export default DataFetchingComponent;
 ```
+- Heare cleaner function is work like as closer.

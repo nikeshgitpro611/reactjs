@@ -10,10 +10,17 @@ BY jonasschmedtmann- https://github.com/jonasschmedtmann/ultimate-react-course
 
 > Project 01 usepopcons
 - INTERMEDIATREACT@2 folder
+
 > Featers
 - star rating 
 - re-usable components
+- new Abrote 
+- search movies
+- key press
+- figma title changed randomaly
 > NPM 
+- Usestate, useEffect(), customHook
 > Challanges
+- How clean up is closer how its working in react
 
 

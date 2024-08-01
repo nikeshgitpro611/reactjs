@@ -230,6 +230,19 @@ export const MoviDetails = ({
     }
   },[Title])
 
+  useEffect(()=>{
+    const callBack  =(e)=>{
+      if(e.code === 'Escape'){
+        onCloseMovies()
+        // console.log('close');
+      }
+    }
+    document.addEventListener('keydown', callBack)
+    return ()=>{
+      document.removeEventListener('keydown', callBack)
+    }
+  },[onCloseMovies])
+
   const handalAdded = () => {
     const newWatchedMovies = {
       selectedId,
