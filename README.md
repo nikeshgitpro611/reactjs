@@ -2261,3 +2261,33 @@ function DataFetchingComponent() {
 export default DataFetchingComponent;
 ```
 - Heare cleaner function is work like as closer.
+
+> Task Find key and Value
+```
+const data = {
+  0: '0',
+  1: '2',
+  2: '/',
+  3: '0',
+  4: '8',
+  5: '/',
+  6: '2',
+  7: '0',
+  8: '2',
+  9: '4',
+  updated: '10/08/2024',
+};
+
+if ('updated' in data) {
+  console.log(`Key: updated, Value: ${data['updated']}`);
+}
+
+2nd Approch : 
+for (const [key, value] of Object.entries(data)) {
+  if (key === 'updated') {
+    console.log(`Key: ${key}, Value: ${value}`);
+    // You can break the loop if you are only interested in the first occurrence of 'updated'
+    break;
+  }
+}
+```

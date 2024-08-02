@@ -2,7 +2,7 @@ import React from "react";
 import {
   DataGrid,
   Form,
-  Grid,
+  GridField,
   Table,
   Tabs,
   TestResourse,
@@ -10,11 +10,13 @@ import {
 
 import {NavDrawe} from './ScafFolder'
 import { Outlet } from "react-router-dom";
+import { Toolbar } from "@mui/material";
 const ApplAyout = () => {
   return (
     <div>
       <header><NavDrawe /></header>
-      <main>
+      <main style= {{marginLeft: '240px'}}>
+        <Toolbar />
         <Outlet />
       </main>
     </div>
