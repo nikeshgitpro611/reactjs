@@ -1,23 +1,22 @@
 import React from "react";
-import {
-  DataGrid,
-  Form,
-  GridField,
-  Table,
-  Tabs,
-  TestResourse,
-} from "./components";
 
-import {NavDrawe} from './ScafFolder'
+
+import { NavDrawe } from "./ScafFolder";
 import { Outlet } from "react-router-dom";
-import { Toolbar } from "@mui/material";
+import { ThemeProvider, Toolbar } from "@mui/material";
+import { MinWidth } from "./components/Form";
+import BeautiFulThem from "./Thems/BeautiFulThem";
 const ApplAyout = () => {
   return (
     <div>
-      <header><NavDrawe /></header>
-      <main style= {{marginLeft: '240px'}}>
+      <header>
+        <NavDrawe />
+      </header>
+      <main style={{marginLeft: 260}}>
+        <ThemeProvider theme={BeautiFulThem}>
         <Toolbar />
         <Outlet />
+        </ThemeProvider>
       </main>
     </div>
   );

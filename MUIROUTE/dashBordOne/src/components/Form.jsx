@@ -3,8 +3,8 @@ import {
   Alert,
   Autocomplete,
   Button,
+  Checkbox,
   Dialog,
-  DialogTitle,
   Divider,
   FormControl,
   FormControlLabel,
@@ -15,7 +15,6 @@ import {
   Paper,
   Radio,
   RadioGroup,
-  Select,
   Stack,
   TextField,
 } from "@mui/material";
@@ -25,32 +24,41 @@ import dayjs from "dayjs";
 import { contactData } from "../data";
 import { FormTextField } from "./FormComponents";
 import SelectField from "./FormComponents/SelectField";
+import { txFieldStyle } from "./FormComponents/FormTextField";
 
-// const skills = ["Software", "Architect", "Designer", "Full Stack"];
-const roles = ["React", "Nodejs", "Python", "JavaScript"];
-const defaultValue = "Work From Home";
-
+const roles = ["USA-A", "USA-B", "USA-C", "USA-D"];
+const defaultValue = "1";
 export const MinWidth = 300;
+const paperInputStyle = {
+  "& .MuiOutlinedInput-root": {
+    "& > fieldset": {
+      border: "1px solid",
+      borderColor: "primary.main",
+    },
+    "&:hover": {
+      "& > fieldset": {
+        borderColor: "primary.light",
+      },
+    },
+  },
+  "& .MuiFormLabel-root": {
+    color: "red",
+  },
+};
 
 const Form = () => {
-  console.log("Checklength : ", contactData);
   const [formValue, setFormValue] = useState({
     id: `${contactData.length + 1}`,
     name: "",
-    role: "",
-    skills: ["Software"],
-    startDate: dayjs(), // Default to current date
+    Location: "",
+    Vechile: ["Toyota 0.1"],
+    startDate: dayjs(),
     preference: defaultValue,
     formatedDateTime: "",
   });
   const [isOpen, setIsOpen] = useState(false);
 
-  const formatedDate = dayjs(formValue.startDate).format(
-    "MMMM DD, YYYY hh:mm A"
-  );
-
   const handleTextFieldChange = (e) => {
-    console.log(e);
     const { name, value } = e.target;
     setFormValue((prev) => ({
       ...prev,
@@ -61,7 +69,7 @@ const Form = () => {
   const handleAutocompleteChange = (event, newValue) => {
     setFormValue((prev) => ({
       ...prev,
-      role: newValue,
+      Location: newValue || "",
     }));
   };
 
@@ -69,21 +77,22 @@ const Form = () => {
     const { value } = e.target;
     setFormValue((prev) => ({
       ...prev,
-      skills: typeof value === "string" ? value.split(",") : value,
+      Vechile: typeof value === "string" ? value.split(",") : value,
     }));
   };
 
   const handleDateChange = (newDate) => {
-    // const test = new Date(newDate).toLocaleDateString("fr-FR")
-
     setFormValue((prev) => ({
       ...prev,
       startDate: newDate,
+      formatedDateTime: dayjs(newDate).format("MMMM DD, YYYY hh:mm A"),
     }));
+  };
 
+  const handleRadioChange = (e) => {
     setFormValue((prev) => ({
       ...prev,
-      formatedDateTime: formatedDate,
+      preference: e.target.value,
     }));
   };
 
@@ -103,8 +112,8 @@ const Form = () => {
     setFormValue({
       id: `${contactData.length + 1}`,
       name: "",
-      role: "",
-      skills: [],
+      Location: "",
+      Vechile: [],
       startDate: dayjs(),
       preference: defaultValue,
     });
@@ -112,7 +121,7 @@ const Form = () => {
 
   return (
     <>
-      <Paper>
+      <Paper sx={paperInputStyle}>
         <form>
           <FormControl>
             <FormGroup row sx={{ padding: 2, justifyContent: "space-between" }}>
@@ -121,13 +130,25 @@ const Form = () => {
                 handleTextFieldChange={handleTextFieldChange}
               />
               <Autocomplete
+                disablePortal
                 options={roles}
-                sx={{ minWidth: 300 }}
+                isOptionEqualToValue={(option, value) =>
+                  option.id === value.id || value === " "
+                }
+                // sx={{ minWidth: 300 }}
+                sx={txFieldStyle}
+                getOptionLabel={(roleOption) => `${roleOption}`}
                 renderInput={(params) => (
-                  <TextField {...params} name="role" label="Role" />
+                  <TextField {...params} name="role" label="Location" />
                 )}
                 value={formValue.role}
                 onChange={handleAutocompleteChange}
+                ListboxProps={{
+                  sx: {
+                    height: 100,
+                    color: "Highlight",
+                  },
+                }}
               />
             </FormGroup>
 
@@ -135,9 +156,12 @@ const Form = () => {
               <SelectField
                 formValue={formValue}
                 handleSkillSetChange={handleSkillSetChange}
-              />
+              >
+               
+              </SelectField>
               <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <DatePicker
+                  sx={txFieldStyle}
                   label="Start Date"
                   value={formValue.startDate}
                   onChange={handleDateChange}
@@ -150,27 +174,27 @@ const Form = () => {
 
             <FormGroup row sx={{ padding: 2, justifyContent: "space-around" }}>
               <FormGroup sx={{ minWidth: 300, marginRight: 3 }}>
-                <FormLabel component="legend">Work Preference</FormLabel>
+                <FormLabel component="legend">📈How many vehicles reached their destination? 🚘</FormLabel>
                 <RadioGroup
                   id="preference-type-radio"
                   name="preference"
                   value={formValue.preference}
-                  onChange={handleTextFieldChange}
+                  onChange={handleRadioChange}
                 >
                   <FormControlLabel
-                    value="Work From Home"
+                    value="1"
                     control={<Radio />}
-                    label="Work From Home"
+                    label= '1'
                   />
                   <FormControlLabel
-                    value="Hybrid"
+                    value= "2"
                     control={<Radio />}
-                    label="Hybrid"
+                    label="2"
                   />
                   <FormControlLabel
-                    value="In Office"
+                    value="3"
                     control={<Radio />}
-                    label="In Office"
+                    label="3"
                   />
                 </RadioGroup>
               </FormGroup>
@@ -200,10 +224,9 @@ const Form = () => {
         </form>
       </Paper>
 
-      {/* //Pop Visible when Submit button call */}
       <Dialog open={isOpen}>
         <Alert variant="filled" severity="success">
-          This is a filled success!.
+          This is a filled success!
         </Alert>
       </Dialog>
     </>

@@ -79,3 +79,15 @@ repo - https://github.com/Jon20111/beautiful-mui-app
 - There are two types of layout: containers and items
 - Item widths are set in percentages, so they're always fluid and sized relative to their parent element.
 - There are five grid breakpoints: xs, sm, md, lg, and xl.
+# @mui/x-data-grid
+- The Data Grid presents information in a structured format of rows and columns. The data is displayed in a user-friendly interface for efficient editing, reviewing, and analysis.
+# useThem 
+- need to be install style component 
+- use for color/back in buld colr Feature
+# ThemeProvider
+- If you wish to customize the theme, you need to use the ThemeProvider component in order to inject a theme into your application. However, this is optional; Material UI components come with a default theme.
+# Autocomplition  > ListboxProps APi
+- use for nested styling.
+
+
+

@@ -2291,3 +2291,5 @@ for (const [key, value] of Object.entries(data)) {
   }
 }
 ```
+# getBoundingClientRect
+- The getBoundingClientRect() method in JavaScript is used to obtain the size of an element and its position relative to the viewport. This method returns a DOMRect object providing information about the element's dimensions and position.

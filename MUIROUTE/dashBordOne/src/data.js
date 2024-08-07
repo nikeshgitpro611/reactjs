@@ -12,45 +12,45 @@ export const contactData = [
   {
     id: 1,
     name: "Shawn Spencer",
-    role: "Dev",
-    skills: ["React", "Angular"],
+    Location: "USA-A",
+    Vechile: ["Toyota 0.1"],
     startDate: `${
       today.getMonth() + 1
     }/${today.getDate()}/${today.getFullYear()}`,
-    preference: "Work From Home",
+    preference: 2,
     formatedDateTime: ""
   },
 
   {
     id: 2,
     name: "Burton Guster",
-    role: "Dev",
-    skills: ["React"],
+    Location: "USA-A",
+    Vechile: ["Toyota 0.1"],
     startDate: `${
       today.getMonth() + 1
     }/${today.getDate()}/${today.getFullYear()}`,
-    preference: "Work From Home",
+    preference: 1,
   },
 
   {
     id: 3,
     name: "Juliet O'Hara",
-    role: "Dev",
-    skills: ["React"],
+    Location: "USA-A",
+    Vechile: ["Toyota 0.1"],
     startDate: `${
       today.getMonth() + 1
     }/${today.getDate()}/${today.getFullYear()}`,
-    preference: "Work From Home",
+    preference: 1,
   },
 
   {
     id: 4,
     name: "Lassy",
-    role: "Dev",
-    skills: ["React"],
+    Location: "USA-A",
+    Vechile: ["Toyota 0.1"],
     startDate: `${
       today.getMonth() + 1
     }/${today.getDate()}/${today.getFullYear()}`,
-    preference: "Work From Home",
+    preference: 1,
   },
 ];

@@ -21,6 +21,7 @@ const themeStyle = (theme) => {
     },
   };
 };
+
 const simpleStyle = {
   drawer: {
     width: drawerWidth,
@@ -30,9 +31,12 @@ const simpleStyle = {
   },
   drawerPaper: {
     width: drawerWidth,
-    backgroundColor: "#beb8b8",
+    backgroundColor: "#b8beb8",
     elevation: 9,
   },
+  ulBackChang: {
+    backgroundColor: "#27a627",
+  }
 };
 
 export default function NavDrawe() {
@@ -66,10 +70,12 @@ export default function NavDrawe() {
             { text: "Contact Table", route: "/table" },
             // { text: "Contact Data Grid", route: "/grid" },
             { text: "Poc Data", route: "/test" },
+            { text: "Pagination", route: "/pagination" },
           ].map((nav, index) => (
             <ListItem
               key={index}
               sx={{ fontFamily: "fantasy", textTransform: "capitalize" }}
+              // PaperProps= {{sx : simpleStyle.ulBackChang}}
             >
               <Link to={nav.route}>{nav.text}</Link>
             </ListItem>
