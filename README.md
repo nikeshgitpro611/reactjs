@@ -2293,3 +2293,6 @@ for (const [key, value] of Object.entries(data)) {
 ```
 # getBoundingClientRect
 - The getBoundingClientRect() method in JavaScript is used to obtain the size of an element and its position relative to the viewport. This method returns a DOMRect object providing information about the element's dimensions and position.
+# MenuProps
+ 
+- In Material-UI (MUI), MenuProps is a property used in components like Select and Autocomplete to customize the behavior and appearance of the dropdown menu. It allows you to pass properties directly to the Menu component that is used internally by these components.

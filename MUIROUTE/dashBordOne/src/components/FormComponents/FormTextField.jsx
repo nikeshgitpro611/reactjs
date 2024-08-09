@@ -5,7 +5,7 @@ import { MinWidth } from "../Form";
 
 export const txFieldStyle = {
   minWidth: 300,
-  marginRight: 3,
+  // marginRight: 3,
   marginBottom: { xs: 2, md: 0 },
   marginRight: {xs: 2},
   "& .MuiOutlinedInput-root.Mui-focused": {

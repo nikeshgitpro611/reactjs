@@ -71,6 +71,7 @@ export default function NavDrawe() {
             // { text: "Contact Data Grid", route: "/grid" },
             { text: "Poc Data", route: "/test" },
             { text: "Pagination", route: "/pagination" },
+            { text: "Plotly", route: "/plotly" },
           ].map((nav, index) => (
             <ListItem
               key={index}

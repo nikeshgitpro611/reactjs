@@ -34,6 +34,14 @@ const SelectField = ({ formValue, handleSkillSetChange }) => {
       sx={txFieldStyle}
       value={formValue.Vechile}
       onChange={handleSkillSetChange}
+      MenuProps={{
+        PaperProps: {
+          sx : {
+            left : `${position}px !important`,
+            maxHeight : 180
+          }
+        }
+      }}
     >
       {skills.map((skill) => (
         <MenuItem key={skill} value={skill}>

@@ -168,6 +168,8 @@ const Form = () => {
                   renderInput={(params) => (
                     <TextField {...params} sx={{ minWidth: 300 }} />
                   )}
+                  defaultValue={["day"]}
+                  PooperProps={{ backgroundColor: 'red' }}
                 />
               </LocalizationProvider>
             </FormGroup>
