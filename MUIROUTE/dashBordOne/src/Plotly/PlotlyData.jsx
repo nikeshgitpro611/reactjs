@@ -10,10 +10,10 @@ const PlotlyData = () => {
   const [datapass, setData] = useState([]);
   const [destination, setDestination] = useState([]);
 
-   //   headers: {
-    //     "Content-Type": "application/json",
-    //     Accept: "application/json",
-    //   },
+  //   headers: {
+  //     "Content-Type": "application/json",
+  //     Accept: "application/json",
+  //   },
 
   const fetchApiTest = async () => {
     try {
@@ -33,25 +33,25 @@ const PlotlyData = () => {
 
   useEffect(() => {
     fetchApiTest();
-    // const dates = contactData.map((data) => formatDate(data.startDate));
-    // const locations = contactData.map((data) => data.Location);
-    // setXVal(dates);
-    // setLVal(locations);
+    const dates = contactData.map((data) => formatDate(data.startDate));
+    const locations = contactData.map((data) => data.Location);
+    setXVal(dates);
+    setLVal(locations);
   }, []);
-  useEffect(() => {
-    if (datapass.length !== 0) {
-      console.log(datapass.data);
-      let date = datapass.data.map((data) => data.ActualOccurrenceDate);
-      let locations = datapass.data.map((data) => data.assignment_origin);
-      let destination = datapass.data.map(
-        (data) => data.assignment_destination
-      );
-      // console.log(VarDate);
-      setXVal(date);
-      setLVal(locations);
-      setDestination(destination);
-    }
-  }, [datapass]);
+  // useEffect(() => {
+  //   if (datapass.length !== 0) {
+  //     console.log(datapass.data);
+  //     let date = datapass.data.map((data) => data.ActualOccurrenceDate);
+  //     let locations = datapass.data.map((data) => data.assignment_origin);
+  //     let destination = datapass.data.map(
+  //       (data) => data.assignment_destination
+  //     );
+  //     // console.log(VarDate);
+  //     setXVal(date);
+  //     setLVal(locations);
+  //     setDestination(destination);
+  //   }
+  // }, [datapass]);
 
   return (
     <div>

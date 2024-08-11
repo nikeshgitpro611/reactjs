@@ -121,7 +121,16 @@ const Form = () => {
 
   return (
     <>
-      <Paper sx={paperInputStyle}>
+      <Paper sx={paperInputStyle}>Test</Paper>
+      <Paper sx={{ 
+        ...paperInputStyle, 
+        margin: {xs: 1, sm: 3},
+        color: 'red',
+        zIndex: "appBar",
+        "& :hover": {
+          backgroundColor: 'Background'
+        }
+      }}>
         <form>
           <FormControl>
             <FormGroup row sx={{ padding: 2, justifyContent: "space-between" }}>
@@ -156,48 +165,37 @@ const Form = () => {
               <SelectField
                 formValue={formValue}
                 handleSkillSetChange={handleSkillSetChange}
-              >
-               
-              </SelectField>
+              ></SelectField>
               <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <DatePicker
                   sx={txFieldStyle}
                   label="Start Date"
+                  size="small"
                   value={formValue.startDate}
                   onChange={handleDateChange}
                   renderInput={(params) => (
                     <TextField {...params} sx={{ minWidth: 300 }} />
                   )}
                   defaultValue={["day"]}
-                  PooperProps={{ backgroundColor: 'red' }}
+                  PooperProps={{ backgroundColor: "red" }}
                 />
               </LocalizationProvider>
             </FormGroup>
 
             <FormGroup row sx={{ padding: 2, justifyContent: "space-around" }}>
               <FormGroup sx={{ minWidth: 300, marginRight: 3 }}>
-                <FormLabel component="legend">📈How many vehicles reached their destination? 🚘</FormLabel>
+                <FormLabel component="legend">
+                  📈How many vehicles reached their destination? 🚘
+                </FormLabel>
                 <RadioGroup
                   id="preference-type-radio"
                   name="preference"
                   value={formValue.preference}
                   onChange={handleRadioChange}
                 >
-                  <FormControlLabel
-                    value="1"
-                    control={<Radio />}
-                    label= '1'
-                  />
-                  <FormControlLabel
-                    value= "2"
-                    control={<Radio />}
-                    label="2"
-                  />
-                  <FormControlLabel
-                    value="3"
-                    control={<Radio />}
-                    label="3"
-                  />
+                  <FormControlLabel value="1" control={<Radio />} label="1" />
+                  <FormControlLabel value="2" control={<Radio />} label="2" />
+                  <FormControlLabel value="3" control={<Radio />} label="3" />
                 </RadioGroup>
               </FormGroup>
 
