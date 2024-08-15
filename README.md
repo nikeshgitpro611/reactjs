@@ -2296,3 +2296,15 @@ for (const [key, value] of Object.entries(data)) {
 # MenuProps
  
 - In Material-UI (MUI), MenuProps is a property used in components like Select and Autocomplete to customize the behavior and appearance of the dropdown menu. It allows you to pass properties directly to the Menu component that is used internally by these components.
+
+# Example of real Dom and Virtual dome
+
+- Real dom
+<div><span> normal html tags
+- Virtual dome  copy of real dom and return typeis object.
+ return {
+  <div>
+ }
+
+# React Fiber
+- it is kinde of logic if you r randomly change ur cart on condisnaly on logic show all dataon ui these all thing is happning by react fiber

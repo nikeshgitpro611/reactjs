@@ -14,3 +14,6 @@ enthusiastic learners are eagerly waiting to help you there!
 - https://github.com/akshaymarch7/netflix-gpt
 4. YouTube Project GitHub repository -
 - https://github.com/akshaymarch7/namaste-youtube
+
+# for Avoid Cors policy
+- Add chrome extension Allow CORS: Access-Control-Allow-Origin.

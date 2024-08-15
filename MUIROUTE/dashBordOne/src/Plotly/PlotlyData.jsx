@@ -18,7 +18,7 @@ const PlotlyData = () => {
   const fetchApiTest = async () => {
     try {
       const res = await axios.get(
-        "https://5ef2-103-172-209-100.ngrok-free.app",
+        "https://6730-103-172-208-89.ngrok-free.app",
         {
           headers: {
             "ngrok-skip-browser-warning": "69420",
@@ -31,27 +31,31 @@ const PlotlyData = () => {
     }
   };
 
-  useEffect(() => {
-    fetchApiTest();
-    const dates = contactData.map((data) => formatDate(data.startDate));
-    const locations = contactData.map((data) => data.Location);
-    setXVal(dates);
-    setLVal(locations);
-  }, []);
   // useEffect(() => {
-  //   if (datapass.length !== 0) {
-  //     console.log(datapass.data);
-  //     let date = datapass.data.map((data) => data.ActualOccurrenceDate);
-  //     let locations = datapass.data.map((data) => data.assignment_origin);
-  //     let destination = datapass.data.map(
-  //       (data) => data.assignment_destination
-  //     );
-  //     // console.log(VarDate);
-  //     setXVal(date);
-  //     setLVal(locations);
-  //     setDestination(destination);
-  //   }
-  // }, [datapass]);
+  //   fetchApiTest();
+  //   const dates = contactData.map((data) => formatDate(data.startDate));
+  //   const locations = contactData.map((data) => data.Location);
+  //   setXVal(dates);
+  //   setLVal(locations);
+  // }, []);
+
+  useEffect(() => {
+
+    if (datapass.length !== 0) {
+      console.log(datapass.data);
+      let date = datapass.data.map((data) => data.ActualOccurrenceDate);
+      let locations = datapass.data.map((data) => data.assignment_origin);
+      let destination = datapass.data.map(
+        (data) => data.assignment_destination
+      );
+      // console.log(VarDate);
+      setXVal(date);
+      setLVal(locations);
+      setDestination(destination);
+    }
+
+    fetchApiTest()
+  }, [datapass]);
 
   return (
     <div>
@@ -61,7 +65,7 @@ const PlotlyData = () => {
             x: xVal,
             y: lVal,
             type: "scatter",
-            mode: "lines+markers",
+            mode: "lines",
             marker: { color: "red" },
             name: "Scatter Plot",
             text: destination,
