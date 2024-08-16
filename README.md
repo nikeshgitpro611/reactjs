@@ -1,38 +1,48 @@
 repo - https://github.com/john-smilga/react-course-v3
+
 > Fetch focha
+
 - it doesnot conside 404 as a error.
 
 > # API REFf - https://www.course-api.com/
 
 <!-- -----------------Inter vIew question--------------------- -->
+
 # Q - What is symantic tag in html?
- Ans -  These tags provide better accessibility, improved SEO, and more meaningful markup. Tags are define in two ways.
- > Symantic
- - semantic tags help define the structure of the webpage, making it more understandable for both humans and machines.
- - Eaxample :- 
- 1. header: Represents a container for introductory content or a set of navigational links.
-02. nav>: efines a set of navigation links.
-03. sectio>: Represents a thematic grouping of content, typically with a heading.
-04. articl>: Represents a self-contained piece of content, like a blog post or news article.
-05. aside> Defines content that is tangentially related to the content around it, often used for sidebars.
-06. footer: Represents a footer for a section or the entire document, often containing metadata or links.
-07. main>:Specifies the main content of a document, excluding headers, footers, and sidebars.
-08. figure: Represents self-contained content, like illustrations, diagrams, photos, or code listings, often with a caption.
-09. figcapion>: Provides a caption for the figure element.
+
+Ans - These tags provide better accessibility, improved SEO, and more meaningful markup. Tags are define in two ways.
+
+> Symantic
+
+- semantic tags help define the structure of the webpage, making it more understandable for both humans and machines.
+- Eaxample :-
+
+1.  header: Represents a container for introductory content or a set of navigational links.
+2.  nav>: efines a set of navigation links.
+3.  sectio>: Represents a thematic grouping of content, typically with a heading.
+4.  articl>: Represents a self-contained piece of content, like a blog post or news article.
+5.  aside> Defines content that is tangentially related to the content around it, often used for sidebars.
+6.  footer: Represents a footer for a section or the entire document, often containing metadata or links.
+7.  main>:Specifies the main content of a document, excluding headers, footers, and sidebars.
+8.  figure: Represents self-contained content, like illustrations, diagrams, photos, or code listings, often with a caption.
+9.  figcapion>: Provides a caption for the figure element.
 10. time>:Represents a specific period in time.
 
 > Non-Symantic
-- Non-semantic tags in HTML are elements that do not provide any information about the content contained 
+
+- Non-semantic tags in HTML are elements that do not provide any information about the content contained
 - They are often used in conjunction with CSS and JavaScript to control the presentation and behavior of web content.
-- Example - 
-01. div>: A generic container used to group together HTML elements.
-02. span>: A generic inline container used to group together text or inline elements.
+- Example -
+
+1.  div>: A generic container used to group together HTML elements.
+2.  span>: A generic inline container used to group together text or inline elements.
 
 # Q - What is HOC component with example expain.
+
 - A Higher-Order Component (HOC) in React is an advanced technique for reusing component logic.
 - HOCs are functions that take a component as a argument and return a new component.
 - HOCs are Functions: They take a component as an argument and return a new component.
-![alt text](Img/image.png)
+  ![alt text](Img/image.png)
 
 ```
 Task - 01
@@ -90,25 +100,27 @@ export default Hoc(UiList)
 ```
 
 # Q - Diffrence between context api and redux.
+
 Both the Context API and Redux are tools for managing state in React applications.
 
 > Context Api
+
 - 'Simple State Management:' Does not include complex state management features like middleware, side effects handling, or advanced debugging tools.
 - Avoid Props drilling.
 - Prop Drilling Solution: Helps to avoid prop drilling by providing a way to pass data deeply through the component tree without having to pass props manually at every level.
 - Basic State Management: Does not include complex state management features like middleware, side effects handling, or advanced debugging tools.
 
-
 > Redux
-- Complex State Management 
+
+- Complex State Management
 - Global State Management: Suitable for managing global state across various parts of the application, even when the components are not directly related.
 - Single Source of Truth: State is stored in a single object, known as the store.
 - Middleware Support: Includes middleware for handling side effects (e.g., redux-thunk, redux-saga).
 - DevTools Integration: Powerful debugging tools such as Redux DevTools for inspecting state changes.
 - Time Travel Debugging: Ability to go back and forth in state changes for easier debugging.
-RTK /ReduxLates
+  RTK /ReduxLates
 
-#  Q create a react app with Start,Stop and Reset button and when we click timer will start/stop/pause/reset
+# Q create a react app with Start,Stop and Reset button and when we click timer will start/stop/pause/reset
 
 ```
 const arr = [1, 4, 5, 6, 2, 3, 4, 5, 4, 5, 6];
@@ -165,16 +177,21 @@ const result = duplicatFind(arr);
 console.log(result);
 
 ```
-# Q- const Arr = [1, [4, [5, 6]], [2, [3, [4, 5]]]]; 
-01. convert in [x,x,x,x,x]
-02. Asc
-03. remove duplicate
+
+# Q- const Arr = [1, [4, [5, 6]], [2, [3, [4, 5]]]];
+
+1.  convert in [x,x,x,x,x]
+2.  Asc
+3.  remove duplicate
+
 - by new Set(Arr) will give unique value of object
-- const uniQueDat =  new Set(Assanding); //object
-const convertArr = [...uniQueDat]
-console.log('uniQueDat: ', convertArr)
-04. find even and odd
-05. total
+- const uniQueDat = new Set(Assanding); //object
+  const convertArr = [...uniQueDat]
+  console.log('uniQueDat: ', convertArr)
+
+4.  find even and odd
+5.  total
+
 ```
 const arr = [1, [4, [5, 6]], [2, [3, [4, 5]]]];
 
@@ -196,7 +213,31 @@ const isArrCheck = (valArr) => {
   };
   flatArr(valArr);
 
-  //For Duplicate Find
+  //Diffrant Approch
+  const nestedArrays = [
+  [1, 2],
+  [[3], 4],
+  [5, 6],
+];
+
+const flattenArray = (arr) => {
+  const result = [];
+  arr.forEach((item) => {
+    if (Array.isArray(item)) {
+      result.push(...flattenArray(item)); // Recursively flatten the sub-array
+    } else {
+      result.push(item); // Add non-array items directly
+    }
+  });
+  return result;
+};
+
+const flatArr = flattenArray(nestedArrays);
+
+console.log('flatArr : ', flatArr);
+
+
+  //For Occurance Find
   const findDuplicate = (result) => {
     const coutCheck = result.reduce((iniVal, items) => {
        iniVal[items] = (iniVal[items] || 0 ) + 1;
@@ -229,15 +270,15 @@ console.log('resultTest : ', resultTest);
 ```
 
 # Q- What is Prototype
+
 - Prototypes are the mechanism by which JavaScript objects inherit features from one another.
 - Definition : prototypes can be used to efficiently manage and reuse behavior across multiple instances of objects, which is particularly useful in scenarios like a library management system.
 - Constructor Functions: Have a prototype property, allowing methods to be added and shared among instances
 - Arrow Functions: Do not have a prototype property.
 - In JavaScript, a prototype is an object
-- This is accessed via the __proto__ property (or more conventionally using Object.getPrototypeOf()).
+- This is accessed via the **proto** property (or more conventionally using Object.getPrototypeOf()).
 - Each object has an internal link to another object called its prototype.
-![alt text](Img/image2.png)
-
+  ![alt text](Img/image2.png)
 
 ```
 //constructer function this is acces by this method
@@ -279,6 +320,7 @@ const person2 = new person('jone', 39, 'Usa');
 person1.greet();
 person2.Birthday();
 ```
+
 ```
 //book menagment
 function library(name) {
@@ -303,6 +345,7 @@ libraryMenag.greet();
 cityMenag.greet();
 library.countData();
 ```
+
 ```
 class A {
   constructor(name, age) {
@@ -377,6 +420,7 @@ res1.hello2 = res.hello2;
 console.log(res1.hello2());  // Invoke hello2 on res1
 
 ```
+
 ```
 let obj = {
   toString() {
@@ -387,11 +431,13 @@ console.log(obj + 'World'); //"Hello World"
 ```
 
 # Q- Call, Apply, Bind
-- Definition : call, apply, and bind are methods in JavaScript that can be used to manipulate the this context of functions. 
+
+- Definition : call, apply, and bind are methods in JavaScript that can be used to manipulate the this context of functions.
 - The call, apply, and bind methods in JavaScript are used to manipulate the this context in functions.
 - The apply method is similar to call, but it takes an array of arguments.
-- The bind method creates a new function that, when called, has its this context 
+- The bind method creates a new function that, when called, has its this context
 - It will take two argument syntex - funcName.call(defineObject, 'Argument value inside the function')
+
 ```
 Call(can't use arrow function buz accessing this property so it will not work)
 // call
@@ -399,7 +445,7 @@ function gret(nameA, nameB){
 console.log(`Hi,${this.welcom} ${nameA} and ${nameB}`)
 }
 
-//Acess by this 
+//Acess by this
 const person = {
   welcom : 'Welcom'
 }
@@ -427,13 +473,14 @@ function sum(a, b, c) {
 const result = sum.call(null, 1, 2, 3);  // Output: 6
 console.log(result);
 ```
+
 ```
 // Apply
 function gret(nameA, nameB){
 console.log(`Hi,${this.welcom} ${nameA} and child of ${nameB}`)
 }
 
-//Acess by this 
+//Acess by this
 const person = {
   welcom : 'Welcom'
 }
@@ -446,30 +493,38 @@ function gret(nameA, nameB){
 console.log(`Hi,${this.welcom} ${nameA} and child of ${nameB}`)
 }
 
-//Acess by this 
+//Acess by this
 const person = {
   welcom : 'Welcom'
 }
 const result = gret.bind(person,'jone', 'rashmi') //return type function so need to be pass in variable
 result()
 ```
+
 # what is the diffrence between rest and spread operator.
- > Rest
- -  the rest operator is used to gather elements into an array,
+
+> Rest
+
+- the rest operator is used to gather elements into an array,
 - Used in function parameters to collect arguments into an array.
 - Capturing an arbitrary number of function arguments
 
 > Spread
--  spread operator is used to spread the content of an array.
+
+- spread operator is used to spread the content of an array.
 - Concatenating arrays, passing arrays as arguments
 
 # Close
+
 - Inner function can acces outer function but outer function can't acces inner function
 - all operation inside of closer happning in asyn operation due to call back.
-> Usecase
+  > Usecase
 - techniques use in such as data encapsulation, function factories, callbacks, currying, and state management in asynchronous operations
+
 1. Data Privacy and Encapsulation
+
 - Closures can be used to create private variables that are not accessible from outside the function.
+
 ```
 function createCounter() {
     let count = 0; // Private variable
@@ -495,6 +550,7 @@ console.log(counter.getCount());  // Outputs: 2 // not access outer count so val
 console.log(counter.decrement()); // Outputs: 1
 
 ```
+
 ```
 const task = () => {
   for (let i = 0; i <= 3; i++) {
@@ -507,7 +563,9 @@ const task = () => {
 };
 task();
 ```
+
 2. Partial Application and Currying
+
 ```
 const outerFun =(x)=>{
   return (y) => {
@@ -528,6 +586,7 @@ console.log(closer2()) //12
 console.log(closer2()) //13
 
 ```
+
 ```
 // Module Pattern with Closures
 // Module Pattern with Closures
@@ -564,8 +623,11 @@ BanckingData.deposit(100);
 BanckingData.withdrawl(10);
 console.log(BanckingData.current());
 ```
+
 # String Reversal
+
 - Task - "helo world" reverse
+
 ```
 const reverse = (date) => {
   return date.split('').reverse().join('');
@@ -581,11 +643,12 @@ const sentence = 'hello world, this is a test';
 const result = sentence.split(' ').map(data => data.charAt(0).toUpperCase() + data.slice(1)).join(' ');
 console.log(result)
 ```
->  task 2
-Calculate the occurrence of the strings ( HELLO ) => { H:1, E:1, L:2, 
-O:1 }
 
-``` 
+> task 2
+> Calculate the occurrence of the strings ( HELLO ) => { H:1, E:1, L:2,
+> O:1 }
+
+```
 const Occurance = (vsl) => {
   let obj={}
   for(let itrat of vsl){
@@ -604,7 +667,9 @@ const Occurance = (vsl) => {
 const valpAss =  Occurance('Hello');
 // console.log('valpAss : ', valpAss)
 ```
-> Task - 3 :  Coding, give an array of objects with 'date' and 'cost'. Asked to group by date.
+
+> Task - 3 : Coding, give an array of objects with 'date' and 'cost'. Asked to group by date.
+
 ```
 const datsa = [
   { date: '2023-07-01', cost: 10 },
@@ -655,6 +720,7 @@ const impLog = (log) => {
 const result = impLog(workHoursData);
 console.log(result);
 ```
+
 ```
 Task 3
 const salesData = [
@@ -698,7 +764,8 @@ const task = (arr) => {
 const result = task(salesData);
 console.log(result);
 ```
-> Task  Given an array of objects representing a collection of books, write a function using the reduce method to compute the total number of pages in all books, and the number of books by each author. The function should return an object with two properties: totalPages and booksByAuthor.
+
+> Task Given an array of objects representing a collection of books, write a function using the reduce method to compute the total number of pages in all books, and the number of books by each author. The function should return an object with two properties: totalPages and booksByAuthor.
 
 ```
 /totalPages
@@ -731,6 +798,7 @@ const TotalPageByAuthor = (book) => {
 const result = TotalPageByAuthor(books);
 console.log(result);
 ```
+
 ```
 let arr = ['a', 'a', 'a', 'b', 'b', 'b', 'c', 'c', 'c', 'a', 'a'];
 //Output : a=3,b=3,c=3,a=2
@@ -758,7 +826,8 @@ console.log(result);
 
 //totalPages
 //booksByAuthor
-ANs - 
+ANs -
+
 ```
 const students = [
   { name: 'Alice', age: 20, grades: [85, 90, 92] },
@@ -796,7 +865,8 @@ console.log(result);
 
 > Task Given an array of transaction objects where each transaction has a type (either "credit" or "debit"), an amount, and a category, write a function using the reduce method to compute the total balance, the total credits, the total debits, and the total amount spent in each category. The function should return an object with four properties: totalBalance, totalCredits, totalDebits, and amountByCategory.
 
-Ans -  
+Ans -
+
 ```
 const transactions = [
   { type: 'credit', amount: 100, category: 'Salary' },
@@ -812,7 +882,7 @@ const summarizeTransactions = (val) => {
     (initVal, items) => {
       const { type, amount, category } = items;
       //Total Amount
-      initVal.totalBalance += amount 
+      initVal.totalBalance += amount
       //Credit or debit
       type === 'credit'
         ? (initVal.totalCredits += amount)
@@ -832,9 +902,11 @@ const summarizeTransactions = (val) => {
 const result = summarizeTransactions(transactions);
 console.log(result);
 ```
+
 > Task Given an array of transactions where each transaction has a type (either "credit" or "debit"), an amount, a category, and a date (in ISO string format), write a function using the reduce method to compute the total balance, the total credits, the total debits, the total amount spent in each category, and the monthly breakdown of transactions. The function should return an object with five properties: totalBalance, totalCredits, totalDebits, amountByCategory, and monthlyBreakdown.
 
 Expected- Output
+
 ```
 {
   totalBalance: 100,
@@ -865,7 +937,7 @@ Expected- Output
 ```
 
 ```
-Solution - 
+Solution -
 const transactions = [
   {
     type: 'credit',
@@ -943,7 +1015,9 @@ console.log(datapass(transactions));
 ```
 
 # MAP QUESTION
+
 > Task - You are given an array of user objects, where each user object contains an array of addresses. Each address object has a label (e.g., "home", "work"), city, and country. Write a function using the map method to transform the array so that each user object includes only their addresses that are labeled as "home". The resulting array should maintain the original structure but with filtered addresses.
+
 ```
 Expected OutPut-
 [
@@ -971,8 +1045,9 @@ Expected OutPut-
   }
 ]
 ```
+
 ```
-Solution - 
+Solution -
 const filterHomeAdd =  (data) => {
   return data.map((data) => ({
     ...data,
@@ -987,13 +1062,13 @@ console.log(result)
 > Task - You are given an array of products where each product has a name, a price, and an array of reviews. Each review object contains a rating (integer between 1 and 5) and a comment. Write a function using the map method to transform the array so that each product includes only the reviews with a rating of 4 or 5. Additionally, calculate the average rating of the filtered reviews and add it as a new property averageRating to each product. If a product has no reviews with a rating of 4 or 5, the averageRating should be set to null.
 
 Expected-
-//Given rating 1 to 5 
-//Write A function product having rating 4 or 5 
+//Given rating 1 to 5
+//Write A function product having rating 4 or 5
 // calculate Avg of each Product
 //No product then set null
 
 ```
-Ans - 
+Ans -
 const products = [
   {
     name: "Product A",
@@ -1024,7 +1099,7 @@ const products = [
 
 const ratingTask = (valArr) => {
   return valArr.map(data=>{
-    
+
     const filterReviewRating = data.reviews.filter(data=> data.rating >=4)
     const totalRating =  filterReviewRating.reduce((a,b)=> a += b.rating, 0)
     const comment =  filterReviewRating.reduce((a, b) => b.comment, 0)
@@ -1035,7 +1110,7 @@ const ratingTask = (valArr) => {
       avgRating : avgRatingData,
       comment : comment
     }
-    
+
   })
 };
 
@@ -1043,12 +1118,12 @@ const result = ratingTask(products);
 console.log(result)
 ```
 
-
 > Task - You are given an array of orders where each order contains an orderId, customerId, orderDate (in ISO string format), and an array of items. Each item has a productId, quantity, and price. Write a function using the map and reduce methods to transform the array so that each order includes a totalPrice (the sum of the price times the quantity for all items in the order), and a customerInfo object that contains the customer's name and email. The customer information is provided in a separate array.
 
-Expected 
+Expected
 //Totalprice
 //customerInfo {customer's name and email}
+
 ```
 const orders = [
   {
@@ -1110,6 +1185,7 @@ console.log(result);
 // const result = taskFind(orders, customers);
 // console.log(result)
 ```
+
 > Task - You are given two arrays: one containing orders and the other containing products. Each order includes an orderId, orderDate (ISO string), customerId, and an array of items. Each item has a productId and a quantity. The products array includes details like productId, productName, category, and price.
 
 // totalPrice
@@ -1117,7 +1193,7 @@ console.log(result);
 // Sort Total price
 
 ```
-Solution - 
+Solution -
 const orders = [
   {
     orderId: 1,
@@ -1205,15 +1281,20 @@ const result = taskFind(orders, products);
 console.log(result);
 
 ```
+
 # Debouncing and Throting
+
 - In JavaScript, debouncing and throttling are techniques used to control the rate at which a function is executed.it will we occure during eventhandling events such as scrolling, resizing, or keypresses.
-- Debouncing ensures that a function is only called after a certain amount of time has passed since the last time it was invoked.  It is useful in scenarios where you want to delay the execution of a function until the activity has stopped.
->  UseIn :- 
+- Debouncing ensures that a function is only called after a certain amount of time has passed since the last time it was invoked. It is useful in scenarios where you want to delay the execution of a function until the activity has stopped.
+  > UseIn :-
+
 1. Form Validation: Validating user input only after the user has stopped typing.
 2. Search Input: Sending an API request only after the user has finished typing in a search field.
 3. Window Resize: Adjusting the layout only after the user has stopped resizing the window.
+
 - Use debouncing when you want to execute a function after the user has stopped performing an action
 - Use debouncing to wait until the user stops typing before making the server request.
+
 ```
 //During Resize Window
 
@@ -1234,15 +1315,19 @@ window.addEventListener('resize', debouncing(() => {
 ```
 
 ::ADVANCE OF DEBOUNSING::
+
 - Debouncing is a strategy used to improve the performance of a feature by controlling the time at which a function should be executed
 - Uses lodash's debounce to delay the search input handling, improving performance for large lists.
- npm i lodash
-- Throttling ensures that a function is only called at most once in a specified time period.it often happend during  event is triggered.
-> UseCase 
-01. Scrolling: Logging the scroll position at most once every 200 milliseconds.
-02. Button Clicks: Preventing a button from being clicked multiple times in quick succession.
-03. API Requests: Limiting the rate of API requests to avoid overloading the server.
+  npm i lodash
+- Throttling ensures that a function is only called at most once in a specified time period.it often happend during event is triggered.
+  > UseCase
+
+1.  Scrolling: Logging the scroll position at most once every 200 milliseconds.
+2.  Button Clicks: Preventing a button from being clicked multiple times in quick succession.
+3.  API Requests: Limiting the rate of API requests to avoid overloading the server.
+
 - Use throttling when you want to execute a function at regular intervals while the user is performing an action
+
 ```
 function throttle(func, limit) {
     let lastFunc;
@@ -1268,28 +1353,36 @@ window.addEventListener('scroll', throttle(() => {
     console.log('Scrolled');
 }, 200));
 ```
+
 # Browser Storages
+
 - Data is not sent to the server with each HTTP request. It is only accessible via JavaScript on the client-side.
-If you want to store the data in browser, frequently we are using below 3.
+  If you want to store the data in browser, frequently we are using below 3.
+
 1.  sessionStorage
-2. localStorage
-3. cookies
+2.  localStorage
+3.  cookies
 
 > sessionStorage
+
 - Session Storage data always persist to that particular tab only. Once tab is closed, the sessionStorage data was gone.
 - Session Storage data stored based on domain name.
 - Data stored in the Session Storage, always in the form of key,value pairs
 - The key is always unique and string type, value maybe string or number type.
-:: 4 method are available in window object. ::
+  :: 4 method are available in window object. ::
+
 1. setItem(key,value) is the method, for insert and update the data in sessionStorage
 2. removeItem(key) is the method, for removing data from sessionStorage.
 3. getItem(key) is the method,for retrieve the data from sessionStorage.
 4. clear() is the method, to clear total sessionStorage data.
+
 ```
 sessionStorage.setItem('age',30);
 sessionStorage.clear();
 ```
+
 > localStorage
+
 - Data lost even after the browser is closed and reopened.
 - Capacity: Typically around 5-10 MB per origin.
 - Usage: Typically used for storing large amounts of data that should persist across sessions (e.g., user preferences, offline data).
@@ -1307,15 +1400,20 @@ localStorage.removeItem('key');
 // Clear all data
 localStorage.clear();
 ```
+
 > Cookies
+
 - Cookies are small pieces of data sent from a website and stored in the user's web browser while the user is browsing.
 - Capacity: Limited to about 4 KB per cookie.
 - Usage: Commonly used for session management (e.g., authentication tokens, user tracking).
- > type of cookies
+  > type of cookies
+
 1. inmemory cookie
+
 - Inmemory cookie data is available only in the current browser(notlike sessionStorage available for one tab). Once browser closed, cookie data was gone.
 
 2. persistent cookie
+
 - If you want to store data in cookies for a particular amount of time, irrespective of tab closing or browser closing or system shutdown. Then we can go with persistent cookies.
 
 ```
@@ -1337,22 +1435,26 @@ document.cookie = "key=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
 ![alt text](Img/image3.png)
 
 # Event Bubbling and Event Capturing
+
 - Understanding these concepts is essential for managing how events are handled in web applications
-> Event Bubbling
+  > Event Bubbling
 - Event bubbling is the phase where an event starts from the target element and propagates upwards to the parent elements until it reaches the root of the document (usually the <html> element).
 - Event is travelling from inner most element to outer most element.By defalut all HTML elements have event bubbling behavior.
 
 > Event Capturing
+
 - Event is travelling from outer most element to inner most element.
 - Use Case: Less common than bubbling but can be useful when you need to handle events during the capturing phase before they reach the target element.
 - addEventListener method take 3 arguments, event name, call back function and boolean value.
 
 # Promise
+
 - Promises provide a powerful and flexible way to handle asynchronous operations in JavaScript.
-- They improve code readability and make it easier to manage complex sequences of asynchronous tasks. 
+- They improve code readability and make it easier to manage complex sequences of asynchronous tasks.
 - we can creat new Promises for new promise.
 - promises is chaining : One of the most powerful features of promises is chaining. You can chain multiple then calls to handle a sequence of asynchronous operations.
-> Three phases of promises
+  > Three phases of promises
+
 1. Pending: The initial state, neither fulfilled nor rejected.
 2. Fulfilled: The operation completed successfully.
 3. Rejected: The operation failed.
@@ -1394,15 +1496,19 @@ promise
   })
   .catch((err) => console.log(err));
 ```
+
 > Promise Methods
 
 1. Promise.all
+
 - Takes an array of promises and returns a single promise that resolves when all of the promises in the array have resolved, or rejects if any promise in the array rejects.
 - Waits for all promises to resolve if any fail then all will be fail
 
-::  Resources : :
+:: Resources : :
+
 - it will wait for all them to finish. if any one api will be fail then all will be rejected.
 - if All are sucess then output will be come
+
 ```
 Promise.all([promise1, promise2, promise3])
     .then((results) => {
@@ -1424,16 +1530,18 @@ Promise.all([fetch1, fetch2, fetch3]).then(responce => {
   return Promise.all(responce.map((data)=> data.json()))
 }).then(data=> console.log(data))
 ```
+
 2. Promise.race
+
 - Promise.race: Takes an array of promises and returns a single promise that resolves or rejects as soon as one of the promises in the array resolves or rejects.
 - first result matters more than waiting for all results.if first result having problem then reject all.
 - It helps you improve performance, reliability, and user experience by allowing you to quickly respond to the fastest completing promise.
 
-::  Resources : :
+:: Resources : :
+
 - it will wait for first promish settled/sucessfull.
 - if [p1(sucess), p2(fail)] then it will be ignore the result of failuer.
 - if All are sucess then output will be come
-
 
 ```
 const promish1 = () => {
@@ -1454,9 +1562,11 @@ const promish2 = () => {
 Promise.race([promish1(), promish2()]).then(data =>  console.log(data)).catch(err=> console.log(err));
 
 ```
+
 3. Promise.allSettled
+
 - Promise.allSettled: Takes an array of promises and returns a single promise that resolves when all of the promises in the array have settled (either resolved or rejected).
-- Promise.allSettled is a useful method for scenarios where you need to handle multiple promises and want to ensure that you get the outcome of all promises, regardless of whether they succeed or fail. 
+- Promise.allSettled is a useful method for scenarios where you need to handle multiple promises and want to ensure that you get the outcome of all promises, regardless of whether they succeed or fail.
 
 ```
 const fetch1 = fetch('https://jsonplaceholder.typicode.com/posts');
@@ -1474,7 +1584,9 @@ Promise.allSettled([fetch1, fetch2, fetch3]).then(data=> data.forEach((val, inde
   }
 })).catch(err=> console.log(err))
 ```
+
 4. Promise.any
+
 - Promise.any: Takes an array of promises and returns a single promise that resolves as soon as any of the promises in the array resolves, or rejects if all promises in the array reject.
 
 ```
@@ -1490,24 +1602,29 @@ Promise.any([promise1, promise2, promise3])
     console.error(error);
   });
 ```
+
 # Async and Await
+
 - we can handling promises by async and await
 - async is a js key we can using during function creation. and it is allowing to retern promises.
 - async and await is combo use for handel promises.
 - why using await ? because code will be wait few sec to get promises resolve then it will be go next line
+
 # Webpack and Babel
+
 - Webpack and Babel are both essential tools in modern JavaScript development
-> Babel
+  > Babel
 - Babel is a JavaScript compiler that allows you to use the latest JavaScript syntax.
 - Transpilation: Babel transpiles modern JavaScript code into a backward-compatible version of JavaScript that can run in older environments.
 - Syntax Transformation: It converts features like arrow functions, template literals, and let/const declarations into their ES5 equivalents.
 - Babel focuses on transforming JavaScript syntax and features
-> Webpack
-- Webpack, on the other hand, is a module bundler for JavaScript applications. 
--  Webpack is a module bundler that prepares assets for deployment.
+  > Webpack
+- Webpack, on the other hand, is a module bundler for JavaScript applications.
+- Webpack is a module bundler that prepares assets for deployment.
 - Webpack manages and optimizes asset bundling, including JavaScript and beyond.
 
 > Task Find Duplicate and occuration
+
 ```
 let arr = [1, 4, 5, 6, 2, 3, 4, 5];
 
@@ -1581,10 +1698,13 @@ const result = lableDupl(arr);
 console.log(result);
 
 ```
+
 # What is Styled-components
+
 - Styled-components is a popular library in the React ecosystem that allows developers dynamic Css
 - It utilizes template literals to style components.
-> Usecase
+  > Usecase
+
 1. Dynamic Styling
 2. Improved Maintainability:
 3. Styled-components allow for conditional styling based on component props.
@@ -1618,28 +1738,33 @@ const App = () => {
 export default App;
 
 ```
+
 # Tools used for deployment in your previous organisation ?
+
 > Compute Services
+
 - In AWS Using Ec2 server
 - Lambda: Serverless compute service that runs code in response to events and automatically manages the compute resources.
-> Storage Services
+  > Storage Services
 - s3 (Scalable object storage) service for storing application assets, backups, and static files.
-> Database Services
+  > Database Services
 - RDS (Relational Database Service): Managed relational database service supporting multiple database engines.
-> Networking Services
+  > Networking Services
 - API Gateway: Managed service for creating, deploying, and managing APIs.
-> CI/CD Services
+  > CI/CD Services
 - CodeCommit: Source control service for hosting Git repositories.
-> Monitoring and Logging Services
+  > Monitoring and Logging Services
 - CloudWatch: Monitoring and management service for collecting and tracking metrics, logs, and events.
 
-# Redux Thunk and Redux Saga 
+# Redux Thunk and Redux Saga
+
 - both middleware libraries for managing side effects in Redux applications.
-> Redux Thunk
--  Redux Thunk is a good choice for simpler applications or when you need to get started quickly with asynchronous actions. 
-- Redux Thunk allows you to write action creators that return a function  and returned function receives the store's dispatch and getState methods
+  > Redux Thunk
+- Redux Thunk is a good choice for simpler applications or when you need to get started quickly with asynchronous actions.
+- Redux Thunk allows you to write action creators that return a function and returned function receives the store's dispatch and getState methods
 - it is familiar with JavaScript and asynchronous programming (e.g., Promises)
 - Suitable for smaller projects or simple asynchronous tasks such as fetching data from an API or performing basic side effects.
+
 ```
 // Action creator with Redux Thunk
 const fetchData = () => {
@@ -1655,15 +1780,18 @@ const fetchData = () => {
   };
 };
 ```
+
 > Redux Saga
+
 - need to be i npm redux-saga/effects
-- Redux Saga is more suited for complex applications where you need fine-grained control over side  effects and asynchronous flows.
-- Redux Saga uses generator functions to handle side effects. using yeild key 
-- Sagas are more powerful and flexible compared to Thunks.but they come with added complexity. 
+- Redux Saga is more suited for complex applications where you need fine-grained control over side effects and asynchronous flows.
+- Redux Saga uses generator functions to handle side effects. using yeild key
+- Sagas are more powerful and flexible compared to Thunks.but they come with added complexity.
 - They can manage more complex scenarios and provide better control over the flow of asynchronous operations.
-: Usecase
+  : Usecase
 - Suitable for larger projects or more complex asynchronous workflows that involve coordination between multiple tasks, handling race conditions, or managing long-running processes.
 - Ideal for applications where you need advanced control over side effects, such as canceling ongoing requests or sequencing multiple actions.
+
 ```
 import { call, put, takeEvery } from 'redux-saga/effects';
 
@@ -1685,9 +1813,13 @@ function* watchFetchData() {
 
 export default watchFetchData;
 ```
+
 # polifil
+
 > Task const input = [1, 2, 3, 4, 4, 5, 6, 6, 7, 7];
+
 - find Duplicat
+
 ```
 const input = [1, 2, 3, 4, 4, 5, 6, 6, 7, 7];
 Array.prototype.test = function(greet){
@@ -1706,6 +1838,7 @@ Array.prototype.test = function(greet){
 let graterThaFour = x => x > 4;
 console.log(input.test(graterThaFour))
 ```
+
 ```
 2nd Task
 //grouping Even add odd
@@ -1720,7 +1853,7 @@ Array.prototype.test = function (greet) {
       arr[Itrat] = { even: [], odd: [] };
     }
     (Itrat % 2 === 0) ? arr[Itrat].even.push('Even') : arr[Itrat].odd.push('Odd')
-    
+
   }
   return {...arr};
 };
@@ -1729,6 +1862,7 @@ const isGreaterThanThree = (x) => x;
 console.log(input.test(isGreaterThanThree));
 
 ```
+
 ```
 const input = [1, 2, 3, 4, 4, 5, 6, 6, 7, 7];
 //Find filter,map, reduce
@@ -1774,6 +1908,7 @@ console.log(
   })
 );
 ```
+
 ```
 const input = [1, 2, 3, 4, 4, 5, 6, 6, 7, 7];
 //Find filter,map, reduce, even, odd
@@ -1823,18 +1958,23 @@ const operation = [
 ];
 console.log(input.test(operation));
 ```
+
 # React-router-Dom
+
 - Latest version 6.4
 - npm i react-router-com@6
 - routing we can menage by createBrowserRouter
-> createBrowserRouter
+  > createBrowserRouter
 - that aims to simplify routing and provide more advanced features for handling navigation, data fetching, and UI updates.
 - Improvment in
-1. Improved Error Handling
-- Error handling in routes is more robust, allowing for specific error components to be rendered when data fetching fails.
-2. Nested Routes
-- Nested routes are more straightforward to define and manage, providing better control over component rendering based on the route hierarchy.
 
+1. Improved Error Handling
+
+- Error handling in routes is more robust, allowing for specific error components to be rendered when data fetching fails.
+
+2. Nested Routes
+
+- Nested routes are more straightforward to define and manage, providing better control over component rendering based on the route hierarchy.
 
 ```
 import { createBrowserRouter, RouterProvider, Route, Link } from 'react-router-dom';
@@ -1883,8 +2023,11 @@ function App() {
 
 export default App;
 ```
+
 # outlet
+
 - for Acess our child component
+
 ```
 // import React from 'react'
 
@@ -1924,14 +2067,18 @@ const route = createBrowserRouter([
   },
 ]);
 ```
+
 # Loder Route
+
 - Each route can define a "loader" function to provide data to the route element before it renders.
 - The loader function in React Router v6.4 and above provides several benefits for handling data fetching in routes.they enhance route handling:
-> Benefits of Using loader Functions
+  > Benefits of Using loader Functions
+
 1. Centralized Data Fetching:
 2. Server-Side Rendering (SSR) Support: Loaders are designed to work seamlessly with server-side rendering (SSR). This means you can fetch data on the server before the React components are rendered, improving initial load performance and SEO.
 3. Integrated Error Handling: Handel error occurance during fetch APi
 4. Since loaders run before the route component is rendered, you can be sure that the required data is available when the component mounts.
+
 ```
 createBrowserRouter([
     {
@@ -1962,7 +2109,9 @@ createBrowserRouter([
   },
 ]);
 ```
+
 # useLoaderData or Dataloading water falls
+
 - The useLoaderData hook, combined with the loader function, provides a robust solution for data fetching in React Router v6.4+.
 - for get all loder data acess.
 
@@ -1979,13 +2128,18 @@ export const loder = async() => {
   return menu
 }
 ```
+
 # useNavigation()
+
 - The useNavigation hook is a powerful tool in React Router v6.4+ that provides fine-grained control over navigation events and states.
--  It is particularly useful for displaying loading indicators during navigation, handling programmatic navigation, rendering conditionally based on navigation state, and logging navigation events.
+- It is particularly useful for displaying loading indicators during navigation, handling programmatic navigation, rendering conditionally based on navigation state, and logging navigation events.
+
 # useRouteError()
+
 - The useRouteError hook in React Router v6.4+ .
 - This is particularly useful for handling errors gracefully and displaying meaningful error messages to the user.
-> Task Login Authentication...
+  > Task Login Authentication...
+
 ```
 // src/Login.js
 import React, { useState } from 'react';
@@ -1998,10 +2152,10 @@ function Login() {
 
   const handleLogin = async (event) => {
     event.preventDefault();
-    
+
     // Simulate an API call
     const isAuthenticated = await fakeAuthAPI(username, password);
-    
+
     if (isAuthenticated) {
       // Navigate to the home page after successful login
       navigate('/');
@@ -2051,19 +2205,26 @@ const fakeAuthAPI = (username, password) => {
 
 export default Login;
 ```
+
 # what is concurrency in react.
+
 - Concurrency in React refers to the ability of React to handle multiple tasks or updates simultaneously without blocking the main thread.
-- This is particularly useful for improving the performance and responsiveness of React applications. 
-> Handel By -
+- This is particularly useful for improving the performance and responsiveness of React applications.
+  > Handel By -
 - Suspense:
+
 ```
 <Suspense fallback={<div>Loading...</div>}>
         <DataComponent />
       </Suspense>
 ```
--  transitions - Transitions help differentiate between urgent and non-urgent updates. Urgent updates, like typing, are processed immediately, while non-urgent updates, like animations, can be deferred.
+
+- transitions - Transitions help differentiate between urgent and non-urgent updates. Urgent updates, like typing, are processed immediately, while non-urgent updates, like animations, can be deferred.
+
 # what diffrance between ++count and count++
+
 - count++ is post increment where ++count is pre increment. suppose you write count++ means value increase after execute this statement. but in case ++count value will increase while executing this line.
+
 ```
 let preCount = 0;
 let postCount = 0;
@@ -2077,10 +2238,13 @@ for (let i = 0; i < 5; i++) {
 console.log(preResultCount); //[1,2,3,4,5] value will be execute statment line by line.
 console.log(postResultCount); //[0,1,2,3,4] value will be execute after execute this statment.
 ```
+
 # In property
+
 - in for object
 - The in operator returns true if the specified property is in the specified object.
 - The in operator cannot be used to search for values in other collections.
+
 ```
 const strings = ['Alice', 'Alice', 'Alice'];
 //[1,1,1]
@@ -2098,11 +2262,15 @@ const number = (str) => {
 };
 console.log(number(strings));
 ```
+
 # Which Condition we use children and element props // Reusable components
+
 > children
+
 - The children prop is a special prop automatically passed to components that contain nested elements.
 - It allows components to accept and render any child elements placed between their opening and closing tags.
 - Use Case : You have a Card component that can wrap and display any content passed to it.
+
 ```
 // Card.js
 import React from 'react';
@@ -2139,7 +2307,9 @@ const App = () => {
 export default App;
 
 ```
+
 > element
+
 - element Prop: Use this when you want to pass a single React element or component as a prop and render it within another component.
 - This is useful for scenarios where you need to pass custom content or components dynamically.
 - useCase : You have a Modal component that needs to render different types of content based on what is passed to it.
@@ -2174,9 +2344,12 @@ const App = () => {
 
 export default App;
 ```
+
 # Array.from
+
 - In JavaScript, Array.from is a static method that creates a new, shallow-copied array instance from an array-like or iterable object.
 - This method is useful when you need to convert these objects into arrays.
+
 ```
 Array.from(arrayLike[, mapFn[, thisArg]])
 
@@ -2190,19 +2363,24 @@ console.log(array); // Outputs: ['H', 'E', 'L', 'L', 'O']
   console.log(array); // Outputs: [1, 2, 3, 4, 5]
 
 ```
+
 # What is Lifecycle
+
 > Mounting or inital render
+
 - components render first time []
 - fresh state and props are created
-> re-render
+  > re-render
 - state, props, context all will be change
-> Un-mounting
+  > Un-mounting
 - component instance destroy
 - state and props are destroy
 
 # new AbortController();// it's browser Api
+
 - The AbortController is a web API that allows you to abort ongoing operations, such as fetch requests.
 - the fetch request is aborted if the component unmounts before the request completes, preventing potential memory leaks and handling cases where the component no longer needs the fetched data.
+
 ```
 import React, { useState, useEffect } from 'react';
 
@@ -2260,9 +2438,11 @@ function DataFetchingComponent() {
 
 export default DataFetchingComponent;
 ```
+
 - Heare cleaner function is work like as closer.
 
 > Task Find key and Value
+
 ```
 const data = {
   0: '0',
@@ -2282,7 +2462,7 @@ if ('updated' in data) {
   console.log(`Key: updated, Value: ${data['updated']}`);
 }
 
-2nd Approch : 
+2nd Approch :
 for (const [key, value] of Object.entries(data)) {
   if (key === 'updated') {
     console.log(`Key: ${key}, Value: ${value}`);
@@ -2291,20 +2471,24 @@ for (const [key, value] of Object.entries(data)) {
   }
 }
 ```
+
 # getBoundingClientRect
+
 - The getBoundingClientRect() method in JavaScript is used to obtain the size of an element and its position relative to the viewport. This method returns a DOMRect object providing information about the element's dimensions and position.
+
 # MenuProps
- 
+
 - In Material-UI (MUI), MenuProps is a property used in components like Select and Autocomplete to customize the behavior and appearance of the dropdown menu. It allows you to pass properties directly to the Menu component that is used internally by these components.
 
 # Example of real Dom and Virtual dome
 
 - Real dom
 <div><span> normal html tags
-- Virtual dome  copy of real dom and return typeis object.
- return {
-  <div>
- }
+- Virtual dome copy of real dom and return typeis object.
+return {
+ <div>
+}
 
 # React Fiber
+
 - it is kinde of logic if you r randomly change ur cart on condisnaly on logic show all dataon ui these all thing is happning by react fiber
