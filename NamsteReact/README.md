@@ -17,3 +17,8 @@ enthusiastic learners are eagerly waiting to help you there!
 
 # for Avoid Cors policy
 - Add chrome extension Allow CORS: Access-Control-Allow-Origin.
+# Why React is faster
+
+**React Fiber** is a reconciliation algorithm that identifies the differences between the real DOM and the virtual DOM, and then updates only the necessary portions.
+
+Virtual Dom

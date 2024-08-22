@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 
-// --- 👺What i will Creat 🍨---
+// --- 👺What i will Create 🍨---
 // - Logo
 // - NavItems
 const Header = () => {
+  const [btnStatus, setButtonStatus] = useState("Login");
+
+  const handleButtonClick = () => {
+    setButtonStatus((prevStatus) =>
+      prevStatus === "Login" ? "Logout" : "Login"
+    );
+  };
+
   return (
     <div className="header">
       <div className="header_Logo">
@@ -19,6 +27,7 @@ const Header = () => {
           <li>About</li>
           <li>Cart</li>
           <li>Contact-Us</li>
+          <button onClick={handleButtonClick}>{btnStatus}</button>
         </ul>
       </div>
     </div>

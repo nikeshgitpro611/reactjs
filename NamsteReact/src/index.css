@@ -47,13 +47,13 @@
 
 .res_Card {
   padding: 5px;
-  width: 200px;
-  height: 300px;
+  width: 15vw;
+  height: 60vh;
   border: 1px solid rgb(66, 120, 12);
-  background-color: rgb(227, 210, 187);
+  background-color: rgb(214, 208, 200);
 }
 .res_Card:hover {
-  border: 1px solid rgb(238, 188, 8);
+  border: 1px solid rgb(238, 8, 54);
   background-color: rgb(189, 189, 207);
   cursor: pointer;
 }
@@ -62,4 +62,10 @@
   width: 100%;
   height: 140px;
   border-radius: 12px;
+}
+
+.res_card_ratingParent {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }

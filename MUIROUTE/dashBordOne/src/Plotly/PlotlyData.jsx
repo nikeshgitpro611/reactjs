@@ -18,12 +18,12 @@ const PlotlyData = () => {
   const fetchApiTest = async () => {
     try {
       const res = await axios.get(
-        "https://6730-103-172-208-89.ngrok-free.app",
-        {
-          headers: {
-            "ngrok-skip-browser-warning": "69420",
-          },
-        }
+        "http://localhost:3001/api/@ty/plotly",
+        // {
+        //   headers: {
+        //     "ngrok-skip-browser-warning": "69420",
+        //   },
+        // }
       );
       setData(res.data);
     } catch (error) {
@@ -40,22 +40,25 @@ const PlotlyData = () => {
   // }, []);
 
   useEffect(() => {
-
-    if (datapass.length !== 0) {
-      console.log(datapass.data);
-      let date = datapass.data.map((data) => data.ActualOccurrenceDate);
-      let locations = datapass.data.map((data) => data.assignment_origin);
-      let destination = datapass.data.map(
-        (data) => data.assignment_destination
-      );
-      // console.log(VarDate);
-      setXVal(date);
-      setLVal(locations);
-      setDestination(destination);
-    }
+    
+    // if (datapass.length !== 0) {
+    //   console.log(datapass.data);
+    //   let date = datapass.data.map((data) => data.ActualOccurrenceDate);
+    //   let locations = datapass.data.map((data) => data.assignment_origin);
+    //   let destination = datapass.data.map(
+    //     (data) => data.assignment_destination
+    //   );
+    //   // console.log(VarDate);
+    //   setXVal(date);
+    //   setLVal(locations);
+    //   setDestination(destination);
+    // }
 
     fetchApiTest()
-  }, [datapass]);
+  }, []);
+
+  console.log(datapass.data);
+  
 
   return (
     <div>
