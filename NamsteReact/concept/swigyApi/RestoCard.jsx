@@ -40,7 +40,7 @@ const RestoCard = ({ allGetData }) => {
 
   let showUiBodyData = (
     <>
-      <div className="searchBar">
+      <div className="searchBar" style={{display: 'flex', flexDirection:'row'}}>
         <input
           type="text"
           value={searchData}

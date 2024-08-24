@@ -8,7 +8,9 @@
 .header_Logo {
 }
 .logo {
-  width: 100px;
+  width: 40px;
+  border-radius: 50%;
+  padding: 0 2rem;
 }
 .headerList {
   padding: 0px 24px;

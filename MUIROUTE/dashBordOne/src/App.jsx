@@ -4,7 +4,8 @@ import ApplAyout from './ApplAyout'
 
 import {RouterProvider} from 'react-router-dom'
 import ColumnGroupingTable from './components/PaginationGrid'
-import PlotlyData from './Plotly/PlotlyData'
+// import PlotlyData from './Plotly/PlotlyData'
+import ParentComponent from './Plotly/ParentComponent'
 const router = createBrowserRouter([
 {path: '/', element:<ApplAyout />,
   children: [
@@ -14,7 +15,7 @@ const router = createBrowserRouter([
     {path: '/table', element: <Table />},
     {path: '/test', element: <TestResourse />},
     {path: '/pagination', element: <ColumnGroupingTable />},
-    {path: '/plotly', element: <PlotlyData />},
+    {path: '/plotly', element: <ParentComponent />},
   ]
 }
 ])

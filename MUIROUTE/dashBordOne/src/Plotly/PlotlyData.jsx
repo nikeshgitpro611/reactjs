@@ -2,52 +2,102 @@ import React, { useState, useEffect } from "react";
 import Plot from "react-plotly.js";
 import axios from "axios";
 
-const PlotlyData = () => {
+const PlotlyData = ({ formattedDates }) => {
   const [xVal, setXVal] = useState([]);
   const [windows, setWindowData] = useState([]);
   const [accuracy, setAccuracy] = useState([]);
   const [datapass, setData] = useState([]);
+  const [totalDate, setTotalDate] = useState([]);
+
+  // Function to format date
+  const formatDate = (dateStr) => {
+    const [month, day, year] = dateStr
+      .split("/")
+      .map((num) => parseInt(num, 10));
+    return `${month}/${day}/${year}`;
+  };
 
   const fetchApiTest = async () => {
     try {
-      const res = await axios.get("http://localhost:3001/api/@ty/plotly");
+      console.log("formattedDates", formattedDates);
+
+      const data = {
+        primeryDate: formatDate(formattedDates?.formattedFirstDate),
+        secondaryDate: formatDate(formattedDates?.formattedSecondDate),
+      };
+      console.log("Data to be sent:", data);
+
+      const headers = {
+        "Content-Type": "application/json",
+      };
+
+      const res = await axios.post(
+        "http://localhost:3001/api/@ty/lineGui",
+        data,
+        { headers }
+      );
+
+      console.log("Response:", res.data);
       setData(res.data);
     } catch (error) {
-      console.error("Error fetching data:", error);
+      // Correct error handling
+      if (error.response) {
+        // Server responded with a status other than 2xx
+        console.error("Server Error:", error.response.data);
+        console.error("Server Status:", error.response.status);
+      } else if (error.request) {
+        // Request was made but no response received
+        console.error("No Response:", error.request);
+      } else {
+        // Something went wrong setting up the request
+        console.error("Error:", error.message);
+      }
     }
   };
 
   useEffect(() => {
-    fetchApiTest();
-  }, []); // Fetch data only once on component mount
+    if (formattedDates) {
+      fetchApiTest();
+    }
+  }, [formattedDates]);
 
   useEffect(() => {
     if (datapass && datapass.data) {
+      console.log("datapass data:", datapass.data); // Log to verify the response structure
+
+      const total = datapass.data.Total || [];
       const gateDateFrmApi = datapass.data.x || [];
       const windowData = datapass.data.y?.Windows || [];
-      const accuracy = datapass.data.y?.Accuracy || [];
+      const accuracyData = datapass.data.y?.Accuracy || [];
 
-      // Remove duplicates and sort dates
-      const uniqueDates = [...new Set(gateDateFrmApi)];
-      
-      const sortedArray = uniqueDates
-      .map((dateStr) => new Date(dateStr)) // Convert strings to Date objects
-      .sort((a, b) => a - b) // Sort Date objects
-      .map((date) => date.toLocaleDateString("en-US")); // Convert back to strings
-      
+      // Convert strings to Date objects and back to strings in MM/DD/YYYY format
+      const sortedArray = gateDateFrmApi
+        .map((dateStr) => new Date(dateStr))
+        .map((date) => date.toLocaleDateString("en-US"));
+
       setXVal(sortedArray);
-   
 
+      // Map the data to the correct format for plotting
       setWindowData(
-        sortedArray.map((date) => windowData[uniqueDates.indexOf(date)] || 0)
+        sortedArray.map(
+          (date) =>
+            (windowData[gateDateFrmApi.indexOf(date)] || 0) /
+            (total[gateDateFrmApi.indexOf(date)] || 1)
+        )
       );
       setAccuracy(
-        sortedArray.map((date) => accuracy[uniqueDates.indexOf(date)] || 0)
+        sortedArray.map(
+          (date) =>
+            (accuracyData[gateDateFrmApi.indexOf(date)] || 0) /
+            (total[gateDateFrmApi.indexOf(date)] || 1)
+        )
+      );
+
+      setTotalDate(
+        sortedArray.map((date) => total[gateDateFrmApi.indexOf(date)] || 0)
       );
     }
-  }, [datapass]); // Trigger this effect when datapass changes
-
-  // console.log(windows);
+  }, [datapass]);
 
   return (
     <div>
@@ -63,7 +113,9 @@ const PlotlyData = () => {
             yaxis: "y1", // Use the first y-axis for windows
             text: xVal.map(
               (date, index) =>
-                `Date: ${date}<br>Windows: ${windows[index] || "N/A"}`
+                `Date: ${date}<br>Windows: ${
+                  windows[index]?.toFixed(2) || "N/A"
+                }`
             ),
             hoverinfo: "text",
           },
@@ -77,7 +129,9 @@ const PlotlyData = () => {
             yaxis: "y2", // Use the second y-axis for accuracy
             text: xVal.map(
               (date, index) =>
-                `Date: ${date}<br>Accuracy: ${accuracy[index] || "N/A"}`
+                `Date: ${date}<br>Accuracy: ${
+                  accuracy[index]?.toFixed(2) || "N/A"
+                }`
             ),
             hoverinfo: "text",
           },
@@ -85,7 +139,6 @@ const PlotlyData = () => {
         layout={{
           width: 790,
           height: 440,
-
           title: "POC Sweta Windows(Number's) and Accuracy(%)",
           xaxis: {
             title: "Date",
@@ -101,7 +154,6 @@ const PlotlyData = () => {
           yaxis: {
             title: "Windows",
             side: "right",
-            pading: "30rem",
             showline: true,
             titlefont: { color: "blue" },
             tickfont: { color: "blue" },
@@ -113,7 +165,6 @@ const PlotlyData = () => {
             showline: true,
             titlefont: { color: "green" },
             tickfont: { color: "green" },
-            // domain: [555, 1],
           },
         }}
         config={{
