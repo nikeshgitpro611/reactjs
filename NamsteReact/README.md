@@ -35,8 +35,8 @@ Virtual Dom
 4. createStaticRouter
 
 **Not Support**
-1. <BrowserRouter>
-2. <MemoryRouter>
-3. <HashRouter>
-4. <NativeRouter>
-5. <StaticRouter>
+1. BrowserRouter
+2. MemoryRouter
+3. HashRouter
+4. NativeRouter
+5. StaticRouter
