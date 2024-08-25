@@ -1,13 +1,15 @@
 import React from "react";
 import Body from "./Body";
-import { Header } from ".";
 import Footer from "./Footer";
+import Header from "./mui/Header";
+import { Outlet } from "react-router-dom";
 
-const swigyApp = () => {
+const SwigyApp = () => {
   return (
     <div className="body">
       <Header />
-      <Body />
+      {/* <Body /> */}
+      <Outlet />
       <div style={{ backgroundColor: "ActiveCaption" }}>
         <Footer />
       </div>
@@ -15,4 +17,4 @@ const swigyApp = () => {
   );
 };
 
-export default swigyApp;
+export default SwigyApp;

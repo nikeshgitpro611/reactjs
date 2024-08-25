@@ -1,13 +1,11 @@
-
-import {SwigyApp} from '../concept/swigyApi'
+import AppLayout from "../concept/swigyApi/appLayout";
 
 function App() {
-
   return (
     <>
-      <SwigyApp />
+      <AppLayout />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
