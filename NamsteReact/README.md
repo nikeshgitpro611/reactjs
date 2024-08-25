@@ -25,3 +25,18 @@ enthusiastic learners are eagerly waiting to help you there!
 Virtual Dom
 
 :::::::::::::::::::::::::::::::::::: **ROUTING** :::::::::::::::::::::::::
+- npm i react-router-dom
+
+**In v6.4**, new routers were introduced that support the new data APIs
+
+1. createBrowserRouter
+2. createMemoryRouter
+3. createHashRouter
+4. createStaticRouter
+
+**Not Support**
+1. <BrowserRouter>
+2. <MemoryRouter>
+3. <HashRouter>
+4. <NativeRouter>
+5. <StaticRouter>
