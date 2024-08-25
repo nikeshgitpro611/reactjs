@@ -23,3 +23,5 @@ enthusiastic learners are eagerly waiting to help you there!
 **React Fiber** is a reconciliation algorithm that identifies the differences between the real DOM and the virtual DOM, and then updates only the necessary portions.
 
 Virtual Dom
+
+:::::::::::::::::::::::::::::::::::: **ROUTING** :::::::::::::::::::::::::

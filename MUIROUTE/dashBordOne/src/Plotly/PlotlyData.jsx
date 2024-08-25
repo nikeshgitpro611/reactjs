@@ -11,21 +11,22 @@ const PlotlyData = ({ formattedDates }) => {
 
   // Function to format date
   const formatDate = (dateStr) => {
+    
     const [month, day, year] = dateStr
-      .split("/")
-      .map((num) => parseInt(num, 10));
+    .split("/")
+    .map((num) => parseInt(num, 10));
     return `${month}/${day}/${year}`;
   };
 
   const fetchApiTest = async () => {
     try {
-      console.log("formattedDates", formattedDates);
+      // console.log("formattedDates", formattedDates);
 
       const data = {
         primeryDate: formatDate(formattedDates?.formattedFirstDate),
         secondaryDate: formatDate(formattedDates?.formattedSecondDate),
       };
-      console.log("Data to be sent:", data);
+      // console.log("Data to be sent:", data);
 
       const headers = {
         "Content-Type": "application/json",
@@ -37,7 +38,7 @@ const PlotlyData = ({ formattedDates }) => {
         { headers }
       );
 
-      console.log("Response:", res.data);
+      // console.log("Response:", res.data);
       setData(res.data);
     } catch (error) {
       // Correct error handling
@@ -63,7 +64,7 @@ const PlotlyData = ({ formattedDates }) => {
 
   useEffect(() => {
     if (datapass && datapass.data) {
-      console.log("datapass data:", datapass.data); // Log to verify the response structure
+      // console.log("datapass data:", datapass.data); // Log to verify the response structure
 
       const total = datapass.data.Total || [];
       const gateDateFrmApi = datapass.data.x || [];

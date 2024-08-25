@@ -25,7 +25,7 @@ const BasicDatePicker = ({ setFormattedDates }) => {
       formattedSecondDate,
     });
 
-    console.log("Formatted Dates: ", { formattedFirstDate, formattedSecondDate });
+    // console.log("Formatted Dates: ", { formattedFirstDate, formattedSecondDate });
   };
 
   return (
