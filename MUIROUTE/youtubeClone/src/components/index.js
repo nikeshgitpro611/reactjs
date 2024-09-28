@@ -8,8 +8,10 @@ import Vedios from "./Vedios";
 import Sidebar from "./Sidebar";
 import VedioCard from "./VedioCard";
 import ChannelCard from "./ChannelCard";
+import Loader from "./Loader";
 
 export {
+  Loader,
   Feed,
   ChannelCard,
   ChannelDetail,

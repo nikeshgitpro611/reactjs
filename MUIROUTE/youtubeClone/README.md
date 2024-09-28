@@ -1,9 +1,15 @@
 # resourse
 - **repo** : https://github.com/adrianhajdin/project_youtube_clone/tree/main
 - **Youtube Resourse** : https://www.youtube.com/watch?v=FHTbsZEJspU
+- **API** : https://rapidapi.com/ytdlfree/api/youtube-v31/playground/apiendpoint_568ae1b5-7353-441d-8753-cfa5337ade8f
+- **cssgradient** : https://cssgradient.io/
+
 
 :::::::::DEPENDANCY:::::::::::::
 ```
+npm i react-player for vedio Play
+
+
  "dependencies": {
     "@emotion/react": "^11.10.0",
     "@emotion/styled": "^11.10.0",

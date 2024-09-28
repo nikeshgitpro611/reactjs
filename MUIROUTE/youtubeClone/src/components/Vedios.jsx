@@ -1,11 +1,12 @@
 import { Box, Stack } from "@mui/material";
 import React from "react";
-import { VedioCard, ChannelCard } from "./";
+import { VedioCard, ChannelCard, Loader } from "./";
 
-const Vedios = ({ vedios }) => {
+const Vedios = ({ vedios, direction }) => {
+  if (!vedios?.length) return <Loader />;
   return (
     <Stack
-      direction="row"
+      direction={direction || "row"}
       gap={2}
       flexWrap="wrap"
       justifyContent="start"
