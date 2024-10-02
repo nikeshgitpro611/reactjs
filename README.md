@@ -2492,3 +2492,8 @@ return {
 # React Fiber
 
 - it is kinde of logic if you r randomly change ur cart on condisnaly on logic show all dataon ui these all thing is happning by react fiber
+:::::::::::::::::::::::::::Git:::::::::::
+> git branch --show-current (Git branch)
+> git remote get-url origin (fetch URL)
+> git remote set-url origin <new-url> (change Url)
+

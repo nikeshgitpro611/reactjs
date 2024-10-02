@@ -46,7 +46,7 @@ export default function NavDrawe() {
       <AppBar position="fixed" sx={themeStyle(theme).appBar}>
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} noWrap>
-            News
+            POC
           </Typography>
           <Button color="inherit">Login</Button>
         </Toolbar>
@@ -58,7 +58,9 @@ export default function NavDrawe() {
         variant="temporary"
         sx={simpleStyle.drawer}
         PaperProps={{
-          sx: simpleStyle.drawerPaper,
+          sx: {
+            backgroundColor: '#e98484f1',
+          },
         }}
       >
         {/* <Toolbar>Test Data</Toolbar> */}
@@ -68,10 +70,10 @@ export default function NavDrawe() {
             { text: "Input Form", route: "/form" },
             { text: "Contact Card Grid", route: "/grid" },
             { text: "Contact Table", route: "/table" },
-            // { text: "Contact Data Grid", route: "/grid" },
             { text: "Poc Data", route: "/test" },
             { text: "Pagination", route: "/pagination" },
             { text: "Plotly", route: "/plotly" },
+            { text: "tyTable", route: "/tyTable" },
           ].map((nav, index) => (
             <ListItem
               key={index}

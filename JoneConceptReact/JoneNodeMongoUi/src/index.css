@@ -1,0 +1,39 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+
+/* Hide Scrool stick on Ui */
+::-webkit-scrollbar {
+  width: 0px;
+  height: 5px;
+}
+.category-btn:hover{
+  background-color: brown;
+  color: aliceblue;
+}
+.category-btn:hover span {
+  color: white !important;
+}
+.category-btn{
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  background: transparent;
+  outline: none;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+  text-transform: capitalize;
+
+  padding: 7px 15px;
+  margin: 10px 0;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}

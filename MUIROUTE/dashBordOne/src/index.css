@@ -1,0 +1,29 @@
+
+body {
+    /* background-color: aquamarine; */
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@media (max-width: 1200px) {
+    body {
+        background-color: lightblue; /* Change background for medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        background-color: lightgreen; /* Change background for tablets */
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        background-color: lightcoral; /* Change background for mobile */
+        height: auto; /* Adjust height for small screens */
+    }
+}
+

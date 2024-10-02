@@ -26,7 +26,9 @@ npm i react-player for vedio Play
 
 
 ::::::::::::::FEATURE:::::::::::
-
+For build command
+in side Public forld
+fldr - 
 
 
 

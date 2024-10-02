@@ -123,4 +123,5 @@ export default App;
 
 **Hook**
 - useRouteError()
+- lifecycle(https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/)
 

@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import PlotlyData from './PlotlyData';
-import BasicDatePicker from '../MUL/datePicker';
+import React, { useState } from "react";
+import PlotlyData from "./PlotlyData";
+import BasicDatePicker from "../MUL/datePicker";
 
 const ParentComponent = () => {
   const [formattedDates, setFormattedDates] = useState({
@@ -10,7 +10,9 @@ const ParentComponent = () => {
 
   return (
     <div>
-      <BasicDatePicker setFormattedDates={setFormattedDates} />
+      <div style={{ marginLeft: "260px" }}>
+        <BasicDatePicker setFormattedDates={setFormattedDates} />
+      </div>
       <PlotlyData formattedDates={formattedDates} />
     </div>
   );

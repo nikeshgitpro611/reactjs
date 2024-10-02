@@ -1,6 +1,5 @@
 import React from "react";
 
-
 import { NavDrawe } from "./ScafFolder";
 import { Outlet } from "react-router-dom";
 import { ThemeProvider, Toolbar } from "@mui/material";
@@ -12,10 +11,10 @@ const ApplAyout = () => {
       <header>
         <NavDrawe />
       </header>
-      <main style={{marginLeft: 260}}>
+      <main style={{minWidth: '100vh'}}>
         <ThemeProvider theme={BeautiFulThem}>
-        <Toolbar />
-        <Outlet />
+          <Toolbar />
+          <Outlet />
         </ThemeProvider>
       </main>
     </div>

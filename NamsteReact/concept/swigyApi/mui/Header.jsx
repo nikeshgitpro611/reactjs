@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { logoText } from "../utils/contentes";
+import { Link } from "react-router-dom";
 // --- 👺What i will Create 🍨---
 // - Logo
 // - NavItems
@@ -15,17 +16,16 @@ const Header = () => {
   return (
     <div className="header">
       <div className="header_Logo">
-        <img className="logo" src={logoText} alt="Company_Logo" />
+       <Link to= '/'><img className="logo" src={logoText} alt="Company_Logo" /> </Link>
       </div>
       <div className="headerList">
         <ul>
           <li>
-            {/* <Link to="/Home">Home</Link>{" "} */}
-            Home
+            <Link to="/">Home</Link>
           </li>
-          <li>About</li>
+          <li><Link to = '/about'>About</Link></li>
           <li>Cart</li>
-          <li>Contact-Us</li>
+          <li><Link to = '/contact'>Contact-us</Link></li>
           <button onClick={handleButtonClick}>{btnStatus}</button>
         </ul>
       </div>

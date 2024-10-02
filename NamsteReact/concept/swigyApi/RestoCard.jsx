@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 // Create [name of restaurant, star Rating, cuisines, delay Times]
 // Filter by search button..
@@ -19,6 +20,7 @@ const RestoCard = ({ allGetData }) => {
             ratings: itemCard.card?.info?.ratings?.aggregatedRating?.rating,
             imageId: itemCard.card?.info?.imageId,
             description: itemCard.card?.info?.description,
+            id: itemCard.card?.info?.id
           })) || []
       );
       setDataPass(data);
@@ -37,7 +39,8 @@ const RestoCard = ({ allGetData }) => {
     const filterRate = filteredRestro.filter(topRatedData=> topRatedData.ratings > 4)
     setFilteredRestro(filterRate)
   }
-
+  console.log('allGetData', allGetData);
+  
   let showUiBodyData = (
     <>
       <div className="searchBar" style={{display: 'flex', flexDirection:'row'}}>
@@ -51,12 +54,14 @@ const RestoCard = ({ allGetData }) => {
       </div>
 
       {filteredRestro.map((dataAll, index) => (
+        <Link to = {`/restorent/${dataAll.id}`} key={index}> 
         <div className="res_Card" key={index}>
           <img
             className="card_logo"
             src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/${dataAll.imageId}`}
             alt="card-logo"
           />
+          <p>{dataAll.id}</p>
           <h5>{dataAll.name}</h5>
           <p style={{ fontFamily: "revert" }}>
             {dataAll.description?.slice(0, 100)}
@@ -77,6 +82,7 @@ const RestoCard = ({ allGetData }) => {
             <h4>38 min</h4>
           </div>
         </div>
+        </Link>
       ))}
     </>
   );

@@ -7,15 +7,17 @@ import About from "./components/about/About";
 import SwigyApp from "./swigyApp";
 import Error from "./components/Error";
 import Contact from "./components/Contact";
+import RestorentMenu from "./components/RestorentMenu";
 
 const routeRouting = createBrowserRouter([
   {
     path: "/",
     element: <SwigyApp />,
     children: [
-        {path: '/', element: <Body />},
-        {path: '/about', element: <About />},
-        {path: '/contact', element: <Contact />}
+      { path: "/", element: <Body /> },
+      { path: "/about", element: <About /> },
+      { path: "/contact", element: <Contact /> },
+      { path: "/restorent/:resId", element: <RestorentMenu /> },
     ],
     errorElement: <Error />,
   },
@@ -25,9 +27,6 @@ const AppLayout = () => {
   return (
     <>
       <RouterProvider router={routeRouting}>
-        {/* <Header /> */}
-        {/* <Body /> */}
-        {/* <Footer /> */}
         <SwigyApp />
       </RouterProvider>
     </>

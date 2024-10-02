@@ -3,6 +3,7 @@ import RestoCard from "./RestoCard";
 import useFetchApiData from "./Hook/FetchAPI";
 import { ApiUrl } from "./utils/contentes";
 import Simmer from "./Simmer";
+import { Link } from "react-router-dom";
 
 //Search Bar
 // Cart[img, restorantname,cusions, prices, timeTake, rating,etc]
@@ -28,7 +29,7 @@ const Body = () => {
       
       <div className="cardContainer">
         {apiData.getApiData.map((getData, index) => (
-          <RestoCard allGetData={getData} key={index} />
+         <RestoCard allGetData={getData} key={index} />
         ))}
       </div>
     </div>
