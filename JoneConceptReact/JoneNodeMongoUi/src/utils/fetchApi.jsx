@@ -42,11 +42,32 @@ export const FetchApiInsert = async (name) => {
   }
 };
 
-export const FetchApiForEdit = async (id,name) => {
+export const FetchApiForEdit = async (id, name) => {
   const responce = await axios.patch(
-    `http://localhost:5000/api/v1/tasks/${id}`,{name}
+    `http://localhost:5000/api/v1/tasks/${id}`,
+    { name }
   );
-  console.log("test:",responce?.data);
-  
+  console.log("test:", responce?.data);
+
   return responce?.data?.data;
+};
+
+export const FetchApiForJwtToken = async (username, password) => {
+  console.log(username, password);
+
+  const responce = await axios.post("http://localhost:3002/api/jwt/login", {
+    username,
+    password,
+  });
+  console.log("responce : ", responce.data);
+  return responce?.data;
+};
+export const FetchJwtGet = async () => {
+  const token = localStorage.getItem('token')
+  const responce = await axios.get("http://localhost:3002/api/jwt/dashboard", {
+    headers: {
+      Authorization : `Bearer ${token}`
+    },
+  });
+  return responce?.data
 };

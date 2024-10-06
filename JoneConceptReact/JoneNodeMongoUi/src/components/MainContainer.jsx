@@ -1,6 +1,6 @@
 import { Box, Stack, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import { InsertInputUi, SideBar, TaskMenager } from "./";
+import { InsertInputUi, JwtMain, SideBar, TaskMenager } from "./";
 import { BaseUrlGet, FetchFormApi } from "../utils/fetchApi";
 import { category } from "../utils/constanLogo";
 
@@ -44,7 +44,7 @@ const MainContainer = () => {
         </Typography>
         {selectedCategory === category[0].name && (
           <>
-            <TaskMenager mongoData={mongoData} />
+            <TaskMenager selectedCategory={selectedCategory} />
             <Box
               component="section"
               sx={{
@@ -65,6 +65,8 @@ const MainContainer = () => {
             </Box>
           </>
         )}
+
+        {selectedCategory === category[2].name && <JwtMain selectedCategory={selectedCategory}/>}
       </Box>
     </Stack>
   );

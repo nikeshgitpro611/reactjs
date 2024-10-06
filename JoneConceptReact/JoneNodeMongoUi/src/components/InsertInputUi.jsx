@@ -3,10 +3,15 @@ import React, { useEffect, useState } from "react";
 import AddIcon from "@mui/icons-material/Add";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import { EditNoteIcon } from "../utils/constanLogo"; // Corrected import
-import { FetchApiInsert, FetchDeleteData, FetchFormApi } from "../utils/fetchApi";
+import {
+  FetchApiInsert,
+  FetchDeleteData,
+  FetchFormApi,
+} from "../utils/fetchApi";
 import { ToastContainer, toast } from "react-toastify"; // Assuming toast for feedback
 import "react-toastify/dist/ReactToastify.css";
 import Edittask from "./Edittask";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
 const InsertInputUi = () => {
   const [inputValue, setInputValue] = useState("");
@@ -18,7 +23,7 @@ const InsertInputUi = () => {
 
     try {
       const response = await FetchApiInsert(inputValue); //insrt
-      const getData = await FetchFormApi("http://localhost:5000/api/v1/tasks");//get
+      const getData = await FetchFormApi("http://localhost:5000/api/v1/tasks"); //get
       if (response) {
         // setInsertInput([...insertInput, response]);
         setInsertInput(getData);
@@ -131,13 +136,16 @@ const InsertInputUi = () => {
                   justifyContent="space-between"
                 >
                   <Typography
-                    color="#1b1a1a"
+                    color="#2a2626"
                     variant="body1"
                     fontFamily="sans-serif"
                     fontWeight="bold"
                     textTransform="capitalize"
                   >
-                    {dataGet.name}
+                    <Box display="flex" gap={1}>
+                      <span style={{color: '#94e69b'}}><CheckCircleIcon/></span>
+                      {dataGet.name}
+                    </Box>
                   </Typography>
                   {/* Edit and Delete Icons */}
                   <Box display="flex" gap={1}>

@@ -1,11 +1,11 @@
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Grid, Stack } from "@mui/material";
 import React from "react";
-import { ApiName } from "../utils/hardCodedContents";
-import { DeleteForeverIcon } from "../utils/constanLogo";
+import FirstApiUrl from "./firstApiUrl";
+import DeleteForeverIcon from "@mui/icons-material/DeleteForever"; // Correct import for Material-UI icon
+import { category } from "../utils/constanLogo";
+import { ApiName, JWTName } from "../utils/hardCodedContents";
 
-const TaskMenager = ({ mongoData }) => {
-  console.log("ApiName : ", ApiName);
-
+const TaskManager = ({ selectedCategory }) => {
   return (
     <Stack
       direction="row"
@@ -14,44 +14,14 @@ const TaskMenager = ({ mongoData }) => {
       flexWrap="wrap"
       alignItems="start"
     >
-      {ApiName.map((mongoDataGet, idx) => (
-        <Box key={idx}>
-          <Stack sx={{ width: { xs: "100%", sm: "358px", md: "400px" } }}>
-            <Box sx={{ background: "#ad9d9d" }} px={1} py={2}>
-              <Typography
-                style={{
-                  color: "#ffff",
-                  fontWeight: "bold",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "start",
-                }}
-              >
-                <span
-                  style={{
-                    borderRight: "1px solid brown",
-                    color: "#c11c5e",
-                    paddingRight: "6px",
-                    textTransform: "capitalize",
-                  }}
-                >
-                  {mongoDataGet.method}
-                </span>
-                <span
-                  style={{
-                    color: "#000",
-                    padding: "3px",
-                  }}
-                >
-                  {mongoDataGet.Url}
-                </span>
-              </Typography>
-            </Box>
-          </Stack>
-        </Box>
-      ))}
+      {category.length > 0 && selectedCategory === category[0].name && (
+        <FirstApiUrl ApiName = {ApiName}/>
+      )}
+      {category.length > 0 && selectedCategory === category[2].name && (
+        <FirstApiUrl ApiName = {ApiName}/>
+      )}
     </Stack>
   );
 };
 
-export default TaskMenager;
+export default TaskManager;
