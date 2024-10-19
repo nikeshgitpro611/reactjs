@@ -1,3 +1,6 @@
+<!-- REFFRANCE REPO -->
+> https://github.com/akshaymarch7
+
 # WHAT WE LEARN IN PROJECT
 1. Authentication
 2. Form SignIn and SignUp
@@ -7,6 +10,25 @@
 
 <!-- COMMAND AND PACKAGES -->
 -  npx create-react-app .
+
+<!-- FEATURE -->
+- Login/SignUp
+    - SignIn & SignUp Form
+    - Once Login Redirect to Browse Page.
+- Browser(it will come after authentication)
+ - Header
+ - Main Movies
+    - Trailer in Background
+    - Title & decription
+    - Movies Suggestion
+     - nth of Movies List 
+        - Title of Movies based on category
+        - Movies details in cart format
+     - left and right slider
+- netflixGpt
+    - Search bar
+    - Movies Suggestion
+
 
 <!-- QA SESSION -->
 # What is bundler

@@ -46,14 +46,14 @@ const JwtDaishboard = () => {
       >
         <Box>
           <Typography sx={{ mb: 1 }}>
-            {feedBack ? (
+            {feedBack.mesg != "" ? (
                 <>
               <span style={{ fontWeight: "bold" ,color: 'green'}}>{feedBack?.mesg}</span>
               <br />
               <span style={{ fontWeight: "normal"  }}>{feedBack?.sec}</span>
               </>
             ) : (
-              <span color="red">"No data"</span>
+              <span color="red">No data</span>
             )}
           </Typography>
 

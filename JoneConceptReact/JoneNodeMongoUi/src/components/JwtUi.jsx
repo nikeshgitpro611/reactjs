@@ -8,8 +8,18 @@ const JwtUi = () => {
     Password: "",
   });
   const [toknMsg, setToknMsg] = useState("");
+  const [errorMsg, SetErrorMsg] = useState("");
 
   const handleSubmit = async (e) => {
+    //Condition for Error Msg
+    if (!formData.name || !formData.Password) {
+      SetErrorMsg("Please provide name and Password");
+      setTimeout(() => {
+        SetErrorMsg("");
+      }, 2000);
+      // return;
+    }
+
     try {
       e.preventDefault();
       const getData = await FetchApiForJwtToken(
@@ -20,6 +30,7 @@ const JwtUi = () => {
         name: "",
         Password: "",
       });
+
       setToknMsg(getData?.message);
       localStorage.setItem("token", getData?.token);
       //   console.log("getData:", getData); // Handle response data here
@@ -89,6 +100,13 @@ const JwtUi = () => {
             placeholder="Enter your password"
           />
         </Typography>
+        {errorMsg && (
+          <Box textAlign="center">
+            <p style={{ color: "#e34747", textTransform: "capitalize" }}>
+              {errorMsg}
+            </p>
+          </Box>
+        )}
 
         {toknMsg && (
           <Box textAlign="center">
