@@ -1,4 +1,4 @@
-<!-- REFFRANCE REPO -->
+# <!-- REFFRANCE REPO -->
 > https://github.com/akshaymarch7
 
 # WHAT WE LEARN IN PROJECT
@@ -8,10 +8,10 @@
 5. Using ChatGpt Api For Search movies
 6. Tailwind CSS
 
-<!-- COMMAND AND PACKAGES -->
+# <!-- COMMAND AND PACKAGES -->
 -  npx create-react-app .
 
-<!-- FEATURE -->
+# <!-- FEATURE -->
 - Login/SignUp
     - SignIn & SignUp Form
     - Once Login Redirect to Browse Page.
@@ -30,7 +30,7 @@
     - Movies Suggestion
 
 
-<!-- QA SESSION -->
+# <!-- QA SESSION -->
 # What is bundler
 
 Bundling is the process of following imported files and merging them into a single file: a “bundle”. This bundle can then be included on a webpage to load an entire app at once
