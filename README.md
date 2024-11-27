@@ -1,8 +1,7 @@
 repo - https://github.com/john-smilga/react-course-v3
 
-> Fetch focha
 
-- it doesnot conside 404 as a error.
+- it does not consider 404 as a error.
 
 > # API REFf - https://www.course-api.com/
 
@@ -12,23 +11,23 @@ repo - https://github.com/john-smilga/react-course-v3
 
 Ans - These tags provide better accessibility, improved SEO, and more meaningful markup. Tags are define in two ways.
 
-> Symantic
+> Symantec
 
 - semantic tags help define the structure of the webpage, making it more understandable for both humans and machines.
-- Eaxample :-
+- Example :-
 
 1.  header: Represents a container for introductory content or a set of navigational links.
-2.  nav>: efines a set of navigation links.
-3.  sectio>: Represents a thematic grouping of content, typically with a heading.
-4.  articl>: Represents a self-contained piece of content, like a blog post or news article.
+2.  nav>: Defines a set of navigation links.
+3.  section>: Represents a thematic grouping of content, typically with a heading.
+4.  article>: Represents a self-contained piece of content, like a blog post or news article.
 5.  aside> Defines content that is tangentially related to the content around it, often used for sidebars.
 6.  footer: Represents a footer for a section or the entire document, often containing metadata or links.
 7.  main>:Specifies the main content of a document, excluding headers, footers, and sidebars.
 8.  figure: Represents self-contained content, like illustrations, diagrams, photos, or code listings, often with a caption.
-9.  figcapion>: Provides a caption for the figure element.
+9.  figcaption>: Provides a caption for the figure element.
 10. time>:Represents a specific period in time.
 
-> Non-Symantic
+> Non-Semantic
 
 - Non-semantic tags in HTML are elements that do not provide any information about the content contained
 - They are often used in conjunction with CSS and JavaScript to control the presentation and behavior of web content.
@@ -50,13 +49,13 @@ Task - 01
 Hoc.jsx
 import React, { useRef, useState } from 'react'
 
-const Hoc = (Orignal) => {
+const Hoc = (Original) => {
 
     return () => {
         const list1 = ['Eggfruit', 'Fig', 'Grape', 'Honeydew', 'Apple'];
         const list2 = ['Apple', 'Banana', 'Cherry', 'Date'];
-        const [serch, setSearc] =  useState('')
-        const inputReff =  useRef();
+        const [search, setSearc] =  useState('')
+        const inputRef =  useRef();
 
         const filterSearch = (list1, search)=> {
             return list1.filter(data=> data.toLowerCase().includes(serch.toLowerCase()))
@@ -65,8 +64,8 @@ const Hoc = (Orignal) => {
         const filter2 = filterSearch(list2, serch)
         return (
         <div className="">
-            <input type="text" ref={inputReff} value={serch} onChange={()=> setSearc(inputReff.current.value)} placeholder='search me'/>
-            <Orignal list1 = {filter1} list2 = {filter2}/>
+            <input type="text" ref={inputReff} value={search} onChange={()=> setSearc(inputRef.current.value)} placeholder='search me'/>
+            <Original list1 = {filter1} list2 = {filter2}/>
         </div>
         )
     }
@@ -185,7 +184,7 @@ console.log(result);
 3.  remove duplicate
 
 - by new Set(Arr) will give unique value of object
-- const uniQueDat = new Set(Assanding); //object
+- const uniQueDat = new Set(Ascending); //object
   const convertArr = [...uniQueDat]
   console.log('uniQueDat: ', convertArr)
 
@@ -213,7 +212,7 @@ const isArrCheck = (valArr) => {
   };
   flatArr(valArr);
 
-  //Diffrant Approch
+  //Different Approach
   const nestedArrays = [
   [1, 2],
   [[3], 4],
@@ -237,19 +236,19 @@ const flatArr = flattenArray(nestedArrays);
 console.log('flatArr : ', flatArr);
 
 
-  //For Occurance Find
+  //For Occurrence Find
   const findDuplicate = (result) => {
-    const coutCheck = result.reduce((iniVal, items) => {
+    const countCheck = result.reduce((iniVal, items) => {
        iniVal[items] = (iniVal[items] || 0 ) + 1;
        return iniVal
     }, {})
-    console.log('coutCheck : ', coutCheck)
+    console.log('countCheck : ', countCheck)
 
-    return result.filter((item,index) => coutCheck[item] > 1 && result.indexOf(item) === index)
+    return result.filter((item,index) => countCheck[item] > 1 && result.indexOf(item) === index)
   };
 
-//2nd Method Find duplicat
-   const duplicatValFinf = resultData.filter((val, index) => resultData.indexOf(val) !== index)
+//2nd Method Find duplicate
+   const duplicateValFinf = resultData.filter((val, index) => resultData.indexOf(val) !== index)
 
   if (result.length > 0) {
     result = result.sort((a, b) => a - b, 0);
@@ -281,7 +280,7 @@ console.log('resultTest : ', resultTest);
   ![alt text](Img/image2.png)
 
 ```
-//constructer function this is acces by this method
+//constructed function this is access by this method
 function person(name, age) {
   this.name = name;
   this.age = age;
@@ -339,10 +338,10 @@ library.countData = function () {
 };
 
 //instance
-const libraryMenag = new library('village Librayr');
-const cityMenag = new library('countery Librayr');
-libraryMenag.greet();
-cityMenag.greet();
+const libraryMenage = new library('village Library');
+const cityMenage = new library('country Library');
+libraryMenage.greet();
+cityMenage.greet();
 library.countData();
 ```
 
@@ -436,18 +435,18 @@ console.log(obj + 'World'); //"Hello World"
 - The call, apply, and bind methods in JavaScript are used to manipulate the this context in functions.
 - The apply method is similar to call, but it takes an array of arguments.
 - The bind method creates a new function that, when called, has its this context
-- It will take two argument syntex - funcName.call(defineObject, 'Argument value inside the function')
+- It will take two argument syntax - funcName.call(defineObject, 'Argument value inside the function')
 
 ```
 Call(can't use arrow function buz accessing this property so it will not work)
 // call
 function gret(nameA, nameB){
-console.log(`Hi,${this.welcom} ${nameA} and ${nameB}`)
+console.log(`Hi,${this.welcome} ${nameA} and ${nameB}`)
 }
 
-//Acess by this
+//Access by this
 const person = {
-  welcom : 'Welcom'
+  welcome : 'Welcome'
 }
 gret.call(person,'jone', 'rashmi')
 
@@ -463,9 +462,9 @@ const obj2 = {
   name: 'Bob',
 };
 obj1.greet();
-obj1.greet.call(obj2); //context menupulat
+obj1.greet.call(obj2); //context manipulate
 
-// task -3 add valur by call method
+// task -3 add value by call method
 function sum(a, b, c) {
   return a + b + c;
 }
@@ -477,12 +476,12 @@ console.log(result);
 ```
 // Apply
 function gret(nameA, nameB){
-console.log(`Hi,${this.welcom} ${nameA} and child of ${nameB}`)
+console.log(`Hi,${this.welcome} ${nameA} and child of ${nameB}`)
 }
 
-//Acess by this
+//Access by this
 const person = {
-  welcom : 'Welcom'
+  welcome : 'Welcom'
 }
 gret.apply(person,['jone', 'rashmi'])
 ```
@@ -490,12 +489,12 @@ gret.apply(person,['jone', 'rashmi'])
 ```
 // Bind
 function gret(nameA, nameB){
-console.log(`Hi,${this.welcom} ${nameA} and child of ${nameB}`)
+console.log(`Hi,${this.welcome} ${nameA} and child of ${nameB}`)
 }
 
 //Acess by this
 const person = {
-  welcom : 'Welcom'
+  welcome : 'Welcome'
 }
 const result = gret.bind(person,'jone', 'rashmi') //return type function so need to be pass in variable
 result()
@@ -516,9 +515,9 @@ result()
 
 # Close
 
-- Inner function can acces outer function but outer function can't acces inner function
-- all operation inside of closer happning in asyn operation due to call back.
-  > Usecase
+- Inner function can access outer function but outer function can't access inner function
+- all operation inside of closer happing in async operation due to call back.
+  > Use-case
 - techniques use in such as data encapsulation, function factories, callbacks, currying, and state management in asynchronous operations
 
 1. Data Privacy and Encapsulation
@@ -802,7 +801,7 @@ console.log(result);
 ```
 let arr = ['a', 'a', 'a', 'b', 'b', 'b', 'c', 'c', 'c', 'a', 'a'];
 //Output : a=3,b=3,c=3,a=2
-const occurance = (arr) => {
+const occurrence = (arr) => {
   let arrSplit = [];
   let count = 1;
 
@@ -818,7 +817,7 @@ const occurance = (arr) => {
   }
   return arrSplit.join(',');
 };
-const result = occurance(arr);
+const result = occurrence(arr);
 console.log(result);
 ```
 
@@ -977,7 +976,7 @@ const transactions = [
   },
 ];
 
-const datapass = (val) => {
+const dataPass = (val) => {
   return val.reduce(
     (iniVal, items) => {
       const { type, amount, category, date } = items;
@@ -1010,7 +1009,7 @@ const datapass = (val) => {
     }
   );
 };
-console.log(datapass(transactions));
+console.log(dataPass(transactions));
 
 ```
 
@@ -1051,7 +1050,7 @@ Solution -
 const filterHomeAdd =  (data) => {
   return data.map((data) => ({
     ...data,
-    addresseUpdated : data.addresses.filter(data => data.label === "home")
+    addressUpdated : data.addresses.filter(data => data.label === "home")
   }))
 };
 
@@ -1121,7 +1120,7 @@ console.log(result)
 > Task - You are given an array of orders where each order contains an orderId, customerId, orderDate (in ISO string format), and an array of items. Each item has a productId, quantity, and price. Write a function using the map and reduce methods to transform the array so that each order includes a totalPrice (the sum of the price times the quantity for all items in the order), and a customerInfo object that contains the customer's name and email. The customer information is provided in a separate array.
 
 Expected
-//Totalprice
+//TotalPrice
 //customerInfo {customer's name and email}
 
 ```
@@ -1162,14 +1161,14 @@ const customers = [
 
 const taskFind = (orders, customers) => {
   return orders.map((data) => {
-    const Totalprice = data.items.reduce((a, b) => (a += b.price), 0);
+    const TotalPrice = data.items.reduce((a, b) => (a += b.price), 0);
     const findDetails = customers.find(
       (data) => data.customerId === data.customerId
     );
     console.log('findDetails : ', findDetails);
     return {
       ...data,
-      Totalprice,
+      TotalPrice,
       customerInfo: {
         name: findDetails.name,
         email: findDetails.email,
@@ -1284,7 +1283,7 @@ console.log(result);
 
 # Debouncing and Throting
 
-- In JavaScript, debouncing and throttling are techniques used to control the rate at which a function is executed.it will we occure during eventhandling events such as scrolling, resizing, or keypresses.
+- In JavaScript, debouncing and throttling are techniques used to control the rate at which a function is executed.it will we occurred during eventHandling events such as scrolling, resizing, or keyPresses.
 - Debouncing ensures that a function is only called after a certain amount of time has passed since the last time it was invoked. It is useful in scenarios where you want to delay the execution of a function until the activity has stopped.
   > UseIn :-
 
@@ -1314,12 +1313,12 @@ window.addEventListener('resize', debouncing(() => {
 }, 300))
 ```
 
-::ADVANCE OF DEBOUNSING::
+::ADVANCE OF DEBOUNCING::
 
 - Debouncing is a strategy used to improve the performance of a feature by controlling the time at which a function should be executed
 - Uses lodash's debounce to delay the search input handling, improving performance for large lists.
   npm i lodash
-- Throttling ensures that a function is only called at most once in a specified time period.it often happend during event is triggered.
+- Throttling ensures that a function is only called at most once in a specified time period.it often happened during event is triggered.
   > UseCase
 
 1.  Scrolling: Logging the scroll position at most once every 200 milliseconds.
@@ -1408,9 +1407,9 @@ localStorage.clear();
 - Usage: Commonly used for session management (e.g., authentication tokens, user tracking).
   > type of cookies
 
-1. inmemory cookie
+1. in-memory cookie
 
-- Inmemory cookie data is available only in the current browser(notlike sessionStorage available for one tab). Once browser closed, cookie data was gone.
+- In-memory cookie data is available only in the current browser(not like sessionStorage available for one tab). Once browser closed, cookie data was gone.
 
 2. persistent cookie
 
@@ -1439,11 +1438,11 @@ document.cookie = "key=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
 - Understanding these concepts is essential for managing how events are handled in web applications
   > Event Bubbling
 - Event bubbling is the phase where an event starts from the target element and propagates upwards to the parent elements until it reaches the root of the document (usually the <html> element).
-- Event is travelling from inner most element to outer most element.By defalut all HTML elements have event bubbling behavior.
+- Event is traveling from inner most element to outer most element.By defalut all HTML elements have event bubbling behavior.
 
 > Event Capturing
 
-- Event is travelling from outer most element to inner most element.
+- Event is traveling from outer most element to inner most element.
 - Use Case: Less common than bubbling but can be useful when you need to handle events during the capturing phase before they reach the target element.
 - addEventListener method take 3 arguments, event name, call back function and boolean value.
 
@@ -1451,7 +1450,7 @@ document.cookie = "key=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
 
 - Promises provide a powerful and flexible way to handle asynchronous operations in JavaScript.
 - They improve code readability and make it easier to manage complex sequences of asynchronous tasks.
-- we can creat new Promises for new promise.
+- we can create new Promises for new promise.
 - promises is chaining : One of the most powerful features of promises is chaining. You can chain multiple then calls to handle a sequence of asynchronous operations.
   > Three phases of promises
 
@@ -1461,9 +1460,9 @@ document.cookie = "key=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
 
 ```
 let promises = new Promise((resolve, reject)=>{
-  let sucess =  true;
-  if(sucess){
-    resolve('Data Passing sucess')
+  let success =  true;
+  if(success){
+    resolve('Data Passing success')
   }else{
     reject('Having some problem')
   }
@@ -1472,11 +1471,11 @@ promises.then(data=> console.log(data)).catch(err => console.log(err))
 ```
 
 ```
-Promise Chaning
+Promise changing
 let promise = new Promise((resolve, reject) => {
   resolve('step 1');
 });
-//Promising Chaning handle by multiple then in asyn operation
+//Promising changing handle by multiple then in async operation
 promise
   .then((data) => {
     console.log(data);
@@ -1507,7 +1506,7 @@ promise
 :: Resources : :
 
 - it will wait for all them to finish. if any one api will be fail then all will be rejected.
-- if All are sucess then output will be come
+- if All are success then output will be come
 
 ```
 Promise.all([promise1, promise2, promise3])
@@ -1525,9 +1524,9 @@ const fetch2 = fetch('https://jsonplaceholder.typicode.com/users');
 const fetch3 = fetch('https://jsonplaceholder.typicode.com/todoss');
 // const fetch3 = fetch('https://api.example.com/data3');
 
-Promise.all([fetch1, fetch2, fetch3]).then(responce => {
-  // console.log(responce)
-  return Promise.all(responce.map((data)=> data.json()))
+Promise.all([fetch1, fetch2, fetch3]).then(response => {
+  // console.log(response)
+  return Promise.all(response.map((data)=> data.json()))
 }).then(data=> console.log(data))
 ```
 
@@ -1539,19 +1538,19 @@ Promise.all([fetch1, fetch2, fetch3]).then(responce => {
 
 :: Resources : :
 
-- it will wait for first promish settled/sucessfull.
-- if [p1(sucess), p2(fail)] then it will be ignore the result of failuer.
-- if All are sucess then output will be come
+- it will wait for first promise settled/success full.
+- if [p1(success), p2(fail)] then it will be ignore the result of failure.
+- if All are success then output will be come
 
 ```
-const promish1 = () => {
+const promise1 = () => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve('Data For Promise One')
     }, Math.random * 2000)
   })
 };
-const promish2 = () => {
+const promise2 = () => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve('Data Promise 2')
@@ -1559,7 +1558,7 @@ const promish2 = () => {
   })
 };
 
-Promise.race([promish1(), promish2()]).then(data =>  console.log(data)).catch(err=> console.log(err));
+Promise.race([promise1(), promise2()]).then(data =>  console.log(data)).catch(err=> console.log(err));
 
 ```
 
@@ -1615,7 +1614,7 @@ Promise.any([promise1, promise2, promise3])
 - Webpack and Babel are both essential tools in modern JavaScript development
   > Babel
 - Babel is a JavaScript compiler that allows you to use the latest JavaScript syntax.
-- Transpilation: Babel transpiles modern JavaScript code into a backward-compatible version of JavaScript that can run in older environments.
+- Transpilation: Babel transpiler modern JavaScript code into a backward-compatible version of JavaScript that can run in older environments.
 - Syntax Transformation: It converts features like arrow functions, template literals, and let/const declarations into their ES5 equivalents.
 - Babel focuses on transforming JavaScript syntax and features
   > Webpack
@@ -1623,15 +1622,15 @@ Promise.any([promise1, promise2, promise3])
 - Webpack is a module bundler that prepares assets for deployment.
 - Webpack manages and optimizes asset bundling, including JavaScript and beyond.
 
-> Task Find Duplicate and occuration
+> Task Find Duplicate and occurrence
 
 ```
 let arr = [1, 4, 5, 6, 2, 3, 4, 5];
 
-const countDuplicat = (arr) => {
+const countDuplicate = (arr) => {
   let count = {};
   let dupCon = {};
-  //Cout Occurance
+  //Count occurrence
   for (let i = 0; i < arr.length; i++) {
     const itrat = arr[i];
     if (count[itrat]) {
@@ -1641,7 +1640,7 @@ const countDuplicat = (arr) => {
     }
   }
 
-  //Find Duplicat Count
+  //Find Duplicate Count
   for (let Itrat in count) {
     console.log('Itrsr : ', Itrat);
     if (count[Itrat] > 1) {
@@ -1649,7 +1648,7 @@ const countDuplicat = (arr) => {
     }
   }
 
-  //Find Duplicat
+  //Find Duplicate
   let element = [];
   let duplicateEle = [];
   for (let i = 0; i < arr.length; i++) {
@@ -1662,7 +1661,7 @@ const countDuplicat = (arr) => {
   }
   return { element, duplicateEle, dupCon, count };
 };
-const result = countDuplicat(arr);
+const result = countDuplicate(arr);
 console.log('Result : ', result);
 
 2nd Task---
@@ -1683,11 +1682,11 @@ const lableDupl = (arr) => {
     }
   }
 
-  //Put Lable Accoding To Occurance
+  //Put Label According To Occurrence
   const label = arr.map((ele) => {
     return {
       value: ele,
-      label: count[ele] > 1 ? 'Duplicat' : 'Unique',
+      label: count[ele] > 1 ? 'Duplicate' : 'Unique',
     };
   });
 

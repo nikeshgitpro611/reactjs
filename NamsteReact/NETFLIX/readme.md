@@ -14,6 +14,7 @@
 > # FEATURE
 - Login/SignUp
     - SignIn & SignUp Form
+    - Authentication Use Firebase
     - Once Login Redirect to Browse Page.
 - Browser(it will come after authentication)
  - Header
@@ -41,5 +42,25 @@ Bundling reduces the size of the code, which improves the application's performa
 
 # React Suspense
 React Suspense is a component that can be used to implement lazy loading for React components.
+
+
+> # SETUP OF FIREBASE
+- Go IN firebsae
+    - Creat project
+    - Build
+        - install firebase /creat peoject name
+    - Authentiation
+        -Sign-in method
+         - Email/Password (Enable)
+    -LogIn By CMD
+        - firebse login
+        - firebase init
+            - for select spacebar
+            - project name
+            - What do you want to use as your public directory? build
+        - npm run build
+    - deploy
+        - firebase deploy
+
 
 
