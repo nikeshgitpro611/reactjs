@@ -265,9 +265,106 @@ function App() {
 ```
 # REACT ROUTER
 
+React Router is a popular library used for `client-side routing in React applications`. It enables navigation between components and manages URL paths `without refreshing the page`.
+
 | Hook          | Definition                 | Why Use It                   | Benefits                                | Use Case                       |
 | ------------- | -------------------------- | ---------------------------- | --------------------------------------- | ------------------------------ |
 | `useNavigate` | Navigates programmatically | Move users after actions     | Controlled navigation without reload    | Redirect after form submission |
 | `useParams`   | Reads URL params           | Access dynamic route data    | Simplifies data fetching and routing    | User or product detail pages   |
 | `useLocation` | Accesses URL info          | Track pathname, search, hash | Helps with analytics and query handling | Show content based on query    |
 | `useMatch`    | Matches route patterns     | Identify active links        | Improve navigation UI                   | Highlight current page link    |
+
+# ✅ useNavigate
+
+Definition:
+A hook that returns a function to programmatically navigate between routes.
+
+> Why use it:
+It allows components to change routes without using <Link>, useful for redirects or after actions like form submission.
+
+**Benefits**:
+
+- Navigation can be triggered by logic (e.g., after a successful operation)
+
+- Keeps navigation within React’s routing system
+
+- Simplifies routing without page reloads
+
+**Use case:**
+`Navigate to another page after submitting a form or on button click.`
+
+```
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './Home';
+import UserProfile from './UserProfile';
+import UserDetails from './UserDetails';
+import UserSettings from './UserSettings';
+
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        
+        {/* Nested route for user profile */}
+        <Route path="/user/:userId" element={<UserProfile />}>
+          <Route path="details" element={<UserDetails />} />
+          <Route path="settings" element={<UserSettings />} />
+        </Route>
+        
+      </Routes>
+    </Router>
+  );
+}
+
+export default App;
+```
+```
+import { useParams, Outlet, Link } from 'react-router-dom';
+
+function UserProfile() {
+  const { userId } = useParams();
+
+  return (
+    <div>
+      <h1>User Profile for ID: {userId}</h1>
+      <nav>
+        <Link to="details">Details</Link> |{' '}
+        <Link to="settings">Settings</Link>
+      </nav>
+      <Outlet />
+    </div>
+  );
+}
+
+export default UserProfile;
+```
+`<Outlet /> component to render child routes.`
+
+```
+function UserDetails() {
+  return (
+    <div>
+      <h2>User Details Section</h2>
+      <p>Here are more details about the user.</p>
+    </div>
+  );
+}
+
+export default UserDetails;
+```
+```
+function UserSettings() {
+  return (
+    <div>
+      <h2>User Settings Section</h2>
+      <p>Configure user preferences here.</p>
+    </div>
+  );
+}
+
+export default UserSettings;
+```
+<Outlet />	Placeholder for rendering child routes
+
+# useParams	Used to access dynamic segments like userId
