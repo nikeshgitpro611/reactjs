@@ -13,7 +13,7 @@
 | `useDebugValue`       | Displays debug info            | Help during development          | Easier debugging in DevTools           |
 | Custom hooks          | Combines multiple hooks        | Reuse logic                      | Cleaner, maintainable code             |
 
-# ✅ 1. useState
+# ✅ useState
 
 > Definition:
 A hook to manage local state in functional components.
@@ -29,3 +29,41 @@ Allows components to track and update state values dynamically.
 
 > Use case:
 A counter `app, toggling visibility, managing form inputs`.
+
+# ✅ useContext (Context API Hook)
+
+ > Definition:
+A hook that allows you to consume values from React's context without prop drilling.
+
+> Why use it:
+To access shared data like themes, user authentication, or settings across the component tree.
+
+> Benefits:
+
+- Simplifies state sharing between components
+
+- Avoids passing props multiple levels deep
+
+> Use case:
+Providing and consuming theme settings across a UI.
+
+> Interview relevance:
+Used to test if you understand global state management without prop drilling.
+```
+import React, { createContext, useContext } from 'react';
+
+const ThemeContext = createContext('light');
+
+function ThemedComponent() {
+  const theme = useContext(ThemeContext);
+  return <div>Current theme: {theme}</div>;
+}
+
+function App() {
+  return (
+    <ThemeContext.Provider value="dark">
+      <ThemedComponent />
+    </ThemeContext.Provider>
+  );
+}
+```
