@@ -263,3 +263,11 @@ function App() {
   );
 }
 ```
+# REACT ROUTER
+
+| Hook          | Definition                 | Why Use It                   | Benefits                                | Use Case                       |
+| ------------- | -------------------------- | ---------------------------- | --------------------------------------- | ------------------------------ |
+| `useNavigate` | Navigates programmatically | Move users after actions     | Controlled navigation without reload    | Redirect after form submission |
+| `useParams`   | Reads URL params           | Access dynamic route data    | Simplifies data fetching and routing    | User or product detail pages   |
+| `useLocation` | Accesses URL info          | Track pathname, search, hash | Helps with analytics and query handling | Show content based on query    |
+| `useMatch`    | Matches route patterns     | Identify active links        | Improve navigation UI                   | Highlight current page link    |
