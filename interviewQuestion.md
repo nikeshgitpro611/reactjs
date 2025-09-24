@@ -418,3 +418,90 @@ const digits = Array.from(String(num), Number);
 console.log(digits); // [1, 2, 3, 4, 5]
 
 ```
+# react performance optimization Hook
+
+Prevent expensive re-renders → useMemo, useCallback, React.memo.
+
+Avoid unnecessary recalculations → useMemo.
+
+Persist values without re-rendering → useRef.
+
+Handle heavy updates smoothly → useTransition, useDeferredValue.
+
+**useMemo →** avoid recalculating filtered list.
+
+**useCallback →** prevent re-creating event handlers.
+
+**React.memo →** prevent child re-renders if props didn’t change.
+
+**useDeferredValue →** smooth typing experience.
+
+
+```
+import React, { useState, useMemo, useCallback, useDeferredValue } from "react";
+
+// ✅ Child Component (memoized)
+const ProductRow = React.memo(({ product }) => {
+  console.log("Rendering:", product.name); // Check re-renders
+  return (
+    <tr>
+      <td>{product.id}</td>
+      <td>{product.name}</td>
+      <td>${product.price}</td>
+    </tr>
+  );
+});
+
+export default function ProductTable() {
+  const [search, setSearch] = useState("");
+
+  const products = [
+    { id: 1, name: "Dell Laptop", price: 800 },
+    { id: 2, name: "Lenovo Laptop", price: 700 },
+    { id: 3, name: "HP Laptop", price: 600 },
+    { id: 4, name: "Apple MacBook", price: 1200 },
+  ];
+
+  // ✅ useDeferredValue → delay applying search (smooth typing)
+  const deferredSearch = useDeferredValue(search);
+
+  // ✅ useMemo → avoid recalculating filter every render
+  const filteredProducts = useMemo(() => {
+    console.log("Filtering...");
+    return products.filter((p) =>
+      p.name.toLowerCase().includes(deferredSearch.toLowerCase())
+    );
+  }, [deferredSearch, products]);
+
+  // ✅ useCallback → memoize handler
+  const handleChange = useCallback((e) => {
+    setSearch(e.target.value);
+  }, []);
+
+  return (
+    <div>
+      <h2>Product Search</h2>
+      <input
+        type="text"
+        value={search}
+        placeholder="Search laptops..."
+        onChange={handleChange}
+      />
+      <table border="1" style={{ marginTop: "10px" }}>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Product</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          {filteredProducts.map((p) => (
+            <ProductRow key={p.id} product={p} />
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+```
