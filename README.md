@@ -1,6 +1,5 @@
 repo - https://github.com/john-smilga/react-course-v3
 
-
 - it does not consider 404 as a error.
 
 > # API REFf - https://www.course-api.com/
@@ -2490,9 +2489,52 @@ return {
 
 # React Fiber
 
-- it is kinde of logic if you r randomly change ur cart on condisnaly on logic show all dataon ui these all thing is happning by react fiber
+**Before Fiber**, React used a stack-based recursion algorithm for reconciliation (React 15 and earlier). That approach was synchronous — once rendering started, React couldn’t stop until it finished. This caused UI freezes for large trees.
+
+**Fiber solves this by:**
+
+Splitting rendering work into units of work (fibers).
+
+Allowing React to pause, resume, or abandon work.
+
+Prioritizing urgent tasks (like user input) over less urgent ones (like rendering a huge list).
+
+Enabling concurrent rendering (React 18 Concurrent Mode builds on Fiber).
+
+✅ Summary
+
+**Fiber =** React’s new reconciliation engine (v16+).
+
+- Enables asynchronous, interruptible rendering.
+
+- Powers Concurrent Mode, Suspense, and smooth UIs.
+
+**Use cases:** large lists, user input priority, streaming SSR, animations.
+```
+import { Suspense } from "react";
+
+const DataComponent = React.lazy(() =>
+  new Promise(resolve =>
+    setTimeout(() => resolve({ default: () => <div>Data Loaded!</div> }), 2000)
+  )
+);
+
+export default function App() {
+  return (
+    <div>
+      <h1>React Fiber + Suspense</h1>
+      <Suspense fallback={<p>Loading...</p>}>
+        <DataComponent />
+      </Suspense>
+    </div>
+  );
+}
+```
+
+👉 React can pause rendering and show a fallback (Loading...) until data is ready — made possible by Fiber.
+
 :::::::::::::::::::::::::::Git:::::::::::
+
 > git branch --show-current (Git branch)
 > git remote get-url origin (fetch URL)
 > git remote set-url origin <new-url> (change Url)
-
