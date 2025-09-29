@@ -2346,7 +2346,33 @@ export default App;
 # Array.from
 
 - In JavaScript, Array.from is a static method that creates a new, shallow-copied array instance from an array-like or iterable object.
-- This method is useful when you need to convert these objects into arrays.
+
+✅ Summary
+
+Array.from() always returns a new Array.
+
+Use cases: convert strings, sets, maps, arguments → arrays; generate ranges; remove duplicates; create filled arrays.
+
+```
+Convert Map Keys/Values to Array
+
+const map = new Map([
+  ["a", 1],
+  ["b", 2],
+]);
+
+const keys = Array.from(map.keys());
+const values = Array.from(map.values());
+
+console.log(keys);   // ['a', 'b']
+console.log(values); // [1, 2]
+```
+
+```
+const arr = Array.from({ length: 5 }, (_, i) => i * 2);
+
+console.log(arr); // [0, 2, 4, 6, 8]
+```
 
 ```
 Array.from(arrayLike[, mapFn[, thisArg]])
@@ -2364,6 +2390,12 @@ console.log(array); // Outputs: ['H', 'E', 'L', 'L', 'O']
 
 # What is Lifecycle
 
+Lifecycle = stages a component goes through: Mount → Update → Unmount.
+
+In class components → lifecycle methods.
+
+In function components → lifecycle handled with hooks (useEffect).
+
 > Mounting or inital render
 
 - components render first time []
@@ -2375,9 +2407,36 @@ console.log(array); // Outputs: ['H', 'E', 'L', 'L', 'O']
 - state and props are destroy
 
 # new AbortController();// it's browser Api
+ AbortController is a browser API that lets you cancel (abort) asynchronous operations like:
+
+fetch() requests
+
+Event listeners
+
+Timers (in custom logic)
+
+It gives you an AbortSignal which you can pass into APIs that support aborting.
 
 - The AbortController is a web API that allows you to abort ongoing operations, such as fetch requests.
 - the fetch request is aborted if the component unmounts before the request completes, preventing potential memory leaks and handling cases where the component no longer needs the fetched data.
+
+**Why use AbortController?**
+
+`Cancel Fetch Requests`
+
+`Avoids unnecessary network requests when a user navigates away or changes input.`
+
+Saves bandwidth + avoids race conditions.
+
+**Prevent Memory Leaks**
+
+- If a component unmounts in React but the request is still running, it may cause errors.
+
+- Aborting ensures cleanup.
+
+- Control Concurrent Requests
+
+When making multiple requests, you can abort the old one before starting a new one.
 
 ```
 import React, { useState, useEffect } from 'react';
