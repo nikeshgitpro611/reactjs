@@ -2482,10 +2482,46 @@ for (const [key, value] of Object.entries(data)) {
 
 - Real dom
 <div><span> normal html tags
-- Virtual dome copy of real dom and return typeis object.
-return {
- <div>
-}
+
+**What is the Real DOM?**
+
+DOM (Document Object Model) is the browser’s representation of the UI.
+
+Every HTML element is a node in a tree.
+
+Updating the Real DOM is slow, because the browser has to:
+
+- Recalculate styles
+
+- Reflow layout
+
+- Repaint UI
+
+**What is the Virtual DOM (VDOM)?**
+
+A lightweight JavaScript object copy of the Real DOM, stored in memory.
+
+React keeps a Virtual DOM tree that mirrors the UI.
+
+On update:
+
+React updates the VDOM first.
+
+`React diffs (compares) new VDOM with old VDOM (Reconciliation)`.
+
+React updates only the changed parts in the Real DOM.
+
+👉 This makes updates faster and efficient.
+
+Visual Difference
+
+Real DOM Update:
+🔁 Full refresh or multiple nodes updated.
+
+Virtual DOM Update:
+🔍 Compare → 🎯 Update only changed node.
+
+
 
 # React Fiber
 
@@ -2510,6 +2546,7 @@ Enabling concurrent rendering (React 18 Concurrent Mode builds on Fiber).
 - Powers Concurrent Mode, Suspense, and smooth UIs.
 
 **Use cases:** large lists, user input priority, streaming SSR, animations.
+
 ```
 import { Suspense } from "react";
 
