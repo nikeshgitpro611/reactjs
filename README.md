@@ -508,6 +508,12 @@ result()
 
 # what is the diffrence between rest and spread operator.
 
+| Operator           | Definition                                                                                             | Syntax Position                                           | Real-World Problem Solved                                                           | Example                                                       |
+| ------------------ | ------------------------------------------------------------------------------------------------------ | --------------------------------------------------------- | ----------------------------------------------------------------------------------- | ------------------------------------------------------------- |
+| **Rest (`...`)**   | Collects multiple values into a **single array/object**. Used in function parameters or destructuring. | Used on **left side** (parameters or destructuring).      | **Handle variable number of arguments** in functions; Extract remaining properties. | `function sum(...nums) { return nums.reduce((a,b)=>a+b,0); }` |
+| **Spread (`...`)** | Expands (spreads) an array/object into **individual elements**.                                        | Used on **right side** (function calls, arrays, objects). | **Copy/merge arrays & objects**; Pass array elements as function arguments.         | `const arr2 = [...arr1, 4, 5];`                               |
+
+
 > Rest
 
 - the rest operator is used to gather elements into an array,
