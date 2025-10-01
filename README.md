@@ -430,6 +430,13 @@ console.log(obj + 'World'); //"Hello World"
 
 # Q- Call, Apply, Bind
 
+| Method      | Definition                                                                                   | Executes Immediately? | Arguments Format                 | Real-World Problem Solved                                                                                         |
+| ----------- | -------------------------------------------------------------------------------------------- | --------------------- | -------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| **call()**  | Calls a function with a specified `this` value and arguments given **individually**.         | ✅ Yes                 | `func.call(obj, a, b)`           | **Method Borrowing** → Use methods from one object on another without rewriting.                                  |
+| **apply()** | Calls a function with a specified `this` value and arguments provided as an **array**.       | ✅ Yes                 | `func.apply(obj, [a, b])`        | **Working with Arrays** → Pass array of arguments to functions like `Math.max`, which expect individual args.     |
+| **bind()**  | Creates a **new function** with `this` set to the given value. Does not execute immediately. | ❌ No                  | `const f = func.bind(obj, a, b)` | **Fixing `this` in Callbacks** → Ensures the correct `this` inside event handlers, async calls, or class methods. |
+
+
 - Definition : call, apply, and bind are methods in JavaScript that can be used to manipulate the this context of functions.
 - The call, apply, and bind methods in JavaScript are used to manipulate the this context in functions.
 - The apply method is similar to call, but it takes an array of arguments.
@@ -2133,6 +2140,18 @@ export const loder = async() => {
 - It is particularly useful for displaying loading indicators during navigation, handling programmatic navigation, rendering conditionally based on navigation state, and logging navigation events.
 
 # useRouteError()
+
+`useRouteError` is a React Router hook for handling loader/action/render errors.
+
+Use it inside errorElement to display user-friendly error messages.
+
+**Real-world use cases:**
+
+API failures in loaders.
+
+Form submission errors in actions.
+,
+Unexpected render errors in components.
 
 - The useRouteError hook in React Router v6.4+ .
 - This is particularly useful for handling errors gracefully and displaying meaningful error messages to the user.
