@@ -525,7 +525,11 @@ result()
 - spread operator is used to spread the content of an array.
 - Concatenating arrays, passing arrays as arguments
 
-# Close
+# Closure
+
+| Concept     | Definition                                                                                                                                   | Real-World Problem Solved                                                                                                                                           | Example                                                                        |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| **Closure** | A closure is created when a function **remembers the variables** from its outer scope even after that outer function has finished executing. | ✅ Data privacy (hide variables)<br>✅ Maintain state between function calls<br>✅ Function factories (generate functions dynamically)<br>✅ Callbacks & event handlers | `function outer(){ let count=0; return function(){ count++; return count; } }` |
 
 - Inner function can access outer function but outer function can't access inner function
 - all operation inside of closer happing in async operation due to call back.
@@ -535,6 +539,22 @@ result()
 1. Data Privacy and Encapsulation
 
 - Closures can be used to create private variables that are not accessible from outside the function.
+```
+function createBankAccount(initialBalance) {
+  let balance = initialBalance;  // private variable
+
+  return {
+    deposit(amount) { balance += amount; return balance; },
+    withdraw(amount) { balance -= amount; return balance; },
+    getBalance() { return balance; }
+  };
+}
+
+const account = createBankAccount(1000);
+console.log(account.deposit(500));   // 1500
+console.log(account.getBalance());   // 1500
+console.log(account.balance);        // undefined ❌ (can't access directly)
+```
 
 ```
 function createCounter() {
