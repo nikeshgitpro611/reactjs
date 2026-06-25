@@ -7,6 +7,7 @@ import ColumnGroupingTable from "./components/PaginationGrid";
 // import PlotlyData from './Plotly/PlotlyData'
 import ParentComponent from "./Plotly/ParentComponent";
 import CollapsibleTable from "./components/TyPagination";
+import RoleManagement from "./components/Test";
 
 const router = createBrowserRouter([
   {
@@ -15,7 +16,7 @@ const router = createBrowserRouter([
     children: [
       { path: "/form", element: <Form /> },
       { path: "/grid", element: <GridField /> },
-      // {path: '/datagrid', element: <DataGrid />},
+      {path: '/test1', element: <RoleManagement />},
       { path: "/table", element: <Table /> },
       { path: "/test", element: <TestResourse /> },
       { path: "/pagination", element: <ColumnGroupingTable /> },
