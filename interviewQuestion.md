@@ -882,19 +882,26 @@ The Virtual DOM (VDOM) is a programming concept that represents the structure of
   **Props** are used to pass data from a parent component to a child component in React. Props are immutable and follow one-way data flow. Passing props through multiple nested components is called prop drilling.
 
   ***Cross Question:***
-  
+
   Q - What is the difference between controlled and uncontrolled components in React?
 
   **Answer:** Controlled components are components where the value of the input is controlled by the React component. In other words, the value of the input is stored in the state of the component. On the other hand, uncontrolled components are components where the value of the input is not controlled by the React component. Instead, the value of the input is stored in the DOM.
+
+  <u>**useReff Hook is Uncontrolled Component.**</u>
+
+  This reference such as reff ={} can be used to access the DOM element and manipulate it directly.
+
    
   **Uncontrolled Component** An uncontrolled component stores data inside the DOM itself.React does not control the input value.
 
   **Cross Question:** How do you handle form submission in React?
 
   **Answer:** In React, form submission is handled using the onSubmit event handler. The event handler is called when the form is submitted, and it prevents the default form submission behavior. Instead, the event handler calls a function that handles the form submission, such as sending the form data to a server.
+
   **Cross Question:** What is the purpose of the key prop in React?
 
   **Answer:** The key prop in React is used to uniquely identify each element in a list. It is used by React to efficiently update and re-render the list when the data changes. Without the key prop, React would have to re-render the entire list every time the data changes, which can be inefficient and lead to performance issues.
+
   **Cross Question:** What is the purpose of the ref prop in React?
 
   **Answer:** The ref prop in React is used to create a reference to a DOM element or a React component. It is used to access the DOM element or component and perform operations on it, such as focusing on an input field or calling a method on a component.
