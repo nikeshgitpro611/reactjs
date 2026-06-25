@@ -6,7 +6,7 @@
 | `useContext`          | Accesses shared data           | Avoids prop drilling             | Cleaner global state management        |
 | `useReducer`          | Complex state logic            | Actions, multi-value state       | Organized, scalable state handling     |
 | `useCallback`         | Memoizes functions             | Avoids re-render issues          | Performance improvements               |
-| `useMemo`             | Memoizes computations          | Expensive calculations           | Optimizes renders                      |
+| `useMemo`             | Memoizes computations          | Expensive calculations           | Optimizes -=    renders                      |
 | `useRef`              | Persistent values and DOM refs | Store values across renders      | DOM access without re-rendering        |
 | `useImperativeHandle` | Customizes ref API             | Expose limited functionalities   | Secure, encapsulated access            |
 | `useLayoutEffect`     | Sync effect after DOM updates  | Measure layout                   | Avoid flickering, ensure timing        |
@@ -505,3 +505,400 @@ export default function ProductTable() {
   );
 }
 ```
+
+---
+
+## Section 1: Introduction
+
+### Pros and Cons of React
+
+#### Q1: What are the pros and cons of React?
+
+**Pros of React:**
+
+1. **Component-Based Architecture**
+   - Reusable components promote DRY principles
+   - Easier to maintain and scale applications
+   - Encapsulated logic and UI in single units
+
+2. **Virtual DOM**
+   - Efficient rendering and updates
+   - Better performance compared to direct DOM manipulation
+   - Minimizes expensive DOM operations
+
+3. **Strong Community & Ecosystem**
+   - Extensive third-party libraries and tools
+   - Large community support and resources
+   - Regular updates and improvements
+
+4. **JSX Syntax**
+   - Combines JavaScript and HTML-like syntax
+   - Better code readability
+   - Compile-time error checking
+
+5. **Unidirectional Data Flow**
+   - Predictable state management
+   - Easier debugging and testing
+   - Better control over application state
+
+6. **React Hooks**
+   - Simplified state management in functional components
+   - Better code reusability with custom hooks
+   - Cleaner code without class components
+
+7. **SEO Friendly**
+   - Server-side rendering (SSR) with Next.js
+   - Better initial page load performance
+   - Improved search engine indexing
+
+8. **Developer Tools**
+   - Excellent React DevTools for debugging
+   - Hot Module Replacement (HMR)
+   - Time-travel debugging with Redux DevTools
+
+**Cons of React:**
+
+1. **Steep Learning Curve**
+   - JSX syntax can be confusing initially
+   - Understanding concepts like hooks, context, and lifecycle
+   - Need to learn additional libraries for routing, state management
+
+2. **Rapid Development Pace**
+   - Frequent updates and changes
+   - Documentation may become outdated quickly
+   - Need to constantly update skills
+
+3. **Just a View Library**
+   - Not a complete framework
+   - Requires additional libraries for routing, state management, HTTP calls
+   - More decisions to make about architecture
+
+4. **JSX as a Barrier**
+   - Some developers find mixing HTML with JavaScript confusing
+   - Additional build step required
+   - Learning curve for new developers
+
+5. **Poor Documentation**
+   - Official documentation sometimes lacks depth
+   - Rapid changes make tutorials outdated
+   - Community-driven documentation quality varies
+
+6. **SEO Challenges**
+   - Client-side rendering can hurt SEO (without SSR)
+   - Requires additional setup for SEO optimization
+   - Initial page load may be slower
+
+---
+
+#### Q2: How you can compare it to Angular?
+
+**React vs Angular Comparison:**
+
+| Aspect | React | Angular |
+|--------|-------|---------|
+| **Type** | JavaScript library | Full-fledged framework |
+| **Language** | JavaScript/JSX | TypeScript (mandatory) |
+| **Learning Curve** | Moderate | Steep |
+| **Architecture** | Component-based | MVC/MVVM |
+| **Data Binding** | Unidirectional | Two-way binding |
+| **DOM** | Virtual DOM | Real DOM |
+| **Performance** | Faster (Virtual DOM) | Slower (Real DOM) |
+| **State Management** | Redux, Context API, Zustand | RxJS, NgRx |
+| **Routing** | React Router (external) | Built-in (@angular/router) |
+| **Dependency Injection** | Not built-in | Built-in |
+| **Mobile Development** | React Native | Ionic, NativeScript |
+| **Bundle Size** | Smaller | Larger |
+| **Flexibility** | High (choose your tools) | Low (opinionated) |
+| **Testing** | Jest, React Testing Library | Jasmine, Karma (built-in) |
+| **Community** | Larger | Large but smaller than React |
+| **Backed By** | Meta (Facebook) | Google |
+
+**Key Differences:**
+
+1. **Framework vs Library**
+   - Angular is a complete framework with everything built-in
+   - React is a library focused on UI, requiring additional libraries
+
+2. **Learning Complexity**
+   - React: Easier to start, learn JSX and components
+   - Angular: Steeper curve, must learn TypeScript, decorators, modules, services
+
+3. **Flexibility**
+   - React: More flexible, choose your own tools
+   - Angular: Opinionated, follows specific patterns
+
+4. **Performance**
+   - React: Virtual DOM provides better performance
+   - Angular: Change detection can be slower in large apps
+
+5. **Use Cases**
+   - React: Better for dynamic, interactive UIs and SPAs
+   - Angular: Better for large enterprise applications with complex requirements
+
+**When to Choose React:**
+- Need flexibility in choosing libraries
+- Prefer lightweight solution
+- Building dynamic, interactive UIs
+- Want faster development with reusable components
+- Team comfortable with JavaScript
+
+**When to Choose Angular:**
+- Building large enterprise applications
+- Need complete framework with everything built-in
+- Team prefers TypeScript
+- Want strong opinions and structure
+- Need built-in features like dependency injection
+
+---
+
+### How to create React application?
+
+#### Q1: How do you prefer to generate your React application?
+
+**My Preferred Method: Vite**
+
+I prefer using **Vite** for creating React applications because:
+
+1. **Lightning Fast**
+   - Instant server start
+   - Hot Module Replacement (HMR) is extremely fast
+   - Optimized build times
+
+2. **Modern Tooling**
+   - Uses native ES modules
+   - Built on esbuild for fast bundling
+   - Better developer experience
+
+3. **Simple Configuration**
+   - Minimal configuration required
+   - Easy to customize
+   - Clean project structure
+
+4. **Better Performance**
+   - Faster than Create React App
+   - Smaller bundle sizes
+   - Optimized production builds
+
+**Command:**
+```bash
+npm create vite@latest my-react-app -- --template react
+cd my-react-app
+npm install
+npm run dev
+```
+
+---
+
+#### Q2: What are the ways to create a React application?
+
+**1. Create React App (CRA)**
+```bash
+npx create-react-app my-app
+cd my-app
+npm start
+```
+
+**Pros:**
+- Official React tool
+- Zero configuration
+- Good for beginners
+- Includes testing setup
+
+**Cons:**
+- Slower build times
+- Larger bundle size
+- Less flexible configuration
+- Maintenance mode (not actively developed)
+
+---
+
+**2. Vite**
+```bash
+npm create vite@latest my-app -- --template react
+cd my-app
+npm install
+npm run dev
+```
+
+**Pros:**
+- Extremely fast
+- Modern tooling
+- Smaller bundle sizes
+- Easy configuration
+
+**Cons:**
+- Relatively newer
+- Smaller community compared to CRA
+
+---
+
+**3. Next.js (React Framework)**
+```bash
+npx create-next-app@latest my-app
+cd my-app
+npm run dev
+```
+
+**Pros:**
+- Server-side rendering (SSR)
+- Static site generation (SSG)
+- Built-in routing
+- API routes
+- SEO friendly
+- Image optimization
+
+**Cons:**
+- More complex
+- Opinionated structure
+- Larger learning curve
+
+---
+
+**4. Manual Setup with Webpack**
+```bash
+mkdir my-app
+cd my-app
+npm init -y
+npm install react react-dom
+npm install --save-dev webpack webpack-cli webpack-dev-server
+npm install --save-dev @babel/core @babel/preset-react babel-loader
+npm install --save-dev html-webpack-plugin
+```
+
+**Pros:**
+- Complete control
+- Custom configuration
+- Learn build tools deeply
+
+**Cons:**
+- Time-consuming
+- Complex setup
+- Need to configure everything manually
+
+---
+
+**5. Parcel**
+```bash
+mkdir my-app
+cd my-app
+npm init -y
+npm install react react-dom
+npm install --save-dev parcel
+```
+
+**Pros:**
+- Zero configuration
+- Fast bundling
+- Simple setup
+
+**Cons:**
+- Less popular
+- Smaller ecosystem
+
+---
+
+**6. Remix**
+```bash
+npx create-remix@latest my-app
+cd my-app
+npm run dev
+```
+
+**Pros:**
+- Modern React framework
+- Excellent routing
+- Built-in data loading
+- Progressive enhancement
+
+**Cons:**
+- Newer framework
+- Smaller community
+
+---
+
+**Comparison Table:**
+
+| Tool | Speed | Configuration | Best For | Learning Curve |
+|------|-------|---------------|----------|----------------|
+| **CRA** | Slow | Zero | Beginners | Easy |
+| **Vite** | Very Fast | Minimal | Modern apps | Easy |
+| **Next.js** | Fast | Minimal | SSR/SSG apps | Moderate |
+| **Webpack** | Moderate | Full control | Custom needs | Hard |
+| **Parcel** | Fast | Zero | Simple projects | Easy |
+| **Remix** | Fast | Minimal | Full-stack apps | Moderate |
+
+---
+
+**My Recommendation:**
+
+- **For Learning:** Start with **Vite** or **Create React App**
+- **For Production:** Use **Vite** for SPAs, **Next.js** for SSR/SSG
+- **For Enterprise:** **Next.js** or **Remix**
+- **For Custom Needs:** Manual setup with **Webpack**
+
+**Current Best Practice (2026):**
+```bash
+# Vite is the modern standard
+npm create vite@latest my-react-app -- --template react
+
+# For TypeScript
+npm create vite@latest my-react-app -- --template react-ts
+
+# For Next.js (SSR/SSG)
+npx create-next-app@latest my-app
+```
+## What is DOM?
+
+We know that the DOM (Document Object Model) is an interface for HTML. When a browser loads an HTML file, it converts the HTML elements into a tree-like structure of objects. This process is called DOM creation. The DOM allows JavaScript to access, modify, and manipulate the content, structure, and styles of a web page dynamically.
+
+## What is Virtual DOM?
+
+The Virtual DOM (VDOM) is a programming concept that represents the structure of a user interface as a tree of objects. It is used to efficiently update the user interface when changes occur. Unlike the traditional DOM, which directly manipulates the actual DOM, the VDOM is an in-memory representation of the DOM.
+
+### What is Event?
+
+ **Definition** An event is an action or occurrence in the browser, such as a mouse click, key press, form submission, or page load, that can be detected and handled by JavaScript.
+
+ **Example** When the button is clicked, the browser generates a Click Event and JavaScript executes the callback function.
+
+ ## Browser Follow Three Event Phase:
+
+  1. Capturing Phase(Top → Bottom) - The event starts at the window object and travels down to the target element.such as Document, body, and so on.
+
+  2. Target Phase - The event is triggered at the target element. such as a click event.
+
+  3. Bubbling Phase(Bottom → Top) - The event starts at the target element and travels up to the window object.
+
+  ## What is Reconciliation?
+
+  **React uses a comparison algorithm called Reconciliation.** It compares the current VDOM with the previous VDOM and updates the actual DOM only when there are differences. This makes the rendering process efficient and prevents unnecessary updates to the actual DOM.
+
+  ## Why do we use className instead of class in React?
+
+  **In React, we use className instead of class because class is a reserved keyword in JavaScript.** It is used to define a class of an object, but in HTML, we use the class attribute to define a class for an element. Therefore, React uses className to avoid conflicts with the reserved keyword.
+
+### Why is Props?
+  
+  **Props** are used to pass data from a parent component to a child component in React. Props are immutable and follow one-way data flow. Passing props through multiple nested components is called prop drilling.
+
+  ***Cross Question:***
+  
+  Q - What is the difference between controlled and uncontrolled components in React?
+
+  **Answer:** Controlled components are components where the value of the input is controlled by the React component. In other words, the value of the input is stored in the state of the component. On the other hand, uncontrolled components are components where the value of the input is not controlled by the React component. Instead, the value of the input is stored in the DOM.
+   
+  **Uncontrolled Component** An uncontrolled component stores data inside the DOM itself.React does not control the input value.
+
+  **Cross Question:** How do you handle form submission in React?
+
+  **Answer:** In React, form submission is handled using the onSubmit event handler. The event handler is called when the form is submitted, and it prevents the default form submission behavior. Instead, the event handler calls a function that handles the form submission, such as sending the form data to a server.
+  **Cross Question:** What is the purpose of the key prop in React?
+
+  **Answer:** The key prop in React is used to uniquely identify each element in a list. It is used by React to efficiently update and re-render the list when the data changes. Without the key prop, React would have to re-render the entire list every time the data changes, which can be inefficient and lead to performance issues.
+  **Cross Question:** What is the purpose of the ref prop in React?
+
+  **Answer:** The ref prop in React is used to create a reference to a DOM element or a React component. It is used to access the DOM element or component and perform operations on it, such as focusing on an input field or calling a method on a component.
+
+
+  
+
